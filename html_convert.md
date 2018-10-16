@@ -34,8 +34,7 @@ You can specify the response content type to return the converted HTML in either
 Replace `{apikey_value}` with the API key you copied earlier and `{PDF_file}` with the path to the PDF to convert.
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json"
--F "file=@{PDF_file};type=application/pdf" https://gateway.watsonplatform.net/compare-comply/api/v1/tables?version=2018-10-15
+curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -F "file=@{PDF_file};type=application/pdf" https://gateway.watsonplatform.net/compare-comply/api/v1/html_conversion?version=2018-10-15
 ```
 {: pre}
 
