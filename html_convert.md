@@ -28,13 +28,13 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/ht
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
   
 You can specify the response content type to return the converted HTML in either JSON (the default) or raw HTML. See the examples following the command example for the different formats.
-  - To return JSON explicitly, specify the header `-H 'Content-Type: application/json'`. This is the default.
+  - To return JSON explicitly, specify the header `-H 'Accept: application/json'`. This is the default.
   - To return raw HTML, specify the header `-H 'Accept: text/html'`.
   
 Replace `{apikey_value}` with the API key you copied earlier and `{PDF_file}` with the path to the PDF to convert.
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -F "file=@{PDF_file};type=application/pdf" https://gateway.watsonplatform.net/compare-comply/api/v1/html_conversion?version=2018-10-15
+curl -X POST -u "apikey":"{apikey_value}" -H "Accept: application/json" -F "file=@{PDF_file};type=application/pdf" https://gateway.watsonplatform.net/compare-comply/api/v1/html_conversion?version=2018-10-15
 ```
 {: pre}
 
