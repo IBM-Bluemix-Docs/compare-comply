@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018
-lastupdated: "2018-12-05"
+years: 2018, 2019
+lastupdated: "2019-01-09"
 
 ---
 
@@ -144,7 +144,18 @@ After a document is processed by the `/v1/element_classification` method, the se
           "row_header_texts_normalized": [ string ],
           "column_header_ids": [ string ],
           "column_header_texts": [ string ],
-          "column_header_texts_normalized": [ string ]
+          "column_header_texts_normalized": [ string ],
+          "attributes" : [
+             {
+               "type" : string,
+               "text" : string,
+               "location" : {
+                 "begin" : int,
+                 "end" : int
+               }
+             },
+             ...
+           ]
         },
         ...
       ]
@@ -192,6 +203,7 @@ After a document is processed by the `/v1/element_classification` method, the se
     {
       "party": string,
       "role": string,
+      "importance": string,
       "addresses": [
         {
           "text": string,
@@ -215,6 +227,7 @@ After a document is processed by the `/v1/element_classification` method, the se
   "effective_dates": [
     {
       "text": string,
+      "confidence_level": string,
       "location": { "begin": int, "end": int }
      },
      ...
@@ -222,6 +235,7 @@ After a document is processed by the `/v1/element_classification` method, the se
   "contract_amounts": [
     {
       "text": string,
+      "confidence_level": string,      
       "location": { "begin": int, "end": int }
     },
     ...
@@ -229,6 +243,7 @@ After a document is processed by the `/v1/element_classification` method, the se
   "termination_dates": [
     {
       "text": string,
+      "confidence_level": string,      
       "location": { "begin": int, "end": int }
     },
     ...
@@ -256,7 +271,7 @@ The schema is arranged as follows.
       - `label`: A string that lists the identified category. You can find a list of [categories](/docs/services/compare-comply/parsing.html#contract_categories) in [Understanding element classification](/docs/services/compare-comply/parsing#contract_parsing).
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
-      - `type`: The type of attribute. Possible values are `Location`, `DateTime`, and `Currency`.
+      - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
       - `text`: The text that is associated with the attribute.
       - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
   - `tables`\*: An array that defines the tables identified in the input document.
@@ -305,6 +320,10 @@ The schema is arranged as follows.
       - `column_header_ids`: An array of values, each being the `cell_id` value of a column header that is applicable to this body cell.
       - `column_header_texts`: An array of values, each being the `text` value of a column header that is applicable to this body cell.
       - `column_header_texts_normalized`: If you provide customization input, the normalized version of the column header texts according to the customization; otherwise, the same value as `column_header_texts`.
+      - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
+        - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
+        - `text`: The text that is associated with the attribute.
+        - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
   - `document_structure`: An object that describes the structure of the input document.
     - `section_titles`: An array that contains one object per section or subsection that is detected in the input document. Sections and subsections are not nested. Instead, they are flattened out and can be placed back in order by using the `begin` and `end` values of the element and the `level` value of the section.
       - `text`: A string that lists the section title, if detected.
@@ -318,6 +337,7 @@ The schema is arranged as follows.
   - `parties`: An array that defines the parties that are identified by the service.
     - `party`: A string value that identifies the party.
     - `role`: A string value that identifies the role of the party.
+    - `importance`: A string value that identifies the importance of the party. Possible values include `Primary` for a primary party and `Unknown` for a non-primary party.
     - `addresses`: An array of objects that identify addresses.
       - `text`: A string that contains the address.
       - `location`: The location of the address as defined by its `begin` and `end` indexes.
@@ -325,13 +345,16 @@ The schema is arranged as follows.
       - `name`: A string that lists the name of an identified contact.
       - `role`: A string that lists the role of the identified contact.  
   - `effective_dates`: An array that identifies the effective dates of the document.
-    - `text`: The effective dates, which are listed as a string.
-    - `location`: The location of the date or dates as defined by its `begin` and `end` indexes.
+    - `text`: An effective date, which is listed as a string.
+    - `confidence_level`: The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.
+    - `location`: The location of the date as defined by its `begin` and `end` indexes.
   - `contract_amounts`: An array that identifies the monetary amounts that are identified in the document.
     - `text`: A contract amount, which is listed as a string.
+    - `confidence_level`: The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.    
     - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
   - `termination_dates`: An array that identifies the document's termination dates.
-    - `text`: The termination date, which is listed as a string.
+    - `text`: A termination date, which is listed as a string.
+    - `confidence_level`: The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.    
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
 
 **\*Notes on tables:**

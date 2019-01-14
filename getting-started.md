@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-05"
+  years: 2017, 2019
+lastupdated: "2019-01-10"
 
 ---
 
@@ -170,13 +170,14 @@ The `document_structure` object identifies the section titles and leading senten
 ### Parties
 {: #parties}
 
-The `parties` array lists available information about parties that are affected by the input document, including the party's name, role, address or addresses, and contacts. For more information, see [Parties](/docs/services/compare-comply/parsing.html##contract_parties) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
+The `parties` array lists available information about parties that are affected by the input document, including the party's name, role, importance, address or addresses, and contacts. For more information, see [Parties](/docs/services/compare-comply/parsing.html##contract_parties) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
 
 ```json
   "parties": [
       {
       "party": "Wolfbone Investments, LLC",
       "role": "Supplier",
+      "importance": "Primary",
       "addresses": [],
       "contacts": [
         {
@@ -189,6 +190,7 @@ The `parties` array lists available information about parties that are affected 
     {
       "party": "Torchlight Energy, Inc.",
       "role": "Buyer",
+      "importance": "Primary",
       "addresses": [
        {
        "text": "5700 W. Plano Pkwy., Ste. 3600, Plano, Texas 75093",

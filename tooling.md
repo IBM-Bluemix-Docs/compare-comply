@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018
-lastupdated: "2018-12-07"
+  years: 2018, 2019
+lastupdated: "2019-01-08"
 
 ---
 
@@ -47,7 +47,7 @@ You need the following before you can use the Compare and Comply Tooling:
 
 The Tooling launches and displays the landing page. Click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply/formats.html) and click **Open**.
 
-The maximum file size is 1.5 MB.
+The maximum file size is 1.5 MB. However, you can upload JSON output files from the `/v1/element_classification` method that are up to 50 MB. You can process larger documents by submitting them to Element Classification by [using batch processing](/docs/services/compare-comply/batching.html) and saving the output to upload to the Tooling.
 {: note}
 
 ![Compare and Comply Tooling landing page](images/tool-landing.png)

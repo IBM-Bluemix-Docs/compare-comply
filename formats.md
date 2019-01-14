@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-12-07"
+  years: 2018, 2019
+lastupdated: "2019-01-09"
 
 ---
 
@@ -59,7 +59,8 @@ Compare and Comply can process Microsoft Word files in the following formats.
 ## Image support
 {: #images}
 
-Compare and Comply can process image files in the following formats. Scanned image files must have a resolution of at least 300 DPI.
+Compare and Comply can process image files in the following formats.
+
   - BMP (`image/bmp`)
   - GIF (`image/gif`)
   - JPEG (`image/jpeg`)
@@ -67,6 +68,9 @@ Compare and Comply can process image files in the following formats. Scanned ima
   - PNG (`image/png`)
   - RAW (no specific MIME type)
   - TIFF (`image/tiff`)
+
+For best results, use image files with a resolution of 300 DPI or higher. Using image files with a resolution under 300 DPI can result in non-optimal output.
+{: note}
   
 ## Text support
 {: #text}
@@ -82,14 +86,14 @@ The service's methods can accept different types of files as specified in the fo
 
 | Method           |PDF support   |Word support     |Image support        |Text support    |
 |------------------|-----------------|-----------------------------------------|
-|Tooling           | Supported    | Supported | All supported image formats | **Not** supported |
+|Tooling*           | Supported    | Supported | All supported image formats | **Not** supported |
 |`/v1/html_conversion`| Supported | Supported | All supported image formats | Supported |
 |`/v1/element_classification`| Supported | Supported | All supported image formats | **Not** supported |
 |`/v1/tables`      | Supported | Supported | All supported image formats | Supported |
 |`/v1/invoices`    | Supported | Supported | All supported image formats | **Not** supported |
 |`/v1/comparison`*  | Supported | Supported | All supported image formats | **Not** supported |
 
-\* The `/v1/comparison` method also accepts JSON files from the output of the `/v1/element_classification` method.
+\* The Tooling and `/v1/comparison` method also accept JSON files from the output of the `/v1/element_classification` method.
 {: note}
 
 The `/v1/feedback` methods do not accept image or text files. 
