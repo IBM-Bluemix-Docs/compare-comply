@@ -279,7 +279,7 @@ Tables can contain key-value pairs that span multiple table cells. Compare and C
   
 | Key | Value                                     |
 |----------------|--------------------------------|
-|**Invoice number**|123456789|
+|**Item number**|123456789|
 |**Date**          |1/1/2019|
 |**Amount**        |$1000|
 
@@ -287,7 +287,7 @@ Tables can contain key-value pairs that span multiple table cells. Compare and C
 
 | | |
 |-|-|
-|**Invoice number**: 123456789|**Address**: 123 Anywhere Dr|
+|**Item number**: 123456789|**Address**: 123 Anywhere Dr|
 |**Date**: 1/1/2019 | |
 |**Amount**: $1000 | &nbsp; |
 
