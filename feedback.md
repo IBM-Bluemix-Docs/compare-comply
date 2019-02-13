@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-12-05"
+  years: 2018, 2019
+lastupdated: "2019-01-24"
 
 ---
 
@@ -71,7 +71,7 @@ These steps are described in more detail in the following sections.
 You can add feedback to a document programmatically by using the `POST /v1/feedback` method. 
 
 In a `bash` shell or equivalent environment such as Cygwin, issue the following command to add feedback to a document, with values as follows:
-  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting Started](/docs/services/compare-comply/getting-started.html#before-you-begin).
+  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting Started](/docs/services/compare-comply/getting-started.html#gs-before-you-begin).
   - Create a `feedback_data` object, which is a specifically formatted object specifying the feedback you want to add to the document. The `feedback_data` object must be in the following format.
     ```json
     {
@@ -226,7 +226,7 @@ https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-1
           ]
         }
       }
-    }
+    }'
 ```
 {: codeblock}
 

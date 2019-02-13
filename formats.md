@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-09"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -91,6 +91,7 @@ The service's methods can accept different types of files as specified in the fo
 |`/v1/element_classification`| Supported | Supported | All supported image formats | **Not** supported |
 |`/v1/tables`      | Supported | Supported | All supported image formats | Supported |
 |`/v1/invoices`    | Supported | Supported | All supported image formats | **Not** supported |
+|`/v1/mortgages` | Supported | Supported | All supported image formats | **Not** supported |
 |`/v1/comparison`*  | Supported | Supported | All supported image formats | **Not** supported |
 
 \* The Tooling and `/v1/comparison` method also accept JSON files from the output of the `/v1/element_classification` method.

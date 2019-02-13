@@ -21,7 +21,8 @@ Compare and Comply
     
     compare.md
     tables.md
-    invoices.md 
+    invoices.md
+    mortgages.md 
     feedback.md
     tooling.md
     batching.md

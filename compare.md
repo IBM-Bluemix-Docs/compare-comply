@@ -36,7 +36,7 @@ Identify two documents to compare. See [Step 1 in Getting started](/docs/service
 {: #step2}
 
 In a `bash` shell or equivalent environment such as Cygwin, issue the following command to compare the documents, with values as follows:
-  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting Started](/docs/services/compare-comply/getting-started.html#before-you-begin).
+  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting Started](/docs/services/compare-comply/getting-started.html#gs-before-you-begin).
   - Replace `{file_1}` and `{file_2}` with the path to the files you want to compare.
   - Optionally specify values for `file_1_label` and `file_2_label` to identify files 1 and 2, respectively. If you do not specify labels, the method uses the default label values `file_1` and `file_2`.
   - Optionally specify the value `contracts` for the `model` parameter. The only model value accepted by the `POST /v1/comparison` method is `contracts`.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-12-05"
+  years: 2018, 2019
+lastupdated: "2019-02-04"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2018-12-05"
 # Using batch processing
 {: #batching}
 
-The `/v1/batches` APIs enable you to run Compare and Comply methods over a collection of input documents. Batch processing is available only for the `POST /v1/html_conversion`, `POST /v1/element_classification`, and `POST /v1/tables` methods. Batch processing is _not_ available for the `POST /v1/comparison` method. 
+The `/v1/batches` APIs enable you to run Compare and Comply methods over a collection of input documents. Batch processing is available only for the `POST /v1/html_conversion`, `POST /v1/element_classification`, `POST /v1/tables`, `POST /v1/mortgages`, and `POST /v1/invoices` methods. Batch processing is _not_ available for the `POST /v1/comparison` method. 
 
 All batch requests return a batch status object that include a `batch_id`. The `batch_id` can be used to monitor the status of a request and to cancel a request.
 
@@ -46,8 +46,8 @@ The batching API endpoints are as follows.
 {: #before-you-batch}
 
 Before you use batch processing, ensure that you are set with the following:
- - All of the items listed in [Before you begin in Getting Started](/docs/services/compare-comply/getting-started.html#before-you-begin). 
- - A [Cloud Object Storage (COS) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/catalog/services/cloud-object-storage){:new_window} instance on the IBM Cloud. For information, see the COS documentation, particularly the following:
+ - All of the items listed in [Before you begin in Getting Started](/docs/services/compare-comply/getting-started.html#gs-before-you-begin). 
+ - A [Cloud Object Storage (COS) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloud-object-storage){:new_window} instance on the IBM Cloud. For information, see the COS documentation, particularly the following:
    - [About IBM Cloud Object Storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage){: new_window}
     - [Order storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage/basics/order-storage.html#order-storage){: new_window}
     - [Service credentials ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage/iam/service-credentials.html#service-credentials){: new_window}
@@ -60,8 +60,8 @@ The `POST /v1/batches` method creates a batch request that takes all documents i
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/batches` method to create and run a batch processing request. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
-  - `function` (**required** `string`): The method to be run against the documents. Possible values are `html_conversion`, `element_classification`, and `tables`.
-  - `model` (optional `string`): The ID of the data kit for the model to use. The default is `contracts` when the `function` is `html_conversion` or `element_classification`. The default is `tables` when the function is `tables`.
+  - `function` (**required** `string`): The method to be run against the documents. Possible values are `html_conversion`, `element_classification`, `tables`, `mortgage_closing_disclosures`, and `invoices`.
+  - `model` (optional `string`): The ID of the data kit for the model to use. The default is `contracts` when the `function` is `html_conversion` or `element_classification`. The default is `tables` when the function is `tables`. The default is `mortgages` when the function is `mortgage_closing_disclosures`. The default is `invoices` when the function is `invoices`.
   - `input_credentials_file` (**required** `file`): A JSON file that lists the COS input credentials. At a minimum, the credentials must enable `READ` permissions on the bucket defined by the `input_bucket_name` parameter.
   - `input_bucket_location` (**required** `string`): The geographical location of the COS input bucket as listed on the **Endpoint** tab of your COS instance; for example, `us-geo`, `eu-geo`, or `ap-geo`.
   - `input_bucket_name` (**required** `string`): The name of the COS input bucket.

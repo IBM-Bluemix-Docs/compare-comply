@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-03"
+  years: 2015, 2019
+lastupdated: "2018-01-21"
 
 ---
 
@@ -87,8 +87,8 @@ The customer ID is associated with data that is sent with the request.
 To delete all data that is associated with a customer ID, use the `DELETE /v1/user_data` method. You pass the string `customer_id={id}` as a query parameter with the request. The following example deletes all data for the customer ID `my_ID`:
 
   ```bash
-  curl -X DELETE -u "apikey":"{apikey}" 
-  https://gateway.watsonplatform.net/compare-comply/api/v1/user_data?customer_id=my_ID
+  curl -X DELETE -u "apikey:{apikey}" 
+ https://gateway.watsonplatform.net/compare-comply/api/v1/user_data?customer_id=my_ID
   ```
   {: codeblock}
 

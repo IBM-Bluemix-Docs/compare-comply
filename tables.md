@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-01-09"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -190,7 +190,8 @@ The output from service represents the example's first body cell (that is, the f
       "row_index_end" : 5,
       "column_index_begin" : 0,
       "column_index_end" : 0
-    } ],    
+    } ],
+    "key_value_pairs" : [ ],    
     "body_cells" : [ {
       "cell_id" : "bodyCell-2450-2455",
       "location" : {
@@ -268,4 +269,28 @@ The output from service represents the example's first body cell (that is, the f
   ]
 }
 ```
+
+## Understanding key-value pairs
+{: #key-value-pairs}
+
+Tables can contain key-value pairs that span multiple table cells. Compare and Comply can detect the following types of tabular key-value pairs.
+
+  - Simple key-value pairs in adjacent cells, as in the following example table.
+  
+| Key | Value                                     |
+|----------------|--------------------------------|
+|**Invoice number**|123456789|
+|**Date**          |1/1/2019|
+|**Amount**        |$1000|
+
+  - Key-value pairs in the same cell, as in the following example table.
+
+| | |
+|-|-|
+|**Invoice number**: 123456789|**Address**: 123 Anywhere Dr|
+|**Date**: 1/1/2019 | |
+|**Amount**: $1000 | &nbsp; |
+
+For more information, see the description of `key_value_pairs` and its descendants in the list of elements in [Classifying elements](/docs/services/compare-comply/schema.html#schema_arrangement).
+
 

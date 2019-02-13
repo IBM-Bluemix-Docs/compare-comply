@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-01-09"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -58,7 +58,7 @@ After a document is processed by the `/v1/element_classification` method, the se
       ],
       "attributes": [
         {
-      	  "type": string,
+          "type": string,
           "text": string,
           "location": { "begin": int, "end": int }
          }
@@ -158,7 +158,38 @@ After a document is processed by the `/v1/element_classification` method, the se
            ]
         },
         ...
-      ]
+      ],
+      "key_value_pairs": [
+        {
+          "key": {
+            "key_id": string,
+            "location": {
+              "begin": int,
+              "end": int
+            },
+            "text": string,
+            "row_index_begin": int,
+            "row_index_end": int,
+            "column_index_begin": int,
+            "column_index_end": int
+          },
+          "value": [{
+            "value_id": string,
+            "location": {
+              "begin": int,
+              "end": int
+            },
+            "text": string,
+            "row_index_begin": int,
+            "row_index_end": int,
+            "column_index_begin": int,
+            "column_index_end": int
+          },
+          ...
+          ]
+        },
+        ...
+      ]      
     },
     ...
   ],
@@ -226,25 +257,37 @@ After a document is processed by the `/v1/element_classification` method, the se
   ],
   "effective_dates": [
     {
-      "text": string,
       "confidence_level": string,
-      "location": { "begin": int, "end": int }
+      "text": string,
+      "location": { "begin": int, "end": int },
+      "provenance_ids": [ string, string, ... ]
      },
      ...
   ],
   "contract_amounts": [
     {
+      "confidence_level": string,
       "text": string,
-      "confidence_level": string,      
-      "location": { "begin": int, "end": int }
+      "location": { "begin": int, "end": int },
+      "provenance_ids": [ string, string, ... ]
     },
     ...
   ],
   "termination_dates": [
     {
+      "confidence_level": string,
       "text": string,
-      "confidence_level": string,      
-      "location": { "begin": int, "end": int }
+      "location": { "begin": int, "end": int },
+      "provenance_ids": [ string, string, ... ]
+    },
+    ...
+  ],
+  "contract_types": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "location": { "begin": int, "end": int },
+      "provenance_ids": [ string, string, ... ]
     },
     ...
   ]
@@ -252,6 +295,7 @@ After a document is processed by the `/v1/element_classification` method, the se
 ```
 
 The schema is arranged as follows.
+{: #schema_arrangement}
 
   - `document`: An object that lists basic information about the document, including:
     - `title`: The document title, if detected.
@@ -260,7 +304,7 @@ The schema is arranged as follows.
   - `model_id`: The analysis model to be used by the service. For the `/v1/element_classification` and `/v1/comparison` methods, the default is `contracts`. For the `/v1/tables` method, the default is `tables`. These defaults apply to the stand-alone methods and to the methods' use in batch-processing requests.
   - `model_version`: The version of the analysis model specified by the value of the `model_id` parameter.
   - `elements`: An array of the document elements detected by the service.
-    - `location`: The location of the element as defined by its `begin` and `end` indexes.
+    - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
     - `text`: The text of the element.
     - `types`: An array that describes what the element is and whom it affects.
       - `label`: An object that defines the type by using a pair of the following elements:
@@ -324,6 +368,23 @@ The schema is arranged as follows.
         - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
         - `text`: The text that is associated with the attribute.
         - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
+    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/compare-comply/tables.html#key_value_pairs)
+      - `key`: An object that specifies a key for a key-value pair.
+        - `key_id`: The unique ID of the key span in the table.
+        - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.
+        - `text`: The text content of the table cell without HTML markup.
+        - `row_index_begin`: The ID of the uppermost row the cell spans.
+        - `row_index_end`: The ID of the lowermost row the cell spans.
+        - `column_index_begin`: The ID of the leftmost column the cell spans.
+        - `column_index_end`: The ID of the rightmost column the cell spans.
+      - `value`: An array that specifies the value or values for a key-value pair.
+        - `value_id`: The unique ID of the value span in the table.
+        - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
+        - `text`: The text content of the table cell without HTML markup.
+        - `row_index_begin`: The ID of the uppermost row the cell spans.
+        - `row_index_end`: The ID of the lowermost row the cell spans.
+        - `column_index_begin`: The ID of the leftmost column the cell spans.
+        - `column_index_end`: The ID of the rightmost column the cell spans.
   - `document_structure`: An object that describes the structure of the input document.
     - `section_titles`: An array that contains one object per section or subsection that is detected in the input document. Sections and subsections are not nested. Instead, they are flattened out and can be placed back in order by using the `begin` and `end` values of the element and the `level` value of the section.
       - `text`: A string that lists the section title, if detected.
@@ -345,19 +406,44 @@ The schema is arranged as follows.
       - `name`: A string that lists the name of an identified contact.
       - `role`: A string that lists the role of the identified contact.  
   - `effective_dates`: An array that identifies the effective dates of the document.
-    - `text`: An effective date, which is listed as a string.
     - `confidence_level`: The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.
+    - `text`: An effective date, which is listed as a string.
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
   - `contract_amounts`: An array that identifies the monetary amounts that are identified in the document.
-    - `text`: A contract amount, which is listed as a string.
     - `confidence_level`: The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.    
+    - `text`: A contract amount, which is listed as a string.
     - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
   - `termination_dates`: An array that identifies the document's termination dates.
-    - `text`: A termination date, which is listed as a string.
     - `confidence_level`: The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.    
+    - `text`: A termination date, which is listed as a string.
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+  - `contract_types`: An array that identifies the document's contract type or types.
+    - `confidence_level`: The confidence level of the identification of the contract type. Possible values include `High`, `Medium`, and `Low`.
+    - `text`: A contract type, which is listed as a string.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.    
+    - `location`: The location of the contract as defined by its `begin` and `end` indexes.
 
 **\*Notes on tables:**
   - Row and column index values per cell are zero-based and so begin with `0`.
   - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
   - Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a possible hierarchy of column headers.
+  
+**Note on `location` objects**
+
+The `location` object is contained inside the vast majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
+  
+For example, a `text` string with the value `Amount due` might have a corresponding `location` object such as
+  ```json
+  {
+    ...
+    "location": {
+      "begin": 2510,
+      "end": 2519
+    }
+    ...
+  }
+  ```
+The `begin` index indicates that the string begins at character position `2510` in the transformed HTML; this is the location of the letter `A` in `Amount`. The `end` index indicates that the string ends at character position `2519`; this is the location of the letter `e` in `due`.

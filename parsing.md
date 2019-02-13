@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-01-09"
+lastupdated: "2018-02-13"
 
 ---
 
@@ -27,7 +27,7 @@ When you upload a contract to Compare and Comply by specifying the `model_id` va
 The following sections describe how the returned JSON provides the analysis.
 
 ## Types
-{: #contract_types}
+{: #types}
 
 The `types` array includes a number of objects, each of which contains `nature` and `party` keys whose values identify a couplet for the element.
 
@@ -108,7 +108,7 @@ The `attributes` array specifies any attributes that are identified in the sente
 
 | `attributes`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
-|`Address`         |A postal address.
+|`Address`         |A postal address.                                          |
 |`Currency`        |Monetary value and units.                                  |
 |`DateTime`        |A date, time, date range, or time range.                   |
 |`Location`        |A geographical location or region.                         |
@@ -122,9 +122,10 @@ The `effective_dates` array identifies the dates during which the document is in
 
 | `effective_dates`|Description                                                |
 |:----------------:|-----------------------------------------------------------|
-|`text`            |An effective date, listed as a string.                     |
 |`confidence_level`|The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |An effective date, listed as a string.                     |
 |`location`        |The location of the date as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
 ## Contract amounts
 {: #contract_amounts}
@@ -133,20 +134,34 @@ The `contract_amounts` array identifies the monetary amounts specified in the do
 
 | `contract_amounts`|Description                                               |
 |:----------------:|-----------------------------------------------------------|
-|`text`            |A contract amount, listed as a string.                  |
 |`confidence_level`|The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |A contract amount, listed as a string.                  |
 |`location`        |The location of the contract amount as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
 ## Termination dates
 {: #termination_dates}
 
 The `termination_dates` array identifies the document's termination dates.
 
-| `contract_amounts`|Description                                               |
+| `termination_dates`|Description                                              |
 |:----------------:|-----------------------------------------------------------|
-|`text`            |The termination date, listed as a string.                  |
 |`confidence_level`|The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |The termination date, listed as a string.                  |
 |`location`        |The location of the termination date as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
+
+## Contract types
+{: #contract_types}
+
+The `contract_types` array identifies the document's contract type or types.
+
+| `contract_types`|Description                                               |
+|:----------------:|-----------------------------------------------------------|
+|`confidence_level`|The confidence level of the identification of the contract type. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |The termination date, listed as a string.                  |
+|`location`        |The location of the termination date as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
 ## Provenance
 {: #provenance}

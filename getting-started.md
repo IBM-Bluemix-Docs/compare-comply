@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-10"
+lastupdated: "2018-02-11"
 
 ---
 
@@ -32,22 +32,23 @@ This short tutorial introduces IBM Watson&reg; Compare and Comply and goes throu
 This tutorial uses the `/v1/element_classification` method. Other service methods have similar input syntax and output formats. For more information, see the pages for other methods.
 
 **Get started with the tooling**
-Optionally, you can explore Element Classification using the Compare and Comply tooling. Information about the Compare and Comply tool can be found [here]((/docs/services/compare-comply/tooling.html).
+Optionally, you can explore the service's features by using the Compare and Comply tooling. See [Using the Compare and Comply Tooling ](/docs/services/compare-comply/tooling.html) for more information.
 
 **Request Limited Preview Features**
 Compare and Comply has the following beta and experimental features that can be accessed by request:
-  -  Invoice Understanding: Compare and comply finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Please fill out the following [form](http://ibm.biz/invoices) to gain access to this feature.
+  -  Invoice Understanding: Compare and Comply finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Please fill out the following [form](http://ibm.biz/invoices) to gain access to this feature.
+  - Mortgage Understanding: Compare and Comply finds and extracts important information such as closing information, loan information, payments, cash to close, and loan calculations. Fill out the following [form](http://ibm.biz/mortgage) to gain access to this feature.
 
 
 ## Before you begin
-{: #before-you-begin}
+{: #gs-before-you-begin}
 
 - Create an instance of the service:
-    1.  Go to the [Compare and Comply page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/catalog/services/compare-comply){: new_window} in the {{site.data.keyword.Bluemix_notm}} catalog.
+    1.  Go to the [Compare and Comply page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/compare-comply){: new_window} in the {{site.data.keyword.Bluemix_notm}} catalog.
     1.  Sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
     1.  Click **Create**.
 - Copy the credentials to authenticate to your service instance:
-    1. From the [{{site.data.keyword.Bluemix_notm}} dashboard](https://console.bluemix.net/dashboard/apps), click your Compare and Comply service instance to go to the Compare and Comply service dashboard page.
+    1. From the [{{site.data.keyword.Bluemix_notm}} dashboard](https://cloud.ibm.com/dashboard/apps), click your Compare and Comply service instance to go to the Compare and Comply service dashboard page.
     1.  On the **Manage** page, click **Show** to view your credentials.
     1.  Copy the `apikey` and `url` values.
 
@@ -88,9 +89,9 @@ The method returns a JSON object that contains:
   - Information about the model used to classify the input document.  
   - [An `elements` array](#elements) that details semantic elements that are identified in the input document.
   - [A `tables` array](#tables) that breaks down the tables that are identified in the input document.
-  - [A `document_structure` object](#doc_struct) that lists section titles and leading sentences that are identified in the input document.
+  - [A `document_structure` object](#doc_structure) that lists section titles and leading sentences that are identified in the input document.
   - [A `parties` array](#parties) that lists the parties, roles, addresses, and contacts of parties identified in the input document.
-  - [Arrays defining `effective_dates`, `contract_amounts`, and `termination_dates`.](#other_arrays)
+  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`, and `contract_types`](#other_arrays).
 
 ## Step 3: Review the analysis
 {: #review_analysis}
@@ -139,11 +140,11 @@ Each object in the `elements` array describes an element of the contract that Co
 ```
 
 Each element has five important sections:
-  - `location`: The `begin` and `end` indexes that indicate the location of the element in the input document.
+  - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
   - `text`: The text of the classified element.
   - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties that are affected by the element. For more information, see [Types](/docs/services/compare-comply/parsing.html#contract_types) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing). 
   - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. For more information, see [Categories](/docs/services/compare-comply/parsing.html#contract_categories) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing). 
-  - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Location` (geographic location or region that is referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. For more information, see [Attributes](/docs/services/compare-comply/parsing.html#attributes) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
+  - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`. Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. For more information, see [Attributes](/docs/services/compare-comply/parsing.html#attributes) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
   
 Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values that are listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis that is associated with the element.
 
@@ -163,7 +164,7 @@ Some sentences do not contain any identifiable attributes, in which case the ser
 The `tables` array details the structure and content of any tables that are found in the input document. See [Classifying tables](/docs/services/compare-comply/tables.html#understanding_tables) and [Classifying elements](/docs/services/compare-comply/schema.html#output_schema) for details.
 
 ### Document structure
-{: #doc_struct}
+{: #doc_structure}
 
 The `document_structure` object identifies the section titles and leading sentences of the input document. See [Understanding document structure](/docs/services/compare-comply/doc_structure.html#doc_struct) for details.
 
@@ -209,11 +210,12 @@ The `parties` array lists available information about parties that are affected 
 ### Other arrays
 {: #other_arrays}
 
-The following arrays provide useful information about the input document. Each of the arrays contains zero or more objects that list the `text` in which the information was identified and the `location` of that text as defined by the text's `begin` and `end` indexes.
+The following arrays provide useful information about the input document. Each of the arrays contains zero or more objects that list the `text` in which the information was identified, the confidence level of the identification (`High`, `Medium`, or `Low`), the `location` of that text as defined by the text's `begin` and `end` indexes, and a list of `provenance_ids`, which are hashed values that you can send to IBM to provide feedback or receive support.
 
   - The `effective_dates` array lists any effective dates that are identified in the input document.
   - The `contract_amounts` array lists monetary amounts that are specified by the input document.
   - The `termination_dates` array lists the input document's termination dates.
+  - The `contract_types` array lists the input document's contract types.
 
 ## Next steps
 {: #next_steps}
