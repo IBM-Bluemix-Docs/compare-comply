@@ -294,8 +294,10 @@ After a document is processed by the `/v1/element_classification` method, the se
 }
 ```
 
+## Schema arrangement
+{: #schema-arrangement}
+
 The schema is arranged as follows.
-{: #schema_arrangement}
 
   - `document`: An object that lists basic information about the document, including:
     - `title`: The document title, if detected.
@@ -312,7 +314,7 @@ The schema is arranged as follows.
         - `party`: A string that identifies the party to whom the sentence applies.
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `categories`: An array that lists the functional categories into which the element falls; in other words, the subject matter of the element.
-      - `label`: A string that lists the identified category. You can find a list of [categories](/docs/services/compare-comply/parsing.html#contract_categories) in [Understanding element classification](/docs/services/compare-comply/parsing#contract_parsing).
+      - `label`: A string that lists the identified category. You can find a list of [categories](/docs/services/compare-comply/parsing.html#contract_categories) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
       - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
@@ -368,7 +370,7 @@ The schema is arranged as follows.
         - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
         - `text`: The text that is associated with the attribute.
         - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
-    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/compare-comply/tables.html#key_value_pairs)
+    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/compare-comply/tables.html#key-value-pairs).
       - `key`: An object that specifies a key for a key-value pair.
         - `key_id`: The unique ID of the key span in the table.
         - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.
@@ -436,14 +438,14 @@ The schema is arranged as follows.
 The `location` object is contained inside the vast majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
   
 For example, a `text` string with the value `Amount due` might have a corresponding `location` object such as
-  ```json
-  {
-    ...
-    "location": {
-      "begin": 2510,
-      "end": 2519
-    }
-    ...
+```json
+{
+  ...
+  "location": {
+    "begin": 2510,
+    "end": 2519
   }
+  ...
+}
   ```
 The `begin` index indicates that the string begins at character position `2510` in the transformed HTML; this is the location of the letter `A` in `Amount`. The `end` index indicates that the string ends at character position `2519`; this is the location of the letter `e` in `due`.

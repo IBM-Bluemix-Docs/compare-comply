@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-14"
 
 ---
 
@@ -21,22 +21,22 @@ lastupdated: "2019-02-12"
 # Understanding mortgage parsing
 {: #mortgages}
 
-You can analyze mortgage closing disclosure documents by calling the `POST /v1/mortgages` method.
+You can analyze mortgage closing disclosure documents by calling the `POST /v1/mortgage_closing_disclosures` method.
 {: shortdesc}
 
 Mortgage parsing is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply/relnotes.html#beta_features) in the [Release notes](/docs/services/compare-comply/relnotes.html#release_notes). You must request access to mortgage parsing by completing the following [form](http://ibm.biz/mortgage).
 {: important}
 
-You can classify the contents of mortgage closure disclosure documents in your [input document](/docs/services/compare-comply/formats.html#formats) by using the `POST /v1/mortgages` method.
+You can classify the contents of mortgage closure disclosure documents in your [input document](/docs/services/compare-comply/formats.html#formats) by using the `POST /v1/mortgage_closing_disclosures` method.
 
-In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/mortgages` method to classify a mortgage. The method takes the following input parameters:
+In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/mortgage_closing_disclosures` method to classify a mortgage. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
   - `file` (**required** `file`): The input file that is to be classified for mortgage information.
 
 Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://gateway.watsonplatform.net/compare-comply/api/v1/mortgages?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://gateway.watsonplatform.net/compare-comply/api/v1/mortgage_closing_disclosures?version=2018-10-15
 ```
 {: codeblock}
 
@@ -414,7 +414,7 @@ The command output uses the following schema.
 
 The schema is arranged as follows.
 
-  - `model_id`: The analysis model used by the service. For the `/v1/mortgages` method, the value is `mortgage_closing_disclosures`.
+  - `model_id`: The analysis model used by the service. For the `/v1/mortgage_closing_disclosures` method, the value is `mortgages`.
   - `model_version`: The version of the analysis model specified by the value of the `model_id` parameter.
   - `document`: An object that lists basic information about the document, including:
     - `title`: The document title, if detected.

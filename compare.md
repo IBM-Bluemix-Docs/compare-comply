@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018
-lastupdated: "2018-12-05"
+years: 2018, 2019
+lastupdated: "2018-02-14"
 
 ---
 
@@ -30,13 +30,13 @@ The `POST /v1/comparison` method enables you to compare two documents. Specifica
 ## Step 1: Identify two comparable documents
 {: #step1}
 
-Identify two documents to compare. See [Step 1 in Getting started](/docs/services/compare-comply/getting-started.html) and [Supported input formats](/docs/services/compare-comply/formats.html#formats) for information on document requirements. For best results, choose two documents that are related to each other; for example, an original contract and a revised version of the same contract.
+Identify two documents to compare. See [Step 1 in Getting started](/docs/services/compare-comply/getting-started.html#identify_content) and [Supported input formats](/docs/services/compare-comply/formats.html#formats) for information on document requirements. For best results, choose two documents that are related to each other; for example, an original contract and a revised version of the same contract.
 
 ## Step 2: Compare two documents
 {: #step2}
 
 In a `bash` shell or equivalent environment such as Cygwin, issue the following command to compare the documents, with values as follows:
-  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting Started](/docs/services/compare-comply/getting-started.html#gs-before-you-begin).
+  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/services/compare-comply/getting-started.html#gs-before-you-begin).
   - Replace `{file_1}` and `{file_2}` with the path to the files you want to compare.
   - Optionally specify values for `file_1_label` and `file_2_label` to identify files 1 and 2, respectively. If you do not specify labels, the method uses the default label values `file_1` and `file_2`.
   - Optionally specify the value `contracts` for the `model` parameter. The only model value accepted by the `POST /v1/comparison` method is `contracts`.

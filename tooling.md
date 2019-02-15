@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-02-11"
+years: 2018, 2019
+lastupdated: "2019-02-14"
 
 ---
 
@@ -46,7 +46,7 @@ The Compare and Comply Tooling provides the following capabilities:
 You need the following before you can use the Compare and Comply Tooling:
 
  - An IBM Cloud account.
- - A Compare and Comply service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting Started](/docs/services/compare-comply/getting-started.html#getting-started).
+ - A Compare and Comply service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting started](/docs/services/compare-comply/getting-started.html#getting_started).
  
 ## Launching the Compare and Comply Tooling
 {: #launch-tool}
@@ -57,7 +57,7 @@ You need the following before you can use the Compare and Comply Tooling:
 
 1. Launch the Tooling from the **Manage** tab of your service instance by clicking the **Launch tool** button.
 
-## Using the Tooling for element classification
+## Running element classification
 {: #use-tooling-ec}
 
 The Tooling launches and displays the landing page. Click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply/formats.html#formats) and click **Open**.
@@ -96,7 +96,7 @@ The Compare and Comply Tooling for Element Classification displays four panes. T
   
   ![Compare and Comply Tooling with category and nature selections](images/tooling-cat-nature.png)
  
-1. Click a highlighted element to display all labels that are applied to the element. A pop-up window is displayed next to the highlighted element; you can optionally suggest different classifications for the labels and elements, as described in [Adding suggestions](#tool-add-suggestions).
+1. Click a highlighted element to display all labels that are applied to the element. A pop-up window is displayed next to the highlighted element; you can optionally suggest different classifications for the labels and elements, as described in [Adding suggestions](#add-suggestions).
    ![Compare and Comply Tooling displaying element-specific information](images/tool-highlight.png)
 
 1. Use the up and down arrows to the right of the document to cycle through elements that match the specified labels.
@@ -106,7 +106,7 @@ The Compare and Comply Tooling for Element Classification displays four panes. T
 1. Optionally, open another document by clicking the **Upload new document** icon (![Compare and Comply Tooling upload new document button](images/tooling-upload-icon.png)). The Tooling opens a file browser. Proceed as described in Step 2.
    ![Compare and Comply Tooling: Upload a new contract](images/tooling-replace.png)
 
-See [Understanding contract parsing](/docs/services/compare-comply/parsing.html#contract_parsing) for listings and descriptions of all available categories, natures, and parties.
+See [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing) for listings and descriptions of all available categories, natures, and parties.
 
 ### Displaying contract metadata
 {: #display-metadata}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-02-11"
+lastupdated: "2018-02-14"
 
 ---
 
@@ -142,7 +142,7 @@ Each object in the `elements` array describes an element of the contract that Co
 Each element has five important sections:
   - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
   - `text`: The text of the classified element.
-  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties that are affected by the element. For more information, see [Types](/docs/services/compare-comply/parsing.html#contract_types) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing). 
+  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties that are affected by the element. For more information, see [Types](/docs/services/compare-comply/parsing.html#types) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing). 
   - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. For more information, see [Categories](/docs/services/compare-comply/parsing.html#contract_categories) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing). 
   - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`. Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. For more information, see [Attributes](/docs/services/compare-comply/parsing.html#attributes) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
   
@@ -171,9 +171,11 @@ The `document_structure` object identifies the section titles and leading senten
 ### Parties
 {: #parties}
 
-The `parties` array lists available information about parties that are affected by the input document, including the party's name, role, importance, address or addresses, and contacts. For more information, see [Parties](/docs/services/compare-comply/parsing.html##contract_parties) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
+The `parties` array lists available information about parties that are affected by the input document, including the party's name, role, importance, address or addresses, and contacts. For more information, see [Parties](/docs/services/compare-comply/parsing.html#contract_parties) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
 
 ```json
+{
+  ...
   "parties": [
       {
       "party": "Wolfbone Investments, LLC",
@@ -205,6 +207,8 @@ The `parties` array lists available information about parties that are affected 
       "contacts": [ ]
     }
   ]
+  ...
+}
 ```
   
 ### Other arrays
@@ -222,7 +226,7 @@ The following arrays provide useful information about the input document. Each o
 
 You successfully classified a contract to identify its elements, tables, structure, parties, and other information. You can use the analysis to quickly understand and enforce the classified contract. The next steps are:
 
- - [Understanding element classification parsing](/docs/services/compare-comply/parsing.html#contract_parsing)
- - [Classifying elements](/docs/services/compare-comply/schema.html#output_schema) and [classifying tables](/docs/services/compare-comply/tables.html#understanding_tables).
+ - [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing)
+ - [Classifying elements](/docs/services/compare-comply/schema.html#output_schema) and [classifying tables](/docs/services/compare-comply/tables.html#understanding_tables)
 
 
