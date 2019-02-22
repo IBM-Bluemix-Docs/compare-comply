@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-02-14"
+lastupdated: "2018-02-22"
 
 ---
 
@@ -18,6 +18,7 @@ lastupdated: "2018-02-14"
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:hide-dashboard: .hide-dashboard}
 
 # Getting started
 {: #getting_started}
@@ -36,24 +37,37 @@ Optionally, you can explore the service's features by using the Compare and Comp
 
 **Request Limited Preview Features**
 Compare and Comply has the following beta and experimental features that can be accessed by request:
+
   -  Invoice Understanding: Compare and Comply finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Please fill out the following [form](http://ibm.biz/invoices) to gain access to this feature.
-  - Mortgage Understanding: Compare and Comply finds and extracts important information such as closing information, loan information, payments, cash to close, and loan calculations. Fill out the following [form](http://ibm.biz/mortgage) to gain access to this feature.
 
 
 ## Before you begin
 {: #gs-before-you-begin}
 
-- Create an instance of the service:
-    1.  Go to the [Compare and Comply page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/compare-comply){: new_window} in the {{site.data.keyword.Bluemix_notm}} catalog.
-    1.  Sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
-    1.  Click **Create**.
+- {: hide-dashboard}  Create an instance of the service:
+    1.  {: hide-dashboard} Go to the [Compare and Comply page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/compare-comply){: new_window} in the {{site.data.keyword.cloudx_notm}} catalog.
+    1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
+    1.  {: hide-dashboard} Click **Create**.
 - Copy the credentials to authenticate to your service instance:
-    1. From the [{{site.data.keyword.Bluemix_notm}} dashboard](https://cloud.ibm.com/dashboard/apps), click your Compare and Comply service instance to go to the Compare and Comply service dashboard page.
+    1. {: hide-dashboard} From the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}/dashboard/apps), click your Compare and Comply service instance to go to the Compare and Comply service dashboard page.
     1.  On the **Manage** page, click **Show** to view your credentials.
     1.  Copy the `apikey` and `url` values.
 
     In some instances, you authenticate by providing basic authentication. If you see `username` and `password` in the credentials, use those values instead of `"apikey:{apikey}"` in the examples in this tutorial.
     {: tip}
+- Make sure that you have the `curl` command.
+    - The examples use the `curl` command to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
+
+When you enter a command, replace `{apikey}` and `{url}` with your actual API key and URL. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example:
+{: hide-dashboard}
+
+```bash
+curl -X POST -u "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
+. . .
+"https://gateway.watsonplatform.net/compare-comply/api/v1/html_conversion"
+```
+{:pre}
+{: hide-dashboard}
 
 ## Step 1: Identify content
 {: #identify_content}

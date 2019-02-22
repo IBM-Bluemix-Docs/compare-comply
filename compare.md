@@ -79,7 +79,7 @@ The method returns a JSON object that contains the aligned and unaligned element
       "element_pair": [
         {
           "document_label": string,
-          "location": { "begin": int, "end", int },
+          "location": { "begin": int, "end": int },
           "text": string,
           "types": [
             {
@@ -97,14 +97,14 @@ The method returns a JSON object that contains the aligned and unaligned element
             {
               "type": string,
               "text": string,
-              "location": { "begin": int, "end", int }
+              "location": { "begin": int, "end": int }
             },
             ...
           ]
         }, 
         {
           "document_label": string,
-          "location": { "begin": int, "end", int },
+          "location": { "begin": int, "end": int },
           "text": string,
           "types": [
             {
@@ -122,7 +122,7 @@ The method returns a JSON object that contains the aligned and unaligned element
             {
               "type": string,
               "text": string,
-              "location": { "begin": int, "end", int }
+              "location": { "begin": int, "end": int }
             },
             ...
           ]
@@ -137,7 +137,7 @@ The method returns a JSON object that contains the aligned and unaligned element
   "unaligned_elements": [
     {
       "document_label": string,
-      "location": { "begin": int, "end", int },
+      "location": { "begin": int, "end": int },
       "text": string,
       "types": [
         {
@@ -155,7 +155,7 @@ The method returns a JSON object that contains the aligned and unaligned element
         {
           "type": string,
           "text": string,
-          "location": { "begin": int, "end", int }
+          "location": { "begin": int, "end": int }
         },
         ...
       ]

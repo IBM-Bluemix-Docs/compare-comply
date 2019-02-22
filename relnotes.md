@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-02-14"
+lastupdated: "2018-02-22"
 
 ---
 
@@ -50,7 +50,6 @@ The following new features and changes to the service are available.
 
 The release includes the following updates:
 
-  - Beta release of an analysis model for mortgage closing disclosure documents, which you can access by using the `/v1/mortgage_closing_disclosures` method. For more information, see [Understanding mortgage parsing](/docs/services/compare-comply/mortgages.html#mortgages). For important information about beta features, see [Beta features](#beta_features).
   - Additional enhancements to the Compare and Comply Tooling. For more information, see [Using the Compare and Comply Tooling](/docs/services/compare-comply/tooling.html#using_tool).
   - The output of the **Table understanding** method includes a new array called `key_value_pairs` that shows key-value pairs that the service extracted from different cells in a table. For more information, see [Understanding key-value pairs](/docs/services/compare-comply/tables.html#key-value-pairs).
 
@@ -71,7 +70,7 @@ The release includes the following updates:
 
 The Compare and Comply service is now generally available. The GA release includes the following new features and enhancements:
 
-  -   - Beta release of an analysis model for invoices, which you can access by using the `/v1/invoices` method. For more information, see [Understanding invoice parsing](/docs/services/compare-comply/invoices.html#invoices). For important information about beta features, see [Beta features](#beta_features). <br/>
+  - Beta release of an analysis model for invoices, which you can access by using the `/v1/invoices` method. For more information, see [Understanding invoice parsing](/docs/services/compare-comply/invoices.html#invoices). For important information about beta features, see [Beta features](#beta_features). <br/>
     **Note:** Only the `curl` API is available for this method. The method is not currently provided in other SDKs (Java, Python, Node.js, Ruby).
   - The output of the `POST /v1/comparison` method now includes a boolean named `significant_elements` that indicates if the aligned text contains contractual clauses of significance.. For more information, see [Comparing two documents](/docs/services/compare-comply/compare.html#compare).
   - The service accepts Microsoft Word files (DOC, DOCX). For more information, see [Supported input formats](/docs/services/compare-comply/formats.html#formats). 
@@ -85,7 +84,6 @@ The following table lists file-type support by method.
 |`/v1/element_classification`| Supported | Supported | All supported image formats | **Not** supported |
 |`/v1/tables`      | Supported | Supported | All supported image formats | Supported |
 |`/v1/invoices`    | Supported | Supported | All supported image formats | **Not** supported |
-|`/v1/mortgage_closing_disclosures` | Supported | Supported | All supported image formats | **Not** supported | 
 |`/v1/comparison`*  | Supported | Supported | All supported image formats | **Not** supported |
 
 \* The Tooling and `/v1/comparison` method also accept JSON files from the output of the `/v1/element_classification` method.

@@ -22,7 +22,6 @@ Compare and Comply
     compare.md
     tables.md
     invoices.md
-    mortgages.md 
     feedback.md
     tooling.md
     batching.md
@@ -30,6 +29,7 @@ Compare and Comply
 
     {: .navgroup id="reference"}
     information-security.md
+    recovery.md
     at-events.md
     [API reference](https://cloud.ibm.com/apidocs/compare-comply)
     
