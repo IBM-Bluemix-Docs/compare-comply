@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-02-22"
+lastupdated: "2018-03-04"
 
 ---
 
@@ -45,8 +45,10 @@ The current version is `2018-10-15`.
 
 The following new features and changes to the service are available.
 
-### 18 February 2019
-{: #18-feb-2019}
+The release includes the following update:
+
+### 5 March 2019
+{: #5-march-2019}
 
 The release includes the following updates:
 

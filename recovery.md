@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-21"
+lastupdated: "2019-03-05"
 
 ---
 
@@ -27,7 +27,7 @@ lastupdated: "2019-02-21"
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# Disaster recovery
+# High availability and disaster recovery
 {: #recovery}
 
 Disaster recovery for IBM Watson&trade; Compare and Comply is possible with proper data, model, and file backups. A typical use case is using backups to restore information to a new Compare and Comply instance in a different data center.
@@ -79,11 +79,11 @@ Consider using your backups to restore to a new Compare and Comply instance in a
 ### Batches
 {: #restore-batches}
 
-The database containing the status of batch jobs can be up to 24 hours old. This means that Compare and Comply does not know about batches that were started or were running up to 24 hours before the disaster. This does _not_ mean that data is lost, because the data is in COS buckets. What can be lost,however, are the IDs and statuses for batch jobs that were running or started after the time of the last backup.
+The database containing the status of batch jobs can be up to 24 hours old. This means that Compare and Comply does not know about batches that were started or were running up to 24 hours before the disaster. This does _not_ mean that data is lost, because the data is in COS buckets. What can be lost, however, are the IDs and statuses for batch jobs that were running or started after the time of the last backup.
 
 Use the [`GET /v1/batches`](/docs/services/compare-comply?topic=compare-comply-batching#get-list-batch) method to get a list of batch statuses known by the recovered system. Then use your application's log to get the information about the batches that were started or were running close to the time of the disaster. For batch jobs that are not listed in the output of the `GET /v1/batches` method, look in the COS output bucket of that batch job. If the bucket contains a `{batch_ID}.json` file, the file lists the final status of the batch job. If the file does not exist, then the batch job did not finish and needs to be re-submitted. Use the [`POST /v1/batches`](/docs/services/compare-comply?topic=compare-comply-batching#post-batch) method to rerun the batch job from scratch. If it was a large batch that already processed a number of input files, as determined by the corresponding JSON output files in the output bucket, you can remove the corresponding input files from the input COS bucket. The new batch job processes the remaining input file or files and adds the results to the same output bucket.
 
-### Feedbacks
+### Feedback
 {: #restore-feedback}
 
 Feedback provided by using the Compare and Comply Tooling after the time of the latest backup of the feedback data store is lost. You need to reload the documents you were using into the tool and manually redo the missing feedback. You can use the [`GET /v1/feedback`](/docs/services/compare-comply?topic=compare-comply-feedback#get_all_feedback) method to retrieve the feedback that the system knows about. Feedback objects include a creation timestamp that can give you an idea of when the last feedback was recorded.

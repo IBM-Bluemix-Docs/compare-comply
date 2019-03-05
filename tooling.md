@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -148,6 +148,13 @@ To provide suggestions in the Tooling, perform the following steps:
    To close the **Suggest changes** panel and abandon your feedback, click the **X** in the upper right corner of the panel.
    
 1. When you are done providing feedback on the highlighted element, click **Submit**.
+
+### Viewing the suggestion history
+{: #view-suggestions}
+
+You can view the suggestions that have been made in the Tooling by clicking the **Suggestion history** icon (![Suggestion history icon](images/tool-suggestion-icon.png)). The **Suggestion history** page opens.
+
+![Compare and Comply Tooling: Suggestion history](images/tool-suggestion-history.png)
 
 ## Applying recommendations
 {: #apply-recommendations}

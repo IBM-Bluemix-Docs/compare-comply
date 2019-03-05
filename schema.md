@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-03-04"
 
 ---
 
@@ -162,28 +162,20 @@ After a document is processed by the `/v1/element_classification` method, the se
       "key_value_pairs": [
         {
           "key": {
-            "key_id": string,
+            "cell_id": string,
             "location": {
               "begin": int,
               "end": int
             },
-            "text": string,
-            "row_index_begin": int,
-            "row_index_end": int,
-            "column_index_begin": int,
-            "column_index_end": int
+            "text": string
           },
           "value": [{
-            "value_id": string,
+            "cell_id": string,
             "location": {
               "begin": int,
               "end": int
             },
-            "text": string,
-            "row_index_begin": int,
-            "row_index_end": int,
-            "column_index_begin": int,
-            "column_index_end": int
+            "text": string
           },
           ...
           ]
@@ -327,7 +319,7 @@ The schema is arranged as follows.
       - `text`: The text of the identified section title.
       - `location`: The location of the section title in the input document as defined by its `begin` and `end` indexes.
     - `table_headers`: An array of table-level cells applicable as headers to all the other cells of the current table. Each table header is defined as a collection of the following elements:
-      - `cell_id`: String value in the format `tableHeader-x-y` where `x` and `y` are the begin and end offsets of the cell value in the original input document.
+      - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
       - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
@@ -335,7 +327,7 @@ The schema is arranged as follows.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
       - `column_index_end`: The `end` index of the cell's `column` location in the current table.
     - `column_headers`: An array of column-level cells, each applicable as a header to other cells in the same column as itself, of the current table. Each column header is defined as a collection of the following items:
-      - `cell_id`: A string value in the format `columnHeader-x-y`, where `x` and `y` are the begin and end offsets of this column header cell in the input document.
+      - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
       - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`. 
@@ -344,7 +336,7 @@ The schema is arranged as follows.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
       - `column_index_end`: The `end` index of the cell's `column` location in the current table.
     - `row_headers`: An array of row-level cells, each applicable as a header to other cells in the same row as itself, of the current table. Each row header is defined as a collection of the following items:
-      - `cell_id`: A string value in the format `rowHeader-x-y`, where `x` and `y` are the begin and end offsets of this row header cell in the input document.
+      - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
       - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`. 
@@ -353,7 +345,7 @@ The schema is arranged as follows.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
       - `column_index_end`: The `end` index of the cell's `column` location in the current table.
     - `body_cells`: An array of cells that are not table header or column header or row header cells, of the current table with corresponding row and column header associations. Each body cell is defined as a collection of the following items:
-      - `cell_id`: A string value in the format `bodyCell-x-y`, where `x` and `y` are the begin and end offsets of this body cell in the input document.
+      - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
       - `row_index_begin`: The `begin` index of this cell's `row` location in the current table.
@@ -372,21 +364,13 @@ The schema is arranged as follows.
         - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
     - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/compare-comply/tables.html#key-value-pairs).
       - `key`: An object that specifies a key for a key-value pair.
-        - `key_id`: The unique ID of the key span in the table.
+        - `cell_id`: The unique ID of the key span in the table.
         - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.
         - `text`: The text content of the table cell without HTML markup.
-        - `row_index_begin`: The ID of the uppermost row the cell spans.
-        - `row_index_end`: The ID of the lowermost row the cell spans.
-        - `column_index_begin`: The ID of the leftmost column the cell spans.
-        - `column_index_end`: The ID of the rightmost column the cell spans.
       - `value`: An array that specifies the value or values for a key-value pair.
-        - `value_id`: The unique ID of the value span in the table.
+        - `cell_id`: The unique ID of the value span in the table.
         - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
         - `text`: The text content of the table cell without HTML markup.
-        - `row_index_begin`: The ID of the uppermost row the cell spans.
-        - `row_index_end`: The ID of the lowermost row the cell spans.
-        - `column_index_begin`: The ID of the leftmost column the cell spans.
-        - `column_index_end`: The ID of the rightmost column the cell spans.
   - `document_structure`: An object that describes the structure of the input document.
     - `section_titles`: An array that contains one object per section or subsection that is detected in the input document. Sections and subsections are not nested. Instead, they are flattened out and can be placed back in order by using the `begin` and `end` values of the element and the `level` value of the section.
       - `text`: A string that lists the section title, if detected.

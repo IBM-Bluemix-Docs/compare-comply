@@ -28,11 +28,12 @@ Compare and Comply
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
+    [API reference](https://cloud.ibm.com/apidocs/compare-comply)
     information-security.md
     recovery.md
     at-events.md
-    [API reference](https://cloud.ibm.com/apidocs/compare-comply)
-    
+    /watson/watson-using-sdks
+    [Watson GitHub repos](https://github.com/watson-developer-cloud)
 
     {: .navgroup-end}
 
