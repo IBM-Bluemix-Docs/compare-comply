@@ -2,7 +2,9 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-13"
+
+subcollection: compare-comply
 
 ---
 
@@ -33,7 +35,7 @@ The Compare and Comply Tooling provides the following capabilities:
 
   - **Document visualizer**: Enables you to use the **Element Classification** feature in a visual environment. It also provides the ability to provide suggestions to update and improve the training models.
 
-  - **Recommendations**: Enables you to customize your service instance based on labeling recommendations that are based on suggestions that your users entered by using either the Tooling or the [**Feedback** APIs](/docs/services/compare-comply/feedback.html#feedback).
+  - **Recommendations**: Enables you to customize your service instance based on labeling recommendations that are based on suggestions that your users entered by using either the Tooling or the [**Feedback** APIs](/docs/services/compare-comply?topic=compare-comply-feedback).
 
       **Recommendations** is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/account/settings){: new_window} for information about your plan.
       {: important}
@@ -46,7 +48,7 @@ The Compare and Comply Tooling provides the following capabilities:
 You need the following before you can use the Compare and Comply Tooling:
 
  - An IBM Cloud account.
- - A Compare and Comply service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting started](/docs/services/compare-comply/getting-started.html#getting_started).
+ - A Compare and Comply service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting started](/docs/services/compare-comply?topic=compare-comply-getting_started).
  
 ## Launching the Compare and Comply Tooling
 {: #launch-tool}
@@ -60,15 +62,15 @@ You need the following before you can use the Compare and Comply Tooling:
 ## Running element classification
 {: #use-tooling-ec}
 
-The Tooling launches and displays the landing page. Click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply/formats.html#formats) and click **Open**.
+The Tooling launches and displays the landing page. Click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply?topic=compare-comply-formats) and click **Open**.
 
-The maximum file size is 1.5 MB. However, you can upload JSON output files from the **Element Classification** feature that are up to 50 MB. You can process larger documents by submitting them to Element Classification by [using batch processing](/docs/services/compare-comply/batching.html#batching) and saving the output to upload to the Tooling. **The JSON _must_ be the output of the Element Classification feature. You cannot upload arbitrary JSON to the tool.**
+The maximum file size is 1.5 MB. However, you can upload JSON output files from the **Element Classification** feature that are up to 50 MB. You can process larger documents by submitting them to Element Classification by [using batch processing](/docs/services/compare-comply?topic=compare-comply-batching) and saving the output to upload to the Tooling. **The JSON _must_ be the output of the Element Classification feature. You cannot upload arbitrary JSON to the tool.**
 {: note}
 
 ![Compare and Comply Tooling landing page](images/tool-landing.png)
 ![Compare and Comply Tooling upload page](images/tool-landing-2.png)
 
-  You can allow IBM Watson to use non-identifiable information from the document for general Watson service improvements. If you want to do so, select the **Allow Watson to use this document for learning** check box. The check box text includes a link to more information at [Learn more ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson/getting-started-logging.html#controlling-request-logging-for-watson-services){: new_window}. For more information about IBM's commitment to data privacy, see [https://www.ibm.com/watson/data-privacy/ ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/data-privacy/){:new_window}.
+  You can allow IBM Watson to use non-identifiable information from the document for general Watson service improvements. If you want to do so, select the **Allow Watson to use this document for learning** check box. The check box text includes a link to more information at [Learn more ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson??topic=watson-gs-logging-overview#controlling-request-logging-for-watson-services){: new_window}. For more information about IBM's commitment to data privacy, see [https://www.ibm.com/watson/data-privacy/ ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/data-privacy/){:new_window}.
   {: tip}
   
 Click **Upload and continue**.
@@ -106,7 +108,7 @@ The Compare and Comply Tooling for Element Classification displays four panes. T
 1. Optionally, open another document by clicking the **Upload new document** icon (![Compare and Comply Tooling upload new document button](images/tooling-upload-icon.png)). The Tooling opens a file browser. Proceed as described in Step 2.
    ![Compare and Comply Tooling: Upload a new contract](images/tooling-replace.png)
 
-See [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing) for listings and descriptions of all available categories, natures, and parties.
+See [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing) for listings and descriptions of all available categories, natures, and parties.
 
 ### Displaying contract metadata
 {: #display-metadata}
@@ -167,8 +169,8 @@ You can use recommendations to customize your service instance based on labeling
 To apply recommendations, perform the following steps:
 
 1. Click the **Recommendations** icon (![Recommendations icon](images/recommendations-icon.png)). The Tooling displays the Recommendations page, which is divided into two tabs:
-  - The **Current** tab shows recommendations that were entered but that are not yet accepted or rejected.
-  - The **Applied** tab shows recommendations that were entered and are now part of your service instance model.
+  - The **Current** tab shows recommendations that were generated but that are not yet accepted or rejected.
+  - The **Applied** tab shows recommendations that were accepted and are now part of your service instance model.
   
   ![Compare and Comply Tooling: Recommendations page](images/recommendations.png)
   
@@ -208,9 +210,9 @@ The combined size of the two compared documents can be no larger than 3 MB.
 1. When the Tooling launches, click the **Compare** icon (![compare icon](images/tooling-compare-icon.png)). The Tooling displays the Comparison  page.
 ![Comparison page](images/tooling-compare-landing.png)
 
-1. In the **Base document** panel, click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply/formats.html#formats) as the base document for comparison and click **Open**. The panel displays the name of the file that you selected.
+1. In the **Base document** panel, click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply?topic=compare-comply-formats) as the base document for comparison and click **Open**. The panel displays the name of the file that you selected.
 
-1. In the **Comparison document** panel, click  **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply/formats.html#formats)  as the base document for comparison and click **Open**. The panel displays the name of the file that you selected.
+1. In the **Comparison document** panel, click  **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply?topic=compare-comply-formats) as the base document for comparison and click **Open**. The panel displays the name of the file that you selected.
   ![Comparison tooling with two files selected](images/tooling-select-2-docs.png)
   
 1. Click **Compare**. The Tooling processes the documents and displays a side-by-side comparison of them.

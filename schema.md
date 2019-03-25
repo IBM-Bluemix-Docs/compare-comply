@@ -2,7 +2,9 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-03-04"
+lastupdated: "2019-03-14"
+
+subcollection: compare-comply
 
 ---
 
@@ -306,10 +308,10 @@ The schema is arranged as follows.
         - `party`: A string that identifies the party to whom the sentence applies.
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `categories`: An array that lists the functional categories into which the element falls; in other words, the subject matter of the element.
-      - `label`: A string that lists the identified category. You can find a list of [categories](/docs/services/compare-comply/parsing.html#contract_categories) in [Understanding element classification](/docs/services/compare-comply/parsing.html#contract_parsing).
+      - `label`: A string that lists the identified category. You can find a list of [categories](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
-      - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
+      - `type`: The type of attribute. Possible values are `Currency`, `DateTime`, `Duration`, `Location`, `Organization`, `Percentage`, and `Person`.
       - `text`: The text that is associated with the attribute.
       - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
   - `tables`\*: An array that defines the tables identified in the input document.
@@ -362,13 +364,13 @@ The schema is arranged as follows.
         - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
         - `text`: The text that is associated with the attribute.
         - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
-    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/compare-comply/tables.html#key-value-pairs).
+    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/compare-comply?topic=compare-comply-understanding_tables#key-value-pairs).
       - `key`: An object that specifies a key for a key-value pair.
-        - `cell_id`: The unique ID of the key span in the table.
+        - `cell_id`: The unique ID of the key in the table.
         - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.
         - `text`: The text content of the table cell without HTML markup.
       - `value`: An array that specifies the value or values for a key-value pair.
-        - `cell_id`: The unique ID of the value span in the table.
+        - `cell_id`: The unique ID of the value in the table.
         - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
         - `text`: The text content of the table cell without HTML markup.
   - `document_structure`: An object that describes the structure of the input document.
@@ -391,17 +393,17 @@ The schema is arranged as follows.
     - `contacts`: An array that defines the name and role of contacts that are identified in the input document.
       - `name`: A string that lists the name of an identified contact.
       - `role`: A string that lists the role of the identified contact.  
-  - `effective_dates`: An array that identifies the effective dates of the document.
+  - `effective_dates`: An array that identifies the date or dates on which the document becomes effective.
     - `confidence_level`: The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.
     - `text`: An effective date, which is listed as a string.
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-  - `contract_amounts`: An array that identifies the monetary amounts that are identified in the document.
+  - `contract_amounts`: An array that monetary amounts that identify the total amount of the contract that needs to be paid from one party to another.
     - `confidence_level`: The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.    
     - `text`: A contract amount, which is listed as a string.
     - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-  - `termination_dates`: An array that identifies the document's termination dates.
+  - `termination_dates`: An array that identifies the date or dates on which the document is to be terminated.
     - `confidence_level`: The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.    
     - `text`: A termination date, which is listed as a string.
     - `location`: The location of the date as defined by its `begin` and `end` indexes.

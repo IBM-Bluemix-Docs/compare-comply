@@ -4,6 +4,8 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-03-04"
 
+subcollection: compare-comply
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -37,9 +39,9 @@ Observe the following notes regarding files submitted to Compare and Comply.
      ```
      {: pre}
     MIME types are provided with the supported file types listed in the following sections.
-  - Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/services/compare-comply/batching.html#batching), files can be up to 50 MB in size.
+  - Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/services/compare-comply?topic=compare-comply-batching), files can be up to 50 MB in size.
   - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
-  - The [Compare and Comply Tooling](/docs/services/compare-comply/tooling.html#tooling) accepts all file types other than text.
+  - The [Compare and Comply Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool) accepts all file types other than text.
   
 ## PDF support
 {: #pdfs}
@@ -102,12 +104,12 @@ Compare and Comply methods that support images include the following.
 
 The service can process "plain" text (ASCII) files that use a monospaced font and page breaks. Richer text formats that include non-monospaced fonts and style attributes such as bold and italics are not yet supported. If you need to process an enriched text file, convert it to PDF before submitting it to the service.
 
+The MIME type is `text/plain`.
+
 Compare and Comply methods that support text include the following.
 
   - `/v1/html_conversion`
   - `/v1/tables`
-
-The MIME type is `text/plain`.
 
 ## Support by method
 {: #methods}

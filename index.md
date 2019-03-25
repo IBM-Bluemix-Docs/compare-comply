@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-03-11"
+
+subcollection: compare-comply
 
 ---
 
@@ -34,6 +36,11 @@ Compare and Comply provides:
   - Table extraction, which parses each cell in the table and associates metadata such as row and column headers
   - A feedback API and user interface that lets subject matter experts send corrections and suggestions to IBM data science teams for continuous improvements of models
 
-To get started with the service, see the [Getting started](/docs/services/compare-comply/getting-started.html) page.
+To get started with the service, see the [Getting started](/docs/services/compare-comply?topic=compare-comply-getting_started) page.
+
+## Health Insurance Portability and Accountability Act (HIPAA)
+{: #cnc-hipaa}
+
+US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans. See [Enabling EU and HIPAA supported settings](https://cloud.ibm.com/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported) for more information.
 
 

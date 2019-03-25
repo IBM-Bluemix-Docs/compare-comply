@@ -4,6 +4,8 @@ copyright:
   years: 2016, 2018
 lastupdated: "2018-10-30"
 
+subcollection: compare-comply
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -24,14 +26,14 @@ lastupdated: "2018-10-30"
 Use the {{site.data.keyword.cloudaccesstrailfull}} service to track how users and applications interact with the Compare and Comply service in {{site.data.keyword.Bluemix}}. 
 {: shortdesc}
 
-The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_notm}}. For more information, see the [{{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html#getting-started-with-cla).
+The {{site.data.keyword.cloudaccesstrailfull_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.Bluemix_notm}}. For more information, see the [{{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla).
 
 <!-- You can create different sections to group events by area. -->
 
 ## List of events
 {: #events}
 
-<!-- Make sure you introduce the table with a detailed description that immediately precedes it. For example, see https://console.bluemix.net/docs/services/cloud-activity-tracker/services/at_events_cf.html#catalog. -->
+<!-- Make sure you introduce the table with a detailed description that immediately precedes it. For example, see https://cloud.ibm.com/docs/services/cloud-activity-tracker/services/at_events_cf.html#catalog. -->
 
 | Action | Description | 
 |:-----------------|:-----------------|

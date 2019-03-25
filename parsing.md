@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-02-13"
+lastupdated: "2018-02-18"
+
+subcollection: compare-comply
 
 ---
 
@@ -108,17 +110,18 @@ The `attributes` array specifies any attributes that are identified in the sente
 
 | `attributes`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
-|`Address`         |A postal address.                                          |
 |`Currency`        |Monetary value and units.                                  |
 |`DateTime`        |A date, time, date range, or time range.                   |
+|`Duration`        |A time duration.                                           |
 |`Location`        |A geographical location or region.                         |
 |`Organization`    |An organization.                                           |
+|`Percentage`      |A percentage.                                              |
 |`Person`          |A person.                                                  |
 
 ## Effective dates
 {: #effective_dates}
 
-The `effective_dates` array identifies the dates during which the document is in effect.
+The `effective_dates` array identifies the date or dates on which the document becomes effective.
 
 | `effective_dates`|Description                                                |
 |:----------------:|-----------------------------------------------------------|
@@ -130,7 +133,7 @@ The `effective_dates` array identifies the dates during which the document is in
 ## Contract amounts
 {: #contract_amounts}
 
-The `contract_amounts` array identifies the monetary amounts specified in the document.
+The `contract_amounts` array specifies monetary amounts that identify the total amount of the contract that needs to be paid from one party to another.
 
 | `contract_amounts`|Description                                               |
 |:----------------:|-----------------------------------------------------------|
@@ -142,7 +145,7 @@ The `contract_amounts` array identifies the monetary amounts specified in the do
 ## Termination dates
 {: #termination_dates}
 
-The `termination_dates` array identifies the document's termination dates.
+The `termination_dates` array identifies the date or dates on which the document is to be terminated.
 
 | `termination_dates`|Description                                              |
 |:----------------:|-----------------------------------------------------------|
@@ -154,13 +157,13 @@ The `termination_dates` array identifies the document's termination dates.
 ## Contract types
 {: #contract_types}
 
-The `contract_types` array identifies the document's contract type or types.
+The `contract_types` array identifies the document's contract type or types as declared in the document.
 
 | `contract_types`|Description                                               |
 |:----------------:|-----------------------------------------------------------|
 |`confidence_level`|The confidence level of the identification of the contract type. Possible values include `High`, `Medium`, and `Low`.|
-|`text`            |The termination date, listed as a string.                  |
-|`location`        |The location of the termination date as defined by its `begin` and `end` indexes.|
+|`text`            |The contract type, listed as a string.                  |
+|`location`        |The location of the contract type as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
 ## Provenance

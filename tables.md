@@ -2,7 +2,9 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-11"
+
+subcollection: compare-comply
 
 ---
 
@@ -22,7 +24,7 @@ lastupdated: "2019-02-27"
 # Classifying tables
 {: #understanding_tables}
 
-You can classify the contents of tables in your [input document](/docs/services/compare-comply/formats.html#formats) by using the `POST /v1/tables` method. 
+You can classify the contents of tables in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by using the `POST /v1/tables` method. 
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/tables` method to classify the contents of tables in your document. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
@@ -36,7 +38,7 @@ curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://gateway.watson
 ```
 {: codeblock}
 
-See [Classifying elements](/docs/services/compare-comply/schema.html#output_schema) for information about the table parsing format.
+See [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) for information about the table parsing format.
 
 The following is an example table from an input document.
  ![Example table](images/example-table.png)
@@ -293,6 +295,6 @@ Tables can contain key-value pairs that span multiple table cells. Compare and C
 |**Date**: 1/1/2019 | |
 |**Amount**: $1000 | &nbsp; |
 
-For more information, see the description of `key_value_pairs` and its descendants in the list of elements in [Schema arrangement](/docs/services/compare-comply/schema.html#schema-arrangement).
+For more information, see the description of `key_value_pairs` and its descendants in the list of elements in [Schema arrangement](/docs/services/compare-comply?topic=compare-comply-output_schema#schema-arrangement).
 
 
