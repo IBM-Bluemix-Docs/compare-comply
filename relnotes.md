@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-03-19"
+lastupdated: "2018-03-25"
 
 subcollection: compare-comply
 
@@ -61,7 +61,7 @@ The release includes the following updates:
   
   - Documentation updates for metadata fields. For more information, see the descriptions beginning at [Effective dates](/docs/services/compare-comply?topic=compare-comply-contract_parsing#effective_dates).
   
-  - Beta release of an analysis model for purchase orders, which you can access by using the `/v1/purchase_orders` method. For more information, see [Understanding invoice parsing](/docs/services/compare-comply?topic=compare-comply-pos). For important information about beta features, see [Beta features](#beta_features). <br/>
+  - Beta release of an analysis model for purchase orders, which you can access by using the `/v1/purchase_orders` method. For more information, see [Understanding purchase-order parsing](/docs/services/compare-comply?topic=compare-comply-pos). For important information about beta features, see [Beta features](#beta_features). <br/>
   **Note:** Only the `curl` API is available for this method. The method is not currently provided in other SDKs (Go, Java, Python, Node.js, Ruby, Swift).
 
 ### 5 March 2019
