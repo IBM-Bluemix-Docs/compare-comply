@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="compare-comply" audience="service" href="/docs/services/compare-comply/index.html" path="services/compare-comply"}
+{: .toc subcollection="compare-comply" audience="service" href="/docs/services/compare-comply/?topic=compare-comply-about#about" path="services/compare-comply"}
 Compare and Comply
 
     {: .navgroup id="learn"}
@@ -22,6 +22,7 @@ Compare and Comply
     compare.md
     tables.md
     invoices.md
+    pos.md
     feedback.md
     tooling.md
     batching.md
