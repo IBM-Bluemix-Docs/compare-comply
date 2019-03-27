@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-27"
 
 subcollection: compare-comply
 
@@ -25,7 +25,7 @@ subcollection: compare-comply
 You can analyze purchase orders by calling the `POST /v1/purchase_orders` method.
 {: shortdesc}
 
-Purchase-order parsing is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to purchase-order parsing. Talk with your IBM representative for details.
+Purchase-order parsing is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to purchase-order parsing by completing the following [form](https://datasciencex.typeform.com/to/Fjyf6t).
 {: important}
 
 You can parse and classify the contents of purchase orders in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by using the `POST /v1/purchase_orders` method. 
