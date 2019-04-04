@@ -38,9 +38,6 @@ Compare and Comply provides:
 
 To get started with the service, see the [Getting started](/docs/services/compare-comply?topic=compare-comply-getting_started) page.
 
-## Health Insurance Portability and Accountability Act (HIPAA)
-{: #cnc-hipaa}
-
 US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans. See [Enabling EU and HIPAA supported settings](https://cloud.ibm.com/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported) for more information.
 
 

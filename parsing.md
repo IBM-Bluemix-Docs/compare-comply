@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-02-18"
+lastupdated: "2018-03-29"
 
 subcollection: compare-comply
 
@@ -112,8 +112,10 @@ The `attributes` array specifies any attributes that are identified in the sente
 |:----------------:|-----------------------------------------------------------|
 |`Currency`        |Monetary value and units.                                  |
 |`DateTime`        |A date, time, date range, or time range.                   |
+|`DefinedTerm`     |A term that is defined in the input document.              |
 |`Duration`        |A time duration.                                           |
 |`Location`        |A geographical location or region.                         |
+|`Number`          |A digital or textual number that describes a quantity of countable things and is not classified as one of the other numerical `attribute` types.|
 |`Organization`    |An organization.                                           |
 |`Percentage`      |A percentage.                                              |
 |`Person`          |A person.                                                  |
