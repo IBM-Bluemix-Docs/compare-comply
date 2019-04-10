@@ -166,7 +166,7 @@ The command output uses the following schema.
                "begin": int,
                "end": int
             },
-            "text": strint
+            "text": string
          },
          "unit_price": {  
             "location": {  
