@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-11"
 
 subcollection: compare-comply
 
@@ -272,8 +272,8 @@ After a document is processed by the `/v1/element_classification` method, the se
     {
       "confidence_level": string,
       "text": string,
-      "location": { "begin": int, "end": int },
-      "provenance_ids": [ string, string, ... ]
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
      },
      ...
   ],
@@ -281,8 +281,8 @@ After a document is processed by the `/v1/element_classification` method, the se
     {
       "confidence_level": string,
       "text": string,
-      "location": { "begin": int, "end": int },
-      "provenance_ids": [ string, string, ... ]
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
     },
     ...
   ],
@@ -290,8 +290,8 @@ After a document is processed by the `/v1/element_classification` method, the se
     {
       "confidence_level": string,
       "text": string,
-      "location": { "begin": int, "end": int },
-      "provenance_ids": [ string, string, ... ]
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
     },
     ...
   ],
@@ -299,8 +299,17 @@ After a document is processed by the `/v1/element_classification` method, the se
     {
       "confidence_level": string,
       "text": string,
-      "location": { "begin": int, "end": int },
-      "provenance_ids": [ string, string, ... ]
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
+    },
+    ...
+  ],
+  "contract_terms": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
     },
     ...
   ]
@@ -436,7 +445,12 @@ The schema is arranged as follows.
     - `confidence_level`: The confidence level of the identification of the contract type. Possible values include `High`, `Medium`, and `Low`.
     - `text`: A contract type, which is listed as a string.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.    
-    - `location`: The location of the contract as defined by its `begin` and `end` indexes.
+    - `location`: The location of the contract type as defined by its `begin` and `end` indexes.
+  - `contract_terms`: An array that identifies the duration or durations of the contract.
+    - `confidence_level`: The confidence level of the identification of the contract terms. Possible values include `High`, `Medium`, and `Low`.
+    -  `text`: A contract term, which is listed as a string.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+    - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
 
 **\*Notes on tables:**
   - Row and column index values per cell are zero-based and so begin with `0`.

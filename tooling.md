@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-04-23"
 
 subcollection: compare-comply
 
@@ -25,7 +25,7 @@ subcollection: compare-comply
 # Using the Compare and Comply Tooling
 {: #using_tool}
 
-The service provides Compare and Comply Tooling to enable you to work with governing documents in a GUI environment. This short tutorial introduces the Tooling and takes you through the process of uploading and processing documents, then working with the results.
+The Compare and Comply Tooling enables you to work with governing documents in a GUI environment. This tutorial introduces the Tooling and takes you through the process of uploading and processing documents, then working with the results.
 {: shortdesc}
 
 ## Tooling capabilities
@@ -33,7 +33,7 @@ The service provides Compare and Comply Tooling to enable you to work with gover
 
 The Compare and Comply Tooling provides the following capabilities:
 
-  - **Document visualizer**: Enables you to use the **Element Classification** feature in a visual environment. It also provides the ability to provide suggestions to update and improve the training models.
+  - **Analyze**: Enables you to use the **Element Classification** feature in a visual environment. It also provides the ability to provide suggestions to update and improve the training models.
 
   - **Recommendations**: Enables you to customize your service instance based on labeling recommendations that are based on suggestions that your users entered by using either the Tooling or the [**Feedback** APIs](/docs/services/compare-comply?topic=compare-comply-feedback).
 
@@ -101,7 +101,7 @@ The Compare and Comply Tooling for Element Classification displays four panes. T
   
   ![Compare and Comply Tooling with category and nature selections](images/tooling-cat-nature.png)
  
-1. Click a highlighted element to display all labels that are applied to the element. A pop-up window is displayed next to the highlighted element; you can optionally suggest different classifications for the labels and elements, as described in [Adding suggestions](#add-suggestions).
+1. Click a highlighted element to display all labels that are applied to the element. You can optionally suggest different classifications for the labels and elements, as described in [Adding suggestions](#add-suggestions).
    ![Compare and Comply Tooling displaying element-specific information](images/tool-highlight.png)
 
 1. Use the up and down arrows to the right of the document to cycle through elements that match the specified labels.
@@ -118,15 +118,16 @@ See [Understanding element classification](/docs/services/compare-comply?topic=c
 
 You can display contract metadata by clicking the **Contract metadata** tab in the middle pane. Contract metadata can include any of the following items:
 
-  - **Parties**, including name and postal address.
+  - **Parties**, including names and postal addresses.
   - **Effective dates** that are identified in the document.
   - **Contract amounts** (monetary amounts) that are identified in the document.
   - **Termination dates** that are identified in the document.
   - The **contract types** of the document.
+  - The **contract terms** of the document.
   
-The Tooling displays a right-pointing arrow next to identified metadata items. Click an arrow to go to the corresponding element in the document. The Tooling highlights the element in orange.
+The Tooling displays a list of linked identified metadata items. Click a link to go to the corresponding element in the document. The Tooling highlights the element in orange.
   
-Compare and Comply assigns confidence levels to identified **Effective dates**, **Contract amounts**, **Termination dates**, and **Contract types** items by using the following scale:
+Compare and Comply assigns confidence levels to identified **Effective dates**, **Contract amounts**, **Termination dates**, **Contract types**, and **Contract terms** items by using the following scale:
   - Three green dots indicate a **high** level of confidence.
   - Two yellow dots indicate a **medium** level of confidence.
   - One red dot indicates a **low** level of confidence.
@@ -140,9 +141,9 @@ As noted in [Filtering elements by labels](#filter-elements), you can select any
 
 To provide suggestions in the Tooling, perform the following steps:
 
-1. Open the Tooling, open a document, and apply the labels that you want to examine. Select a highlighted passage to display the informational pop-up window.
+1. Open the Tooling, open a document, and apply the labels that you want to examine. Select a highlighted passage to display information about it in the right pane.
 
-1. If you disagree with the information that is displayed in the pop-up window, click **Suggest changes**. The **Suggest changes** panel opens.
+1. If you disagree with the information that the Tooling displays, click **Suggest changes**. The **Suggest changes** panel opens.
    ![Compare and Comply Tooling: Suggestion panel](images/tool-suggestion-panel.png).
    
 1. The panel lists each labeled element in the highlighted passage. Perform one or more of the following actions:
@@ -158,6 +159,9 @@ To provide suggestions in the Tooling, perform the following steps:
 {: #view-suggestions}
 
 You can view the suggestions that have been made in the Tooling by clicking the **Suggestion history** icon (![Suggestion history icon](images/tool-suggestion-icon.png)). The **Suggestion history** page opens.
+
+  The **Suggestion history** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/account/settings){: new_window} for information about your plan.
+  {: important}
 
 ![Compare and Comply Tooling: Suggestion history](images/tool-suggestion-history.png)
 
@@ -218,12 +222,15 @@ The combined size of the two compared documents can be no larger than 3 MB.
 1. In the **Comparison document** panel, click  **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply?topic=compare-comply-formats) as the base document for comparison and click **Open**. The panel displays the name of the file that you selected.
   ![Comparison tooling with two files selected](images/tooling-select-2-docs.png)
   
-1. Click **Compare**. The Tooling processes the documents and displays a side-by-side comparison of them.
+1. Click **Compare new**. The Tooling processes the documents and displays a side-by-side comparison of them.
   ![Comparison displaying two compared files](images/tooling-compared-docs.png)
   
 1. The Tooling lists the number of matched elements that it detected between the two documents and highlights the matched elements in blue. Use the up and down arrows to navigate through the matches.
 
-1. Optionally, click the **Display options** icon (![display options icon](images/tooling-eye-icon.png)) on the right side of the screen and select different display options.
+1. Optionally, click the **Toggle filter list** icon (![filter list icon](images/tool-compare-toggle-filter-list-icon.png)) on the left side of the screen and select different filters.
+  ![Comparison filter list](images/tool-compare-toggle-filter-list.png)
+
+1. Optionally, click the **Toggle display options** icon (![display options icon](images/tooling-eye-icon.png)) on the left side of the screen and select different display options.
   ![Comparison display options](images/tooling-display-options.png)
   
   For example, to display unaligned elements, select the **Unaligned elements** check box. The Tooling displays unaligned elements in yellow.

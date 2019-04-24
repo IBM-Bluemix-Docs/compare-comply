@@ -19,8 +19,8 @@ Compare and Comply
         parsing.md
         doc_structure.md
     
-    compare.md
     tables.md
+    compare.md
     invoices.md
     pos.md
     feedback.md

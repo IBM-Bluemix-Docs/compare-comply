@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-03-14"
+lastupdated: "2018-04-11"
 
 subcollection: compare-comply
 
@@ -108,7 +108,7 @@ The method returns a JSON object that contains:
   - [A `tables` array](#tables) that breaks down the tables that are identified in the input document.
   - [A `document_structure` object](#doc_structure) that lists section titles and leading sentences that are identified in the input document.
   - [A `parties` array](#parties) that lists the parties, roles, addresses, and contacts of parties identified in the input document.
-  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`, and `contract_types`](#other_arrays).
+  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`,  `contract_types`, and `contract_terms`](#other_arrays).
 
 ## Step 3: Review the analysis
 {: #review_analysis}
@@ -231,12 +231,21 @@ The `parties` array lists available information about parties that are affected 
 ### Other arrays
 {: #other_arrays}
 
-The following arrays provide useful information about the input document. Each of the arrays contains zero or more objects that list the `text` in which the information was identified, the confidence level of the identification (`High`, `Medium`, or `Low`), the `location` of that text as defined by the text's `begin` and `end` indexes, and a list of `provenance_ids`, which are hashed values that you can send to IBM to provide feedback or receive support.
+The following arrays provide useful information about the input document. 
 
   - The `effective_dates` array lists the date or dates on which the document becomes effective.
   - The `contract_amounts` array lists monetary amounts that identify the total amount of the contract that needs to be paid from one party to another.
   - The `termination_dates` array lists the date or dates on which the document is to be terminated.
   - The `contract_types` array lists the contract type or types as specified in the document.
+  - The `contact_terms` array lists the contract duration or durations as specified in the document.
+  
+Each of the arrays contains zero or more objects that list the following items:
+
+  - The text in which the information was identified.
+  - The normalized text, if applicable. This element is currently listed only in the `effective_dates` and `termination_dates` arrays.
+  - The confidence level of the identification (`High`, `Medium`, or `Low`).
+  - The `location` of that text as defined by the text's `begin` and `end` indexes.
+  - A list of `provenance_ids`, which are hashed values that you can send to IBM to provide feedback or receive support.
 
 ## Next steps
 {: #next_steps}

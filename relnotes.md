@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-03-25"
+lastupdated: "2018-04-23"
 
 subcollection: compare-comply
 
@@ -47,14 +47,26 @@ The current version is `2018-10-15`.
 
 The following new features and changes to the service are available.
 
+### 23 April 2019
+{: #23-april-2019}
+
+The release includes updates to the Compare and Comply Tooling. For more information, see [Using the Compare and Comply Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
+
+### 17 April 2019
+{: #17-april-2019}
+
 The release includes the following updates:
+
+  - Addition of the `contract_terms` array to the output of Element Classification. For more information, see [Contract terms](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract-terms) and [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema).
+  
+  - Addition of the `text_normalized` element to the `effective_dates` and `termination_dates` arrays. For more information, see [Other arrays](/docs/services/compare-comply?topic=compare-comply-getting_started#other_arrays), [Effective dates](/docs/services/compare-comply?topic=compare-comply-contract_parsing#effective_dates), and [Termination dates](/docs/services/compare-comply?topic=compare-comply-contract_parsing#termination_dates).
 
 ### 19 March 2019
 {: #19-march-2019}
 
 The release includes the following updates:
 
-  - Updates to the `attributes` values available in Element Classification. For more information, see [Attributes](/docs/services/compare-comply/?topic=compare-comply-contract_parsing#attributes). 
+  - Updates to the `attributes` values available in Element Classification. For more information, see [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes). 
 
     The `Address` attribute value has been deprecated.
     {: important}

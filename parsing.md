@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-03-29"
+lastupdated: "2018-04-11"
 
 subcollection: compare-comply
 
@@ -129,6 +129,7 @@ The `effective_dates` array identifies the date or dates on which the document b
 |:----------------:|-----------------------------------------------------------|
 |`confidence_level`|The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.|
 |`text`            |An effective date, listed as a string.                     |
+|`text_normalized` |The normalized text of the `text` if available, listed as a string. |
 |`location`        |The location of the date as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
@@ -153,6 +154,7 @@ The `termination_dates` array identifies the date or dates on which the document
 |:----------------:|-----------------------------------------------------------|
 |`confidence_level`|The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.|
 |`text`            |The termination date, listed as a string.                  |
+|`text_normalized` |The normalized text of the `text` if available, listed as a string.|
 |`location`        |The location of the termination date as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
@@ -166,6 +168,18 @@ The `contract_types` array identifies the document's contract type or types as d
 |`confidence_level`|The confidence level of the identification of the contract type. Possible values include `High`, `Medium`, and `Low`.|
 |`text`            |The contract type, listed as a string.                  |
 |`location`        |The location of the contract type as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
+
+## Contract terms
+{: #contract-terms}
+
+The `contract_terms` array identifies the duration or durations of the contract as declared in the document.
+
+| `contract_terms`|Description                                               |
+|:----------------:|-----------------------------------------------------------|
+|`confidence_level`|The confidence level of the identification of the contract term. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |The contract term, listed as a string.                  |
+|`location`        |The location of the contract term as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
 ## Provenance
