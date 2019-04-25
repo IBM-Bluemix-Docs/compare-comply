@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-04-11"
+lastupdated: "2018-04-25"
 
 subcollection: compare-comply
 
@@ -26,29 +26,31 @@ subcollection: compare-comply
 {: #getting_started}
 
 This short tutorial introduces IBM Watson&reg; Compare and Comply and goes through the process of classifying a contract to identify component pieces, their nature, the parties affected, and any identified categories.
+{: shortdesc}
 
 ## Where to start
 {: #start-options}
 
 **Get started with the API**
-This short tutorial introduces IBM Watson&reg; Compare and Comply and goes through the process of classifying a contract to identify component pieces, their nature, the parties affected, and any identified categories.
-{: shortdesc}
 
 This tutorial uses the `/v1/element_classification` method. Other service methods have similar input syntax and output formats. For more information, see the pages for other methods.
 
 **Get started with the tooling**
+
 Optionally, you can explore the service's features by using the Compare and Comply tooling. See [Using the Compare and Comply Tooling ](/docs/services/compare-comply?topic=compare-comply-using_tool) for more information.
 
 **Request Limited Preview Features**
+
 Compare and Comply has the following beta and experimental features that can be accessed by request:
 
-  -  Invoice Understanding: Compare and Comply finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Please fill out the following [form](http://ibm.biz/invoices) to gain access to this feature.
+  -  Invoice Understanding: Compare and Comply finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Please fill out the following [form](http://ibm.biz/invoices) to request access to this feature.
+  - Purchase Order Understanding: Compare and Comply extracts important information in purchase orders. Please fill out the following [form](https://datasciencex.typeform.com/to/Fjyf6t) to request access to this feature.
 
 ## Before you begin
 {: #gs-before-you-begin}
 
 - {: hide-dashboard}  Create an instance of the service:
-    1.  {: hide-dashboard} Go to the [Compare and Comply page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/compare-comply){: new_window} in the {{site.data.keyword.cloudx_notm}} catalog.
+    1.  {: hide-dashboard} Go to the [Compare and Comply page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/compare-comply){: new_window} in the {{site.data.keyword.cloud_notm}} catalog.
     1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
     1.  {: hide-dashboard} Click **Create**.
 - Copy the credentials to authenticate to your service instance:
