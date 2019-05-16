@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-04-25"
+lastupdated: "2018-05-14"
 
 subcollection: compare-comply
 
@@ -39,7 +39,8 @@ This tutorial uses the `/v1/element_classification` method. Other service method
 
 Optionally, you can explore the service's features by using the Compare and Comply tooling. See [Using the Compare and Comply Tooling ](/docs/services/compare-comply?topic=compare-comply-using_tool) for more information.
 
-**Request Limited Preview Features**
+### Request limited preview features
+{: #request-preview-features}
 
 Compare and Comply has the following beta and experimental features that can be accessed by request:
 

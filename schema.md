@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-14"
 
 subcollection: compare-comply
 
@@ -24,7 +24,8 @@ subcollection: compare-comply
 # Classifying elements
 {: #output_schema}
 
-After a document is processed by the `/v1/element_classification` method, the service provides JSON output in the following schema.
+After a document is processed by the **Element classification** feature, the service provides JSON output in the following schema.
+{: shortdesc}
 
 ```json
 {
@@ -68,6 +69,53 @@ After a document is processed by the `/v1/element_classification` method, the se
     }
     ...
   ],
+  "effective_dates": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "text_normalized": string,
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
+     },
+     ...
+  ],
+  "contract_amounts": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
+    },
+    ...
+  ],
+  "termination_dates": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "text_normalized": string,
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
+    },
+    ...
+  ],
+  "contract_types": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
+    },
+    ...
+  ],
+  "contract_terms": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
+    },
+    ...
+  ],
   "tables": [
     {
       "location" : {
@@ -97,7 +145,7 @@ After a document is processed by the `/v1/element_classification` method, the se
         },
         ...
       ],
-      "column_headers" : [
+      "row_headers" : [
         {
           "cell_id" : string,
           "location" : {
@@ -113,7 +161,7 @@ After a document is processed by the `/v1/element_classification` method, the se
         },
         ...
       ],
-      "row_headers" : [
+     "column_headers" : [
         {
           "cell_id" : string,
           "location" : {
@@ -161,6 +209,16 @@ After a document is processed by the `/v1/element_classification` method, the se
         },
         ...
       ],
+      "contexts": [
+        {
+          "text": string,
+          "location" : {
+            "begin" : int,
+            "end" : int
+          }
+        }
+        ...
+      ],
       "key_value_pairs": [
         {
           "key": {
@@ -181,16 +239,6 @@ After a document is processed by the `/v1/element_classification` method, the se
           },
           ...
           ]
-        },
-        ...
-      ],
-      "contexts": [
-        {
-          "text": string,
-          "location": {
-            "begin": int,
-            "end": int
-          }
         },
         ...
       ]
@@ -267,51 +315,6 @@ After a document is processed by the `/v1/element_classification` method, the se
       ]
     },
     ...
-  ],
-  "effective_dates": [
-    {
-      "confidence_level": string,
-      "text": string,
-      "provenance_ids": [ string, string, ... ],
-      "location": { "begin": int, "end": int }
-     },
-     ...
-  ],
-  "contract_amounts": [
-    {
-      "confidence_level": string,
-      "text": string,
-      "provenance_ids": [ string, string, ... ],
-      "location": { "begin": int, "end": int }
-    },
-    ...
-  ],
-  "termination_dates": [
-    {
-      "confidence_level": string,
-      "text": string,
-      "provenance_ids": [ string, string, ... ],
-      "location": { "begin": int, "end": int }
-    },
-    ...
-  ],
-  "contract_types": [
-    {
-      "confidence_level": string,
-      "text": string,
-      "provenance_ids": [ string, string, ... ],
-      "location": { "begin": int, "end": int }
-    },
-    ...
-  ],
-  "contract_terms": [
-    {
-      "confidence_level": string,
-      "text": string,
-      "provenance_ids": [ string, string, ... ],
-      "location": { "begin": int, "end": int }
-    },
-    ...
   ]
 }
 ```
@@ -342,6 +345,33 @@ The schema is arranged as follows.
       - `type`: The type of attribute. Possible values are `Currency`, `DateTime`, `DefinedTerm`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person` as described at [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes).
       - `text`: The text that is associated with the attribute.
       - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
+  - `effective_dates`: An array that identifies the date or dates on which the document becomes effective.
+    - `confidence_level`: The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.
+    - `text`: An effective date, which is listed as a string.
+    - `text_normalized`: The normalized form of the effective date, which is listed as a string. This element is optional; that is, the service output lists it only if normalized text exists.
+    - `location`: The location of the date as defined by its `begin` and `end` indexes.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+  - `contract_amounts`: An array that monetary amounts that identify the total amount of the contract that needs to be paid from one party to another.
+    - `confidence_level`: The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.    
+    - `text`: A contract amount, which is listed as a string.
+    - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+  - `termination_dates`: An array that identifies the date or dates on which the document is to be terminated.
+    - `confidence_level`: The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.    
+    - `text`: A termination date, which is listed as a string.
+    - `text_normalized`: The normalized form of the termination date, which is listed as a string. This element is optional; that is, the service output lists it only if normalized text exists.
+    - `location`: The location of the date as defined by its `begin` and `end` indexes.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+  - `contract_types`: An array that identifies the document's contract type or types.
+    - `confidence_level`: The confidence level of the identification of the contract type. Possible values include `High`, `Medium`, and `Low`.
+    - `text`: A contract type, which is listed as a string.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+    - `location`: The location of the contract type as defined by its `begin` and `end` indexes.
+  - `contract_terms`: An array that identifies the duration or durations of the contract.
+    - `confidence_level`: The confidence level of the identification of the contract terms. Possible values include `High`, `Medium`, and `Low`.
+    -  `text`: A contract term, which is listed as a string.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+    - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
   - `tables`\*: An array that defines the tables identified in the input document.
     - `location`: The location of the current table as defined by its `begin` and `end` indexes in the input document.
     - `text`: The textual contents of the current table from the input document without associated markup content.
@@ -356,7 +386,7 @@ The schema is arranged as follows.
       - `row_index_end`: The `end` index of the cell's `row` location in the current table.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
       - `column_index_end`: The `end` index of the cell's `column` location in the current table.
-    - `column_headers`: An array of column-level cells, each applicable as a header to other cells in the same column as itself, of the current table. Each column header is defined as a collection of the following items:
+    - `row_headers`: An array of row-level cells, each applicable as a header to other cells in the same row as itself, of the current table. Each row header is defined as a collection of the following items:
       - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
@@ -365,7 +395,7 @@ The schema is arranged as follows.
       - `row_index_end`: The `end` index of the cell's `row` location in the current table.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
       - `column_index_end`: The `end` index of the cell's `column` location in the current table.
-    - `row_headers`: An array of row-level cells, each applicable as a header to other cells in the same row as itself, of the current table. Each row header is defined as a collection of the following items:
+    - `column_headers`: An array of column-level cells, each applicable as a header to other cells in the same column as itself, of the current table. Each column header is defined as a collection of the following items:
       - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
@@ -392,6 +422,9 @@ The schema is arranged as follows.
         - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
         - `text`: The text that is associated with the attribute.
         - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
+    - `contexts`: An array of objects that list text that is related to the table contents and that precedes or follows the current table. Each object contains the following elements:
+      - `text`: The related text.
+      - `location`: The location of the related text as defined by its `begin` and `end` indexes in the input document.
     - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/compare-comply?topic=compare-comply-understanding_tables#key-value-pairs).
       - `key`: An object that specifies a key for a key-value pair.
         - `cell_id`: The unique ID of the key in the table.
@@ -401,9 +434,6 @@ The schema is arranged as follows.
         - `cell_id`: The unique ID of the value in the table.
         - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
         - `text`: The text content of the table cell without HTML markup.
-    - `contexts`: A list of related sentences from above and beneath the table, excluding its section title, which is provided in the `section_title` field. The list is represented as an array. Each object in the array consists of the following elements:
-      - `text`: The text contents of a related sentence from the input document, without HTML markup.
-      - `location`: The location of the related sentence in the input document as defined by its `begin` and `end` indexes.
   - `document_structure`: An object that describes the structure of the input document.
     - `section_titles`: An array that contains one object per section or subsection that is detected in the input document. Sections and subsections are not nested. Instead, they are flattened out and can be placed back in order by using the `begin` and `end` values of the element and the `level` value of the section.
       - `text`: A string that lists the section title, if detected.
@@ -426,31 +456,6 @@ The schema is arranged as follows.
     - `contacts`: An array that defines the name and role of contacts that are identified in the input document.
       - `name`: A string that lists the name of an identified contact.
       - `role`: A string that lists the role of the identified contact.  
-  - `effective_dates`: An array that identifies the date or dates on which the document becomes effective.
-    - `confidence_level`: The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.
-    - `text`: An effective date, which is listed as a string.
-    - `location`: The location of the date as defined by its `begin` and `end` indexes.
-    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-  - `contract_amounts`: An array that monetary amounts that identify the total amount of the contract that needs to be paid from one party to another.
-    - `confidence_level`: The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.    
-    - `text`: A contract amount, which is listed as a string.
-    - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
-    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-  - `termination_dates`: An array that identifies the date or dates on which the document is to be terminated.
-    - `confidence_level`: The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.    
-    - `text`: A termination date, which is listed as a string.
-    - `location`: The location of the date as defined by its `begin` and `end` indexes.
-    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-  - `contract_types`: An array that identifies the document's contract type or types.
-    - `confidence_level`: The confidence level of the identification of the contract type. Possible values include `High`, `Medium`, and `Low`.
-    - `text`: A contract type, which is listed as a string.
-    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.    
-    - `location`: The location of the contract type as defined by its `begin` and `end` indexes.
-  - `contract_terms`: An array that identifies the duration or durations of the contract.
-    - `confidence_level`: The confidence level of the identification of the contract terms. Possible values include `High`, `Medium`, and `Low`.
-    -  `text`: A contract term, which is listed as a string.
-    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-    - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
 
 **\*Notes on tables:**
   - Row and column index values per cell are zero-based and so begin with `0`.
