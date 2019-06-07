@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-05-14"
+lastupdated: "2018-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
@@ -23,7 +23,7 @@ subcollection: compare-comply
 {:hide-dashboard: .hide-dashboard}
 
 # Getting started
-{: #getting_started}
+{: #getting-started}
 
 This short tutorial introduces IBM Watson&reg; Compare and Comply and goes through the process of classifying a contract to identify component pieces, their nature, the parties affected, and any identified categories.
 {: shortdesc}
@@ -51,7 +51,7 @@ Compare and Comply has the following beta and experimental features that can be 
 {: #gs-before-you-begin}
 
 - {: hide-dashboard}  Create an instance of the service:
-    1.  {: hide-dashboard} Go to the [Compare and Comply page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/compare-comply){: new_window} in the {{site.data.keyword.cloud_notm}} catalog.
+    1.  {: hide-dashboard} Go to the [Compare and Comply page](https://{DomainName}/catalog/services/compare-comply){: external} in the {{site.data.keyword.cloud_notm}} catalog.
     1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
     1.  {: hide-dashboard} Click **Create**.
 - Copy the credentials to authenticate to your service instance:
@@ -62,7 +62,7 @@ Compare and Comply has the following beta and experimental features that can be 
     In some instances, you authenticate by providing basic authentication. If you see `username` and `password` in the credentials, use those values instead of `"apikey:{apikey}"` in the examples in this tutorial.
     {: tip}
 - Make sure that you have the `curl` command.
-    - The examples use the `curl` command to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
+    - The examples use the `curl` command to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se](https://curl.haxx.se/){: external}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
 
 When you enter a command, replace `{apikey}` and `{url}` with your actual API key and URL. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example:
 {: hide-dashboard}
@@ -110,7 +110,7 @@ The method returns a JSON object that contains:
   - [An `elements` array](#elements) that details semantic elements that are identified in the input document.
   - [A `tables` array](#tables) that breaks down the tables that are identified in the input document.
   - [A `document_structure` object](#doc_structure) that lists section titles and leading sentences that are identified in the input document.
-  - [A `parties` array](#parties) that lists the parties, roles, addresses, and contacts of parties identified in the input document.
+  - [A `parties` array](#parties) that lists the parties and each party's roles, addresses, contact information, and mentions identified in the input document.
   - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`,  `contract_types`, and `contract_terms`](#other_arrays).
 
 ## Step 3: Review the analysis
@@ -164,7 +164,7 @@ Each element has five important sections:
   - `text`: The text of the classified element.
   - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties that are affected by the element. For more information, see [Types](/docs/services/compare-comply?topic=compare-comply-contract_parsing#types) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing). 
   - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. For more information, see [Categories](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing). 
-  - `attributes`: An array that lists zero or more objects that define attributes of  the element. Currently supported attribute types include `Currency`, `DateTime`, `DefinedTerm`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`. Each object in the attributes array also includes the identified element's text and location; location is defined by the begin and end indexes of the text in the input document. For more information, see [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
+  - `attributes`: An array that lists zero or more objects that define attributes of  the element. Currently supported attribute types include `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`. Each object in the attributes array also includes the identified element's text and location; location is defined by the begin and end indexes of the text in the input document. For more information, see [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
   
 Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values that are listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis that is associated with the element.
 
@@ -191,7 +191,7 @@ The `document_structure` object identifies the section titles and leading senten
 ### Parties
 {: #parties}
 
-The `parties` array lists available information about parties that are affected by the input document, including the party's name, role, importance, address or addresses, and contacts. For more information, see [Parties](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_parties) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
+The `parties` array lists available information about parties that are affected by the input document, including the party's name, role, importance, address or addresses, and contacts. The array also lists all mentions of the party in the input document. For more information, see [Parties](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_parties) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
 
 ```json
 {
@@ -201,14 +201,15 @@ The `parties` array lists available information about parties that are affected 
       "party": "Wolfbone Investments, LLC",
       "role": "Supplier",
       "importance": "Primary",
-      "addresses": [],
+      "addresses": [ ],
       "contacts": [
         {
          "name": "Will Smith",
          "role": "business contact"
         },
         ...
-      ]
+      ],
+      "mentions": [ ]
     },
     {
       "party": "Torchlight Energy, Inc.",
@@ -224,7 +225,8 @@ The `parties` array lists available information about parties that are affected 
        },
        ...
       ],
-      "contacts": [ ]
+      "contacts": [ ],
+      "mentions": [ ]
     }
   ]
   ...

@@ -2,14 +2,14 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
@@ -27,7 +27,7 @@ subcollection: compare-comply
 You can transform an [input document](/docs/services/compare-comply?topic=compare-comply-formats) into HTML by using the **HTML conversion** feature. This example uses the `POST /v1/html_conversion` method.
 {: shortdesc}
 
-  The **HTML conversion** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/account/settings){: new_window} for information about your plan.
+  The **HTML conversion** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings](https://cloud.ibm.com/account/settings){: external} for information about your plan.
   {: important}
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/html_conversion` method to convert an input document into HTML. The method takes the following input parameters:

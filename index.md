@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
@@ -36,7 +36,7 @@ Compare and Comply provides:
   - Table extraction, which parses each cell in the table and associates metadata such as row and column headers
   - A feedback API and user interface that lets subject matter experts send corrections and suggestions to IBM data science teams for continuous improvements of models
 
-To get started with the service, see the [Getting started](/docs/services/compare-comply?topic=compare-comply-getting_started) page.
+To get started with the service, see the [Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started) page.
 
 US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans. See [Enabling EU and HIPAA supported settings](https://cloud.ibm.com/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported) for more information.
 

@@ -2,14 +2,14 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
@@ -48,12 +48,12 @@ The batching API endpoints are as follows.
 {: #before-you-batch}
 
 Before you use batch processing, ensure that you are set with the following:
- - All of the items listed in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting_started#gs-before-you-begin). 
- - A [Cloud Object Storage (COS) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloud-object-storage){:new_window} instance on the IBM Cloud. For information, see the COS documentation, particularly the following:
-   - [About IBM Cloud Object Storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-cos#about-ibm-cloud-object-storage){: new_window}
-    - [Order storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic-cloud-object-storage-order-storage){: new_window}
-    - [Service credentials ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-service-credentials){: new_window}
-    - [Bucket permissions ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-buckets#bucket-permissions){: new_window}
+ - All of the items listed in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin). 
+ - A [Cloud Object Storage (COS)](https://cloud.ibm.com/catalog/services/cloud-object-storage){:external} instance on the IBM Cloud. For information, see the COS documentation, particularly the following:
+   - [About IBM Cloud Object Storage](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-cos#about-ibm-cloud-object-storage){: external}
+    - [Order storage](/docs/services/cloud-object-storage?topic-cloud-object-storage-order-storage){: external}
+    - [Service credentials](/docs/services/cloud-object-storage?topic=cloud-object-storage-service-credentials){: external}
+    - [Bucket permissions](/docs/services/cloud-object-storage?topic=cloud-object-storage-buckets#bucket-permissions){: external}
 
 ## Create and run a batch processing request
 {: #post-batch}

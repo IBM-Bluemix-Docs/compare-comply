@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-04-23"
+lastupdated: "2018-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
@@ -59,7 +59,7 @@ The release includes the following updates:
 
   - Addition of the `contract_terms` array to the output of Element Classification. For more information, see [Contract terms](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract-terms) and [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema).
   
-  - Addition of the `text_normalized` element to the `effective_dates` and `termination_dates` arrays. For more information, see [Other arrays](/docs/services/compare-comply?topic=compare-comply-getting_started#other_arrays), [Effective dates](/docs/services/compare-comply?topic=compare-comply-contract_parsing#effective_dates), and [Termination dates](/docs/services/compare-comply?topic=compare-comply-contract_parsing#termination_dates).
+  - Addition of the `text_normalized` element to the `effective_dates` and `termination_dates` arrays. For more information, see [Other arrays](/docs/services/compare-comply?topic=compare-comply-getting-started#other_arrays), [Effective dates](/docs/services/compare-comply?topic=compare-comply-contract_parsing#effective_dates), and [Termination dates](/docs/services/compare-comply?topic=compare-comply-contract_parsing#termination_dates).
 
 ### 19 March 2019
 {: #19-march-2019}
@@ -149,7 +149,7 @@ Changes to the service's API and output schema are ongoing throughout the course
 {: important}
 
   - A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
-  - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/services/compare-comply?topic=compare-comply-getting_started) and [Classifying elements](/docs/services/compare-comply?compare-comply-output_schema) for details.
+  - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started) and [Classifying elements](/docs/services/compare-comply?compare-comply-output_schema) for details.
   - Changes to the `/v1/tables` method's output schema. See [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) and [Classifying tables](/docs/services/compare-comply?topic=compare-comply-understanding_tables) for information about the table parsing format.
   - Changes to the input and output parameters in the `/v1/feedback` and `/v1/feedback/{feedback_id}` methods. See [Using the feedback APIs](/docs/services/compare-comply?topic=compare-comply-feedback).
 

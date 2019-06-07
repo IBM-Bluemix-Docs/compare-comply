@@ -2,14 +2,14 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
@@ -215,7 +215,7 @@ The schema is arranged as follows.
     - `text`: Text regarding payment terms.
   - `currencies`: An array of currencies that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
-    - `text`: Text regarding currencies, in the form of a [currency code ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.iso.org/iso-4217-currency-codes.html){: new_window}.
+    - `text`: Text regarding currencies, in the form of a [currency code](https://www.iso.org/iso-4217-currency-codes.html){: external}.
   - `suppliers`: An array of suppliers that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
     - `text`: Text regarding a supplier or suppliers.

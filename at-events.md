@@ -1,15 +1,15 @@
 ---
 
 copyright:
-  years: 2016, 2018
-lastupdated: "2018-10-30"
+  years: 2016, 2019
+lastupdated: "2019-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}

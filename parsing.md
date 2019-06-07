@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-04-11"
+lastupdated: "2019-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
@@ -38,7 +38,7 @@ The following tables list the possible values of the `nature` and `party` keys.
 | `nature`         |Description                                                |
 |:----------------:|-----------------------------------------------------------|
 |`Definition`      |This element adds clarity for a term, relationship, or similar. No action is required to fulfill the element, nor is any party that is affected.|
-|`Disclaimer`      |The `party` in the element is not obligated to fulfterms that are specified by the element but is not prohibited from doing so.|
+|`Disclaimer`      |The `party` in the element is not obligated to fulfill the terms that are specified by the element but is not prohibited from doing so.|
 |`Exclusion`       |The `party` in the element does not fulfill the terms that are specified by the element.|
 |`Obligation`      |The `party` in the element is required to fulfill the terms that are specified by the element.|
 |`Right`           |The `party` in the element is guaranteed to receive the terms that are specified by the element.|
@@ -58,6 +58,9 @@ The `parties` array specifies the participants that are listed in the contract. 
   - `contacts`: An array that defines the names and roles of contacts that are identified in the input document.
     - `name`: The name of a contact.
     - `role`: The role of the contact.
+  - `mentions`: An array that lists all mentions of the party in the input document.
+    - `text`: The name of the party.
+    - `location`: The location of the mention as defined by its `begin` and `end` indexes.
 
 The values of `role` that can be returned for contracts include, but are not limited to:
 
@@ -112,7 +115,6 @@ The `attributes` array specifies any attributes that are identified in the sente
 |:----------------:|-----------------------------------------------------------|
 |`Currency`        |Monetary value and units.                                  |
 |`DateTime`        |A date, time, date range, or time range.                   |
-|`DefinedTerm`     |A term that is defined in the input document.              |
 |`Duration`        |A time duration.                                           |
 |`Location`        |A geographical location or region.                         |
 |`Number`          |A digital or textual number that describes a quantity of countable things and is not classified as one of the other numerical `attribute` types.|

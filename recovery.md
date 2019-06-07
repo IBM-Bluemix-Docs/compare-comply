@@ -2,14 +2,14 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -35,7 +35,7 @@ subcollection: compare-comply
 IBM Watson&trade; Compare and Comply is highly available within multiple {{site.data.keyword.cloud_notm}} locations (for example, Dallas and Washington, DC). However, recovering from potential disasters that affect an entire location requires planning and preparation.
 {: shortdesc}
 
-You are responsible for understanding your configuration, customization, and usage of the service. You are also responsible for being ready to re-create an instance of the service in a new location and to restore your data in any location. See [How do I ensure zero downtime? ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/overview?topic=overview-zero-downtime#zero-downtime){: new_window} for more information.
+You are responsible for understanding your configuration, customization, and usage of the service. You are also responsible for being ready to re-create an instance of the service in a new location and to restore your data in any location. See [How do I ensure zero downtime?](/docs/overview?topic=overview-zero-downtime#zero-downtime){: external} for more information.
 
 ## High availability
 {: #cnc-ha}
@@ -106,7 +106,7 @@ Use the [`GET /v1/batches`](/docs/services/compare-comply?topic=compare-comply-b
 ### Feedback
 {: #restore-feedback}
 
-Feedback provided by using the Compare and Comply Tooling after the time of the latest backup of the feedback data store is lost. You need to reload the documents you were using into the tool and manually redo the missing feedback. You can use the [`GET /v1/feedback`](/docs/services/compare-comply?topic=compare-comply-feedback#get_all_feedback) method to retrieve the feedback that the system knows about. Feedback objects include a creation timestamp that can give you an idea of when the last feedback was recorded.
+Feedback provided by using the Compare and Comply Tooling after the time of the latest backup of the feedback data store is lost. You need to reload the documents you were using into the tool and manually redo the missing feedback. You can use the [`GET /v1/feedback`](/docs/services/compare-comply?topic=compare-comply-feedback#get_all_feedback) method to retrieve all feedback for a given document. Feedback objects include a creation timestamp that can tell you when the last feedback entry was made.
 
 ### Custom models
 {: #restore-custom-models}

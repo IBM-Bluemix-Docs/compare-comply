@@ -2,14 +2,14 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-06-06"
 
 subcollection: compare-comply
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
@@ -37,10 +37,18 @@ The Compare and Comply Tooling provides the following capabilities:
 
   - **Recommendations**: Enables you to customize your service instance based on labeling recommendations that are based on suggestions that your users entered by using either the Tooling or the [**Feedback** APIs](/docs/services/compare-comply?topic=compare-comply-feedback).
 
-      The **Recommendations** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/account/settings){: new_window} for information about your plan.
+      The **Recommendations** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings](https://cloud.ibm.com/account/settings){: external} for information about your plan.
       {: important}
 
-  - **Compare**: Enables you to use the **Comparison** feature in a visual environment by uploading two documents. The Tooling shows aligned pairs of text between the two documents. Aligned pairs are classified as _significant_ or _non-identical_.
+  - **Compare**: Enables you to use the **Comparison** feature in a visual environment by uploading two documents. The Tooling shows aligned pairs of text between the two documents. Aligned pairs are classified as _significant_ or _non-identical_. For more information about the **Comparison** feature, see [Comparing two documents](/docs/services/compare-comply?topic=compare-comply-compare).
+  
+  - **Invoices**: Enables you to use the **Invoice understanding** feature in a visual environment to find and extract important information such as buyer and supplier names, invoice dates, and amounts owed. For more information about the **Invoice understanding** feature, see [Understanding invoice parsing](/docs/services/compare-comply?topic=compare-comply-invoices).
+  
+  - **Purchase Orders**: Enables you to use the **Purchase order understanding** feature in a visual environment to extract critical information from purchase orders. For more information about the **Purchase order understanding** feature, see [Understanding purchase-order parsing](/docs/services/compare-comply?topic=compare-comply-pos).
+
+
+  Purchase order understanding and invoice understanding are beta features to which you must request access. For more information, see [Request limited preview features](/docs/services/compare-comply?topic=compare-comply-getting-started#request-preview-features).
+  {: note}
 
 ## Before you begin
 {: #before-you-begin}
@@ -48,7 +56,7 @@ The Compare and Comply Tooling provides the following capabilities:
 You need the following before you can use the Compare and Comply Tooling:
 
  - An IBM Cloud account.
- - A Compare and Comply service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting started](/docs/services/compare-comply?topic=compare-comply-getting_started).
+ - A Compare and Comply service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started).
  
 ## Launching the Compare and Comply Tooling
 {: #launch-tool}
@@ -57,7 +65,7 @@ You need the following before you can use the Compare and Comply Tooling:
 
 1. If prompted, enter your IBM Cloud login information.
 
-1. Launch the Tooling from the **Manage** tab of your service instance by clicking the **Launch tool** button.
+1. Launch the Tooling from the **Manage** tab of your service instance by clicking the **Launch Watson Compare and Comply** button.
 
 ## Running element classification
 {: #use-tooling-ec}
@@ -66,14 +74,14 @@ The Tooling launches and displays the [GDPR ](/docs/services/compare-comply?topi
 
 ![Compare and Comply Tooling landing page](images/tool-landing.png)
 
-The Tooling then displays the landing page. Click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply?topic=compare-comply-formats) and click **Open**.
+The Tooling then displays the landing page. Click **Contracts**. The Tooling opens the **Upload new document** dialog. Click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply?topic=compare-comply-formats) and click **Open**.
 
 The maximum file size is 1.5 MB. However, you can upload JSON output files from the **Element Classification** feature that are up to 50 MB. You can process larger documents by submitting them to Element Classification by [using batch processing](/docs/services/compare-comply?topic=compare-comply-batching) and saving the output to upload to the Tooling. **The JSON _must_ be the output of the Element Classification feature. You cannot upload arbitrary JSON to the tool.**
 {: note}
 
 ![Compare and Comply Tooling upload page](images/tool-landing-2.png)
 
-  You can allow IBM Watson to use non-identifiable information from the document for general Watson service improvements. If you want to do so, select the **Allow Watson to use this document for learning** check box. The check box text includes a link to more information at [Understanding request logging in the Compare and Comply Tooling](#request-logging). For more information about IBM's commitment to data privacy, see [https://www.ibm.com/watson/data-privacy/ ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/data-privacy/){:new_window}.
+  You can allow IBM Watson to use non-identifiable information from the document for general Watson service improvements. If you want to do so, select the **Allow Watson to use this document for learning** check box. The check box text includes a link to more information at [Understanding request logging in the Compare and Comply Tooling](#request-logging). For more information about IBM's commitment to data privacy, see [https://www.ibm.com/watson/data-privacy/](https://www.ibm.com/watson/data-privacy/){:external}.
   {: tip}
   
 Click **Upload and continue**.
@@ -160,7 +168,7 @@ To provide suggestions in the Tooling, perform the following steps:
 
 You can view the suggestions that have been made in the Tooling by clicking the **Suggestion history** icon (![Suggestion history icon](images/tool-suggestion-icon.png)). The **Suggestion history** page opens.
 
-  The **Suggestion history** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/account/settings){: new_window} for information about your plan.
+  The **Suggestion history** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings](https://cloud.ibm.com/account/settings){: external} for information about your plan.
   {: important}
 
 ![Compare and Comply Tooling: Suggestion history](images/tool-suggestion-history.png)
@@ -170,7 +178,7 @@ You can view the suggestions that have been made in the Tooling by clicking the 
 
 You can use recommendations to customize your service instance based on labeling suggestions that users made.
 
-**Recommendations** is available only on `Premium` plans. For information about your plan, see [https://cloud.ibm.com/account/settings ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/account/settings){: new_window}.
+**Recommendations** is available only on `Premium` plans. For information about your plan, see [https://cloud.ibm.com/account/settings](https://cloud.ibm.com/account/settings){: external}.
 {: important}
 
 To apply recommendations, perform the following steps:
@@ -236,6 +244,13 @@ The combined size of the two compared documents can be no larger than 3 MB.
   For example, to display unaligned elements, select the **Unaligned elements** check box. The Tooling displays unaligned elements in yellow.
   ![Comparison showing unaligned elements](images/tooling-display-unaligned.png)
   
+## Using purchase order understanding
+{: #tool-po}
+
+
+## Using invoice understanding
+{: #tool-invoice}
+  
 ## Understanding request logging in the Compare and Comply Tooling
 {: #request-logging}
 
@@ -243,7 +258,7 @@ By default, all IBM Watson&trade; services log requests and their results. Logge
   
 To permit the Compare and Comply Tooling to provide logging data to IBM, select the **Allow Watson to use this document for learning** check box in the Compare and Comply Tooling each time you upload a document to it. However, if you are concerned about data privacy for any given document or otherwise do not want requests to be used by IBM, leave the check box unselected.
 
-For more information about Watson services' use of request logging, see the  [common Watson documentation](https://cloud.ibm.com/docs/services/watson?topic=watson-gs-logging-overview#controlling-request-logging-for-watson-services){: new_window}.
+For more information about Watson services' use of request logging, see the  [common Watson documentation](https://cloud.ibm.com/docs/services/watson?topic=watson-gs-logging-overview#controlling-request-logging-for-watson-services){: external}.
 
   Selecting the check box is the equivalent of setting the API header parameter `X-Watson-Learning-Opt-Out` to `false` or `0` in a programmatic environment, as described in the link in the preceding paragraph. Leaving the check box unselected is the equivalent of setting the `X-Watson-Learning-Opt-Out` parameter to `true` or `1`.
   {: note}
