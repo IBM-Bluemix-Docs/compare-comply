@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-19"
 
 subcollection: compare-comply
 
@@ -93,6 +93,7 @@ The `categories` array defines the subject matter of the sentence. Currently sup
 |`Insurance`       |Elements referring to insurance coverage or terms of coverage that is provided by one party to another party (including to third parties such as subcontractors or others). Includes a variety of insurance including, but not limited to, medical insurance.|
 |`Intellectual Property`|Elements that discuss the assignment of rights (such as copyrights, patents, and trade secrets) to parties to the contract. Includes references to patents, rights to apply for patents, trademarks, trade names, service marks, domain names, copyrights, and all applications and registration of such schematics, industrial models, inventions, authorship, know-how, trade secrets, computer software programs, and other intangible proprietary information. Also includes discussion of the consequences of violation of intellectual property rights.|
 |`Liability`       |Elements that describe the method for determining when and how fault attaches to any party. Examples may include, but are not limited to, statements regarding limitations of liability, third-party claims, and repairs, replacements, or reimbursements as required of the party at fault.|
+|`Order of Precedence` |Elements specifying the priority order in which the contracts or agreements will uphold in case of conflicts, inconsistencies or ambiguities between their terms and conditions.|
 |`Payment Terms & Billing`|Elements that detail how and when a party is to pay or get paid, as well as the items or fees the parties are paying or billed for. Includes references to modes of payment or payment mechanisms.|
 |`Pricing & Taxes` |Elements that refer to specific amounts or figures that are associated with individual deliverables that are exchanged (for example, how much something costs) as part of satisfying the terms of the contract. Includes references to specific figures or methods for calculating prices or tax amounts.|
 |`Privacy`         |Elements that are particularly concerned with the treatment of sensitive personal information, usually regarding its protection (for example, in order to satisfy regulations such as GDPR).|
@@ -115,6 +116,7 @@ The `attributes` array specifies any attributes that are identified in the sente
 |:----------------:|-----------------------------------------------------------|
 |`Currency`        |Monetary value and units.                                  |
 |`DateTime`        |A date, time, date range, or time range.                   |
+|`DefinedTerm`     |A term that is defined in the input document.              |
 |`Duration`        |A time duration.                                           |
 |`Location`        |A geographical location or region.                         |
 |`Number`          |A digital or textual number that describes a quantity of countable things and is not classified as one of the other numerical `attribute` types.|
@@ -182,6 +184,18 @@ The `contract_terms` array identifies the duration or durations of the contract 
 |`confidence_level`|The confidence level of the identification of the contract term. Possible values include `High`, `Medium`, and `Low`.|
 |`text`            |The contract term, listed as a string.                  |
 |`location`        |The location of the contract term as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
+
+## Payment terms
+{: #payment-terms}
+
+The `payment_terms` array identifies the payment duration or durations as declared in the document.
+
+| `payment_terms`|Description                                               |
+|:----------------:|-----------------------------------------------------------|
+|`confidence_level`|The confidence level of the identification of the payment term. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |The payment term, listed as a string.                  |
+|`location`        |The location of the payment term as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
 ## Provenance

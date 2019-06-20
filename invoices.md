@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-19"
 
 subcollection: compare-comply
 
@@ -24,13 +24,13 @@ subcollection: compare-comply
 # Understanding invoice parsing
 {: #invoices}
 
-You can analyze invoice documents by calling the `POST /v1/invoices` method.
+You can analyze invoice documents by using the **Invoice understanding** feature.
 {: shortdesc}
 
-Invoice parsing is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to invoice parsing by completing the following [form](http://ibm.biz/invoices).
+Invoice Understanding is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to invoice parsing by completing the following [form](http://ibm.biz/invoices).
 {: important}
 
-You can classify the contents of invoices in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by using the `POST /v1/invoices` method. 
+You can classify the contents of invoices in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by calling the `POST /v1/invoices` method. 
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/invoices` method to classify an invoice. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
@@ -131,6 +131,7 @@ The command output uses the following schema.
                 "end": int
             },
             "text": string,
+            "text_normalized": string,
             "provenance_ids": [ string, string, ... ]
         }
     ],
@@ -141,6 +142,7 @@ The command output uses the following schema.
                 "end": int
             },
             "text": string,
+            "text_normalized": string,
             "provenance_ids": [ string, string, ... ]
         }
     ],
@@ -225,10 +227,12 @@ The schema is arranged as follows.
   - `invoice_dates`: An array of invoice dates. An invoice date is the date on which the invoice was issued.
     - `location`: The location of the invoice date as defined by its `begin` and `end` indexes.
     - `text`: The invoice date.
+    - `text_normalized`: The normalized version of the invoice date in `yyyy-mm-dd` format.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `due_dates`: An array of due dates. A due date is the date on which a payment for a certain invoice is due. It is typically defined in the contract as a certain number of days following the invoice date.
     - `location`: The location of the due date as defined by its `begin` and `end` indexes.
     - `text`: The due date.
+    - `text_normalized`: The normalized version of the due date in `yyyy-mm-dd` format.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `invoice_parts`: An array of invoice parts. An invoice part is a unit of goods, services, or both specified in the invoice.
     - `quantity_ordered`: The number of a specified invoice part ordered by the buyer from the supplier.
@@ -344,7 +348,8 @@ Sample output resembles the following:
         "begin": 3237,
         "end": 3246
       },
-      "text": "28-FEB-18",
+      "text": "28 February 2018",
+      "text_normalized": "2018-02-28",
       "provenance_ids": ["I222", "I354"]
     }
   ],
@@ -354,7 +359,8 @@ Sample output resembles the following:
         "begin": 36424,
         "end": 36433
       },
-      "text": "29-APR-18",
+      "text": "29 April 2018",
+      "text_normalized":"2018-04-29",
       "provenance_ids": ["I420", "I6060"]
     } 
   ],

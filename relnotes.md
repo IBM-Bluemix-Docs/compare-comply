@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-06-06"
+lastupdated: "2018-06-18"
 
 subcollection: compare-comply
 
@@ -46,6 +46,15 @@ The current version is `2018-10-15`.
 {: #changes}
 
 The following new features and changes to the service are available.
+
+### 19 June 2019
+{: #19-june-2019}
+
+The release includes the following updates:
+
+  - A new category, `Order of Precedence`, has been introduced. For more information, see [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories).
+  - The **Purchase Order Understanding** beta feature now includes `provenance_ids` arrays for each identified object. For more information, see [Understanding purchase-order parsing](/docs/services/compare-comply?topic=compare-comply-pos).
+  - The **Invoice Understanding** beta feature now includes `text_normalized` fields for the `invoice_dates` and `due_dates` elements. For more information, see [Understanding invoice parsing](/docs/services/compare-comply?topic-conmpare-comply-invoices).
 
 ### 23 April 2019
 {: #23-april-2019}

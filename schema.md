@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-19"
 
 subcollection: compare-comply
 
@@ -108,6 +108,15 @@ After a document is processed by the **Element classification** feature, the ser
     ...
   ],
   "contract_terms": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
+    },
+    ...
+  ],
+  "payment_terms": [
     {
       "confidence_level": string,
       "text": string,
@@ -352,7 +361,7 @@ The schema is arranged as follows.
       - `label`: A string that lists the identified category. You can find a list of [categories](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
-      - `type`: The type of attribute. Possible values are `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person` as described at [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes).
+      - `type`: The type of attribute. Possible values are `Currency`, `DateTime`, `DefinedTerm`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person` as described at [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes).
       - `text`: The text that is associated with the attribute.
       - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
   - `effective_dates`: An array that identifies the date or dates on which the document becomes effective.
@@ -378,10 +387,15 @@ The schema is arranged as follows.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract type as defined by its `begin` and `end` indexes.
   - `contract_terms`: An array that identifies the duration or durations of the contract.
-    - `confidence_level`: The confidence level of the identification of the contract terms. Possible values include `High`, `Medium`, and `Low`.
+    - `confidence_level`: The confidence level of the identification of the contract term. Possible values include `High`, `Medium`, and `Low`.
     -  `text`: A contract term, which is listed as a string.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
+  - `payment_terms`: An array that identifies the document's payment duration or durations.
+    - `confidence_level`: The confidence level of the identification of the payment term. Possible values include `High`, `Medium`, and `Low`.
+    -  `text`: A payment term, which is listed as a string.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+    - `location`: The location of the contract term as defined by its `begin` and `end` indexes. 
   - `tables`\*: An array that defines the tables identified in the input document.
     - `location`: The location of the current table as defined by its `begin` and `end` indexes in the input document.
     - `text`: The textual contents of the current table from the input document without associated markup content.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-06-06"
+lastupdated: "2018-06-19"
 
 subcollection: compare-comply
 
@@ -33,7 +33,7 @@ This short tutorial introduces IBM Watson&reg; Compare and Comply and goes throu
 
 **Get started with the API**
 
-This tutorial uses the `/v1/element_classification` method. Other service methods have similar input syntax and output formats. For more information, see the pages for other methods.
+This tutorial uses the `**Element classification** feature. Other service methods have similar input syntax and output formats. For more information, see the pages for other methods.
 
 **Get started with the tooling**
 
@@ -44,8 +44,8 @@ Optionally, you can explore the service's features by using the Compare and Comp
 
 Compare and Comply has the following beta and experimental features that can be accessed by request:
 
-  -  Invoice Understanding: Compare and Comply finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Please fill out the following [form](http://ibm.biz/invoices) to request access to this feature.
-  - Purchase Order Understanding: Compare and Comply extracts important information in purchase orders. Please fill out the following [form](https://datasciencex.typeform.com/to/Fjyf6t) to request access to this feature.
+  -  Invoice Understanding: Compare and Comply finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Please fill out the following [form](http://ibm.biz/invoices){: external} to request access to this feature.
+  - Purchase Order Understanding: Compare and Comply extracts important information in purchase orders. Please fill out the following [form](https://datasciencex.typeform.com/to/Fjyf6t){: external} to request access to this feature.
 
 ## Before you begin
 {: #gs-before-you-begin}
@@ -70,7 +70,7 @@ When you enter a command, replace `{apikey}` and `{url}` with your actual API ke
 ```bash
 curl -X POST -u "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
 . . .
-"https://gateway.watsonplatform.net/compare-comply/api/v1/html_conversion"
+"https://gateway.watsonplatform.net/compare-comply/api/v1/html_conversion?version=2018-10-15"
 ```
 {:pre}
 {: hide-dashboard}
@@ -111,7 +111,7 @@ The method returns a JSON object that contains:
   - [A `tables` array](#tables) that breaks down the tables that are identified in the input document.
   - [A `document_structure` object](#doc_structure) that lists section titles and leading sentences that are identified in the input document.
   - [A `parties` array](#parties) that lists the parties and each party's roles, addresses, contact information, and mentions identified in the input document.
-  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`,  `contract_types`, and `contract_terms`](#other_arrays).
+  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`,  `contract_types`, `contract_terms`, and `payment_terms`](#other_arrays).
 
 ## Step 3: Review the analysis
 {: #review_analysis}
@@ -164,7 +164,7 @@ Each element has five important sections:
   - `text`: The text of the classified element.
   - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties that are affected by the element. For more information, see [Types](/docs/services/compare-comply?topic=compare-comply-contract_parsing#types) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing). 
   - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. For more information, see [Categories](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing). 
-  - `attributes`: An array that lists zero or more objects that define attributes of  the element. Currently supported attribute types include `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`. Each object in the attributes array also includes the identified element's text and location; location is defined by the begin and end indexes of the text in the input document. For more information, see [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
+  - `attributes`: An array that lists zero or more objects that define attributes of  the element. Currently supported attribute types include `Currency`, `DateTime`, `DefinedTerm`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`. Each object in the attributes array also includes the identified element's text and location; location is defined by the begin and end indexes of the text in the input document. For more information, see [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
   
 Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values that are listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis that is associated with the element.
 
@@ -243,6 +243,7 @@ The following arrays provide useful information about the input document.
   - The `termination_dates` array lists the date or dates on which the document is to be terminated.
   - The `contract_types` array lists the contract type or types as specified in the document.
   - The `contact_terms` array lists the contract duration or durations as specified in the document.
+  - The `payment_terms` array lists the duration or durations of expected payment as specified in the document.
   
 Each of the arrays contains zero or more objects that list the following items:
 
