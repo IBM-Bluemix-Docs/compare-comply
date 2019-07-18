@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-06-19"
+lastupdated: "2018-07-16"
 
 subcollection: compare-comply
 
@@ -31,11 +31,13 @@ This short tutorial introduces IBM Watson&reg; Compare and Comply and goes throu
 ## Where to start
 {: #start-options}
 
-**Get started with the API**
+### Get started with the API
+{: #gs-api}
 
 This tutorial uses the `**Element classification** feature. Other service methods have similar input syntax and output formats. For more information, see the pages for other methods.
 
-**Get started with the tooling**
+### Get started with the tooling
+{: #gs-tool}
 
 Optionally, you can explore the service's features by using the Compare and Comply tooling. See [Using the Compare and Comply Tooling ](/docs/services/compare-comply?topic=compare-comply-using_tool) for more information.
 
@@ -248,7 +250,8 @@ The following arrays provide useful information about the input document.
 Each of the arrays contains zero or more objects that list the following items:
 
   - The text in which the information was identified.
-  - The normalized text, if applicable. This element is currently listed only in the `effective_dates` and `termination_dates` arrays.
+  - The normalized text, if applicable. This element is currently listed only in the `effective_dates`, `termination_dates`, `contract_amounts`, `contract_terms`, and `payment_terms` arrays.
+  - The interpretation of the normalized text, if applicable. This element is currently listed only in the `contract_amounts`, `contract_terms`, and `payment_terms` arrays.
   - The confidence level of the identification (`High`, `Medium`, or `Low`).
   - The `location` of that text as defined by the text's `begin` and `end` indexes.
   - A list of `provenance_ids`, which are hashed values that you can send to IBM to provide feedback or receive support.
@@ -259,6 +262,6 @@ Each of the arrays contains zero or more objects that list the following items:
 You successfully classified a contract to identify its elements, tables, structure, parties, and other information. You can use the analysis to quickly understand and enforce the classified contract. The next steps are:
 
  - [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing)
- - [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) and [classifying tables](/docs/services/compare-comply?compare-comply-understanding_tables)
+ - [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) and [classifying tables](/docs/services/compare-comply?topic=compare-comply-understanding_tables)
 
 

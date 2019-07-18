@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-06-19"
+lastupdated: "2019-07-17"
 
 subcollection: compare-comply
 
@@ -83,8 +83,14 @@ After a document is processed by the **Element classification** feature, the ser
     {
       "confidence_level": string,
       "text": string,
+      "text_normalized": string,
+      "interpretation": {
+        "value": string,
+        "numeric_value": number,
+        "unit": string,
+      },
       "provenance_ids": [ string, string, ... ],
-      "location": { "begin": int, "end": int }
+      "location": { "begin": int, "end": int },
     },
     ...
   ],
@@ -111,6 +117,12 @@ After a document is processed by the **Element classification** feature, the ser
     {
       "confidence_level": string,
       "text": string,
+      "text_normalized": string,
+      "interpretation": {
+        "value": string,
+        "numeric_value": number,
+        "unit": string,
+      },
       "provenance_ids": [ string, string, ... ],
       "location": { "begin": int, "end": int }
     },
@@ -120,6 +132,12 @@ After a document is processed by the **Element classification** feature, the ser
     {
       "confidence_level": string,
       "text": string,
+      "text_normalized": string,
+      "interpretation": {
+        "value": string,
+        "numeric_value": number,
+        "unit": string,
+      },
       "provenance_ids": [ string, string, ... ],
       "location": { "begin": int, "end": int }
     },
@@ -138,6 +156,13 @@ After a document is processed by the **Element classification** feature, the ser
           "begin" : int,
           "end" : int
         }
+      },
+      "titie": {
+        "location": {
+          "begin": int,
+          "end": int,
+        },
+        "text": string
       },
       "table_headers" : [
         {
@@ -373,6 +398,11 @@ The schema is arranged as follows.
   - `contract_amounts`: An array that monetary amounts that identify the total amount of the contract that needs to be paid from one party to another.
     - `confidence_level`: The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.    
     - `text`: A contract amount, which is listed as a string.
+    - `text_normalized`: The normalized text, if applicable.
+    - `interpretation`: The details of the normalized text, if applicable.
+      - `value`: A string listing the value that was found in the normalized text.
+      - `numeric_value`: An integer or float expressing the numeric value of the `value` key.
+      - `unit`\*\*: A string listing the unit of the value that was found in the normalized text.
     - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
   - `termination_dates`: An array that identifies the date or dates on which the document is to be terminated.
@@ -388,12 +418,22 @@ The schema is arranged as follows.
     - `location`: The location of the contract type as defined by its `begin` and `end` indexes.
   - `contract_terms`: An array that identifies the duration or durations of the contract.
     - `confidence_level`: The confidence level of the identification of the contract term. Possible values include `High`, `Medium`, and `Low`.
-    -  `text`: A contract term, which is listed as a string.
+    - `text`: A contract term, which is listed as a string.
+    - `text_normalized`: The normalized text, if applicable.
+    - `interpretation`: The details of the normalized text, if applicable.
+      - `value`: A string listing the value that was found in the normalized text.
+      - `numeric_value`: An integer or float expressing the numeric value of the `value` key.
+      - `unit`\*\*: A string listing the unit of the value that was found in the normalized text.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
   - `payment_terms`: An array that identifies the document's payment duration or durations.
     - `confidence_level`: The confidence level of the identification of the payment term. Possible values include `High`, `Medium`, and `Low`.
-    -  `text`: A payment term, which is listed as a string.
+    - `text`: A payment term, which is listed as a string.
+    - `text_normalized`: The normalized text, if applicable.
+    - `interpretation`: The details of the normalized text, if applicable.
+      - `value`: A string listing the value that was found in the normalized text.
+      - `numeric_value`: An integer or double expressing the numeric value of the `value` key.
+      - `unit`\*\*: A string listing the unit of the value that was found in the normalized text.    
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract term as defined by its `begin` and `end` indexes. 
   - `tables`\*: An array that defines the tables identified in the input document.
@@ -402,6 +442,9 @@ The schema is arranged as follows.
     - `section_title`: If identified, the location of a section title contained in the current table. Empty if no section title is identified.
       - `text`: The text of the identified section title.
       - `location`: The location of the section title in the input document as defined by its `begin` and `end` indexes.
+    - `title`: If identified, the title or caption of the current table of the form `Table x.: ...`. Empty when no title is identified. When exposed, the `title` is also excluded from the `contexts` array of the same table.
+      - `location`: The location of the title in the input document as defined by its `begin` and `end` indexes.
+      - `text`: The text of the identified table title or caption.
     - `table_headers`: An array of table-level cells applicable as headers to all the other cells of the current table. Each table header is defined as a collection of the following elements:
       - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
@@ -484,12 +527,18 @@ The schema is arranged as follows.
       - `text`: A string that lists the name of the party.
       - `location`: The location of the mention as defined by its `begin` and `end` indexes.
 
-**\*Notes on tables:**
+### \*Notes on tables
+{: #table-notes}
   - Row and column index values per cell are zero-based and so begin with `0`.
   - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
   - Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a possible hierarchy of column headers.
+
+### \*\*Note on `unit` values
+
+The value of `unit` is the [ISO-4217 currency code](https://www.iso.org/iso-4217-currency-codes.html){: external} identified for the currency amount (for example, `USD` or `EUR`). If the service cannot disambiguate a currency symbol (for example, `$` or `£`), the value of `unit` contains the ambiguous symbol as-is.
   
-**Note on `location` objects**
+### Note on `location` objects
+{: #location-note}
 
 The `location` object is contained inside the vast majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
   

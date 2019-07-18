@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-19"
+lastupdated: "2019-07-16"
 
 subcollection: compare-comply
 
@@ -146,6 +146,11 @@ The `contract_amounts` array specifies monetary amounts that identify the total 
 |:----------------:|-----------------------------------------------------------|
 |`confidence_level`|The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.|
 |`text`            |A contract amount, listed as a string.                  |
+|`normalized_text` |The normalized text, if applicable.                     |
+|`interpretation`  |The details of the normalized text, if applicable.      |
+|`value`           |A string listing the value that was found in the normalized text. |
+|`numeric_value`   |An integer or float expressing the numeric value of the `value` key.|
+|`unit`            |A string listing the unit of the value that was found in the normalized text.|
 |`location`        |The location of the contract amount as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
@@ -183,6 +188,11 @@ The `contract_terms` array identifies the duration or durations of the contract 
 |:----------------:|-----------------------------------------------------------|
 |`confidence_level`|The confidence level of the identification of the contract term. Possible values include `High`, `Medium`, and `Low`.|
 |`text`            |The contract term, listed as a string.                  |
+|`normalized_text` |The normalized text, if applicable.                     |
+|`interpretation`  |The details of the normalized text, if applicable.      |
+|`value`           |A string listing the value that was found in the normalized text. |
+|`numeric_value`   |An integer or float expressing the numeric value of the `value` key.|
+|`unit`            |A string listing the unit of the value that was found in the normalized text.|
 |`location`        |The location of the contract term as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
@@ -195,6 +205,11 @@ The `payment_terms` array identifies the payment duration or durations as declar
 |:----------------:|-----------------------------------------------------------|
 |`confidence_level`|The confidence level of the identification of the payment term. Possible values include `High`, `Medium`, and `Low`.|
 |`text`            |The payment term, listed as a string.                  |
+|`normalized_text` |The normalized text, if applicable.                     |
+|`interpretation`  |The details of the normalized text, if applicable.      |
+|`value`           |A string listing the value that was found in the normalized text. |
+|`numeric_value`   |An integer or float expressing the numeric value of the `value` key.|
+|`unit`            |A string listing the unit of the value that was found in the normalized text.|
 |`location`        |The location of the payment term as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-19"
+lastupdated: "2019-07-17"
 
 subcollection: compare-comply
 
@@ -15,6 +15,7 @@ subcollection: compare-comply
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:important: .important}
+{:preview: .preview}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -27,7 +28,7 @@ You can analyze purchase orders by using the **Purchase order understanding** fe
 {: shortdesc}
 
 Purchase Order Understanding is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to purchase-order parsing by completing the following [form](https://datasciencex.typeform.com/to/Fjyf6t).
-{: important}
+{: preview}
 
 You can parse and classify the contents of purchase orders in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by calling the `POST /v1/purchase_orders` method. 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-19"
+lastupdated: "2019-07-17"
 
 subcollection: compare-comply
 
@@ -20,6 +20,7 @@ subcollection: compare-comply
 {:swift: .ph data-hd-programlang='swift'}
 {:note: .note}
 {:important: .important}
+{:preview: .preview}
 
 # Understanding invoice parsing
 {: #invoices}
@@ -28,7 +29,7 @@ You can analyze invoice documents by using the **Invoice understanding** feature
 {: shortdesc}
 
 Invoice Understanding is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to invoice parsing by completing the following [form](http://ibm.biz/invoices).
-{: important}
+{: preview}
 
 You can classify the contents of invoices in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by calling the `POST /v1/invoices` method. 
 

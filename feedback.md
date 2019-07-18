@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-08"
 
 subcollection: compare-comply
 
@@ -153,100 +153,16 @@ An example command follows.
 curl -X POST -u "apikey:{apikey}" -H 'Content-Type: application/json' 
 https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15 \
 -d '{
-      "user_id": "7uy9c1f4-57dd-42b5-9586-a2ddf3ed8b64",
-      "comment": "user comments",
-      "feedback_data": {
-        "feedback_type": "element_classification",
-        "document": {
-          "title": "Legal Approval SOW",
-          "hash": "91edc2ff254d29f7a4922635ad47276a"
-        },
-        "model_id": "contracts",
-        "model_version": "10.00",
-        "location": {
-          "begin": 214,
-          "end": 237
-        },
-        "text": "1. IBM will provide a Senior Managing Consultant / expert resource, for up to 80 hours, to assist Florida Power & Light (FPL) with the creation of an IT infrastructure unit cost model for existing infrastructure.",
-        "original_labels": {
-          "types": [
-            {
-              "label": {
-                "nature": "Obligation",
-                "party": "IBM"
-              },
-              "provenance_ids": [ 
-                  "85f5981a-ba91-44f5-9efa-0bd22e64b7bc",
-                  "ce0480a1-5ef1-4c3e-9861-3743b5610795"
-              ]
-            },
-            {
-              "label": {
-                "nature": "End User",
-                "party": "Exclusion"
-              },
-              "provenance_ids": [
-                  "85f5981a-ba91-44f5-9efa-0bd22e64b7bc",
-                  "ce0480a1-5ef1-4c3e-9861-3743b5610795"
-              ]
-            }
-          ],
-          "categories": [
-            {
-              "label": "Responsibilities",
-              "provenance_ids": [
-                  "85f5981a-ba91-44f5-9efa-0bd22e64b7bc"
-              ]
-            },
-            {
-              "label": "Amendments",
-            }
-          ]
-        },
-        "updated_labels": {
-          "types": [
-            {
-              "label": {
-                "nature": "Obligation",
-                "party": "IBM"
-              }
-            },
-            {
-              "label": {
-                "nature": "Disclaimer",
-                "party": "Buyer"
-              }
-            }
-          ],
-          "categories": [
-            {
-              "label": "Responsibilities"
-            },
-            {
-              "label": "Audits"
-            }
-          ]
-        }
-      }
-    }'
-```
-{: codeblock}
-
-The output of the command resembles the following.
-
-```json
-{
-  "feedback_id": "9gh7c1f4-57dd-42b5-9586-a2ddf3ed8b34",
   "user_id": "7uy9c1f4-57dd-42b5-9586-a2ddf3ed8b64",
   "comment": "user comments",
   "feedback_data": {
     "feedback_type": "element_classification",
     "document": {
-      "title": "Legal Approval SOW",
-      "hash": "H1234"
+      "title": "Legal Approval SOW,",
+      "hash": "91edc2ff254d29f7a4922635ad47276a"
     },
     "model_id": "contracts",
-    "model_version": "10.00",
+    "model_version": "2.0.1",
     "location": {
       "begin": 214,
       "end": 237
@@ -259,10 +175,9 @@ The output of the command resembles the following.
             "nature": "Obligation",
             "party": "IBM"
           },
-          "modification": "not_changed",
           "provenance_ids": [
-              "85f5981a-ba91-44f5-9efa-0bd22e64b7bc",
-              "ce0480a1-5ef1-4c3e-9861-3743b5610795"
+            "85f5981a-ba91-44f5-9efa-0bd22e64b7bc",
+            "ce0480a1-5ef1-4c3e-9861-3743b5610795"
           ]
         },
         {
@@ -270,24 +185,24 @@ The output of the command resembles the following.
             "nature": "End User",
             "party": "Exclusion"
           },
-          "modification": "removed",
           "provenance_ids": [
-              "85f5981a-ba91-44f5-9efa-0bd22e64b7bc",
-              "ce0480a1-5ef1-4c3e-9861-3743b5610795"
+            "85f5981a-ba91-44f5-9efa-0bd22e64b7bc",
+            "ce0480a1-5ef1-4c3e-9861-3743b5610795"
           ]
         }
       ],
       "categories": [
         {
           "label": "Responsibilities",
-          "modification": "not_changed",
           "provenance_ids": [
-              "85f5981a-ba91-44f5-9efa-0bd22e64b7bc"
+            "85f5981a-ba91-44f5-9efa-0bd22e64b7bc"
           ]
         },
         {
           "label": "Amendments",
-          "modification": "removed"
+          "provenance_ids": [
+            "85f5981a-ba91-44f5-9efa-0bd22e64b7bc"
+          ]
         }
       ]
     },
@@ -297,25 +212,21 @@ The output of the command resembles the following.
           "label": {
             "nature": "Obligation",
             "party": "IBM"
-          },
-          "modification": "not_changed"
+          }
         },
         {
           "label": {
             "nature": "Disclaimer",
             "party": "Buyer"
-          },
-          "modification": "added"
+          }
         }
       ],
       "categories": [
         {
-          "label": "Responsibilities",
-          "modification": "not_changed"
+          "label": "Responsibilities"
         },
         {
-          "label": "Audits",
-          "modification": "added"
+          "label": "Audits"
         }
       ]
     }

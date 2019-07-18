@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-17"
 
 subcollection: compare-comply
 
@@ -16,6 +16,7 @@ subcollection: compare-comply
 {:screen: .screen}
 {:note: .note}
 {:important: .important}
+{:preview: .preview}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -48,7 +49,7 @@ The Compare and Comply Tooling provides the following capabilities:
 
 
   Purchase order understanding and invoice understanding are beta features to which you must request access. For more information, see [Request limited preview features](/docs/services/compare-comply?topic=compare-comply-getting-started#request-preview-features).
-  {: note}
+  {: preview}
 
 ## Before you begin
 {: #before-you-begin}

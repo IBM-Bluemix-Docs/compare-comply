@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-16"
 
 subcollection: compare-comply
 
@@ -58,6 +58,13 @@ The output schema from the method is as follows. The output of the **Understandi
           "begin" : int,
           "end" : int
         }
+      },
+      "titie": {
+        "location": {
+          "begin": int,
+          "end": int,
+        },
+        "text": string
       },
       "table_headers" : [
         {
@@ -187,6 +194,9 @@ The schema is arranged as follows.
     - `section_title`: If identified, the location of a section title contained in the current table. Empty if no section title is identified.
       - `text`: The text of the identified section title.
       - `location`: The location of the section title in the input document as defined by its `begin` and `end` indexes.
+    - `title`: If identified, the title or caption of the current table of the form `Table x.: ...`. Empty when no title is identified. When exposed, the `title` is also excluded from the `contexts` array of the same table.
+      - `location`: The location of the title in the input document as defined by its `begin` and `end` indexes.
+      - `text`: The text of the identified table title or caption.
     - `table_headers`: An array of table-level cells applicable as headers to all the other cells of the current table. Each table header is defined as a collection of the following elements:
       - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
