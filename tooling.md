@@ -49,7 +49,7 @@ The Compare and Comply Tooling provides the following capabilities:
 
 
   Purchase order understanding and invoice understanding are beta features to which you must request access. For more information, see [Request limited preview features](/docs/services/compare-comply?topic=compare-comply-getting-started#request-preview-features).
-  {: preview}
+  {: important}
 
 ## Before you begin
 {: #before-you-begin}
