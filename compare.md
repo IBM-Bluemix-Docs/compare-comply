@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2018-06-06"
+lastupdated: "2018-07-30"
 
 subcollection: compare-comply
 
@@ -131,7 +131,7 @@ The method returns a JSON object that contains the aligned and unaligned element
         }
       ],
       "identical_text": boolean,
-      "provenance_ids": [ string, ... ]
+      "provenance_ids": [ string, ... ],
       "significant_elements": boolean,
     },
     ...

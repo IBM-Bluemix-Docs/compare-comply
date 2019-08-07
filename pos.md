@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-17"
+lastupdated: "2019-07-22"
 
 subcollection: compare-comply
 
@@ -30,7 +30,7 @@ You can analyze purchase orders by using the **Purchase order understanding** fe
 **Purchase order understanding** is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to purchase-order parsing by completing the following [form](https://datasciencex.typeform.com/to/Fjyf6t).
 {: important}
 
-Because **Purchase order understanding** is a beta feature, it is not included in the service's SDKs. You can call the method only by using its `curl` command.
+Because **Purchase order understanding** is a beta feature, it is not included in the service's SDKs or listed in the service's API Reference. You can call the method only by using its `curl` command as described in the following sections.
 {: important}
 
 You can parse and classify the contents of purchase orders in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by calling the `POST /v1/purchase_orders` method. 
@@ -84,6 +84,7 @@ The command output uses the following schema.
             "end": int
          },
          "text": string,
+         "text_normalized": string,
          "provenance_ids": [string, string, ...]
       }
    ],
@@ -94,6 +95,7 @@ The command output uses the following schema.
             "end": int
          },
          "text": string,
+         "text_normalized": string,
          "provenance_ids": [string, string, ...]
       }
    ],
@@ -228,10 +230,12 @@ The schema is arranged as follows.
   - `purchase_order_dates`: An array of purchase-order dates that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
     - `text`: Text regarding a purchase-order date.
+    - `text_normalized`: The normalized form of the purchase-order date in the format `YYYY-MM-DD`.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `due_dates`: An array of due dates that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
     - `text`: Text regarding a due date.
+    - `text_normalized`: The normalized form of the due date in the format `YYYY-MM-DD`.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `payment_terms`: An array of payment terms that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
@@ -239,7 +243,7 @@ The schema is arranged as follows.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `currencies`: An array of currencies that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
-    - `text`: Text regarding currencies, in the form of a [currency code](https://www.iso.org/iso-4217-currency-codes.html){: external}.
+    - `text`: Text regarding currencies, in the form of an [ISO-4217 currency code](https://www.iso.org/iso-4217-currency-codes.html){: external}.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `suppliers`: An array of suppliers that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
@@ -290,7 +294,6 @@ Sample output resembles the following:
   },
   "model_id" : "purchase_orders",
   "model_version" : "0.1.4",
-  "due_dates" : [ ],
   "currencies" : [ {
     "location" : {
       "begin" : 8960,
@@ -322,6 +325,16 @@ Sample output resembles the following:
       "end" : 3752
     },
     "text" : "27-JAN-2018",
+    "text_normalized": "2018-01-27",
+    "provenance_ids": ["P12234"]
+  } ],
+  "due_dates": [ {
+    "location": {
+      "begin": 2324,
+      "end": 2332
+    },
+    "text": "29-APR-18",
+    "text_normalized": "2018-04-29",
     "provenance_ids": ["P12234"]
   } ],
   "invoice_to" : [ ],

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-07-16"
+lastupdated: "2018-07-29"
 
 subcollection: compare-comply
 
@@ -30,6 +30,8 @@ This short tutorial introduces IBM Watson&reg; Compare and Comply and goes throu
 
 ## Where to start
 {: #start-options}
+
+You can get started with the service by using either the API or the service tooling.
 
 ### Get started with the API
 {: #gs-api}
@@ -113,7 +115,7 @@ The method returns a JSON object that contains:
   - [A `tables` array](#tables) that breaks down the tables that are identified in the input document.
   - [A `document_structure` object](#doc_structure) that lists section titles and leading sentences that are identified in the input document.
   - [A `parties` array](#parties) that lists the parties and each party's roles, addresses, contact information, and mentions identified in the input document.
-  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`,  `contract_types`, `contract_terms`, and `payment_terms`](#other_arrays).
+  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`,  `contract_types`, `contract_terms`, `payment_terms`, and `contract_currencies`](#other_arrays).
 
 ## Step 3: Review the analysis
 {: #review_analysis}
@@ -246,11 +248,12 @@ The following arrays provide useful information about the input document.
   - The `contract_types` array lists the contract type or types as specified in the document.
   - The `contact_terms` array lists the contract duration or durations as specified in the document.
   - The `payment_terms` array lists the duration or durations of expected payment as specified in the document.
+  - The `contract_currencies` array lists the contract currency or currencies as specified in the document.
   
 Each of the arrays contains zero or more objects that list the following items:
 
   - The text in which the information was identified.
-  - The normalized text, if applicable. This element is currently listed only in the `effective_dates`, `termination_dates`, `contract_amounts`, `contract_terms`, and `payment_terms` arrays.
+  - The normalized text, if applicable. This element is currently listed only in the `effective_dates`, `termination_dates`, `contract_amounts`, `contract_terms`, `payment_terms`, and `contract_currencies` arrays.
   - The interpretation of the normalized text, if applicable. This element is currently listed only in the `contract_amounts`, `contract_terms`, and `payment_terms` arrays.
   - The confidence level of the identification (`High`, `Medium`, or `Low`).
   - The `location` of that text as defined by the text's `begin` and `end` indexes.

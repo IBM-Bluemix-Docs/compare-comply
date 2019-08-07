@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-31"
 
 subcollection: compare-comply
 
@@ -95,3 +95,8 @@ To delete all data that is associated with a customer ID, use the `DELETE /v1/us
   {: codeblock}
 
 The `DELETE /v1/user_data` method deletes all data that is associated with the specified customer ID, regardless of the method by which the information was added. The method has no effect if no data is associated with the customer ID. You must issue the request with credentials for the same instance of the service that was used to associate the customer ID with the data.
+
+## Health Insurance Portability and Accountability Act (HIPAA)
+{: #cnc-hipaa}
+
+US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: external} for more information.

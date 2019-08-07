@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-07-31"
 
 subcollection: compare-comply
 
@@ -250,9 +250,9 @@ The schema is arranged as follows.
         - `cell_id`: The unique ID of the value in the table.
         - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
         - `text`: The text content of the table cell without HTML markup.
-    - `contexts`: A list of related sentences from above and beneath the table, excluding its section title, which is provided in the `section_title` field. The list is represented as an array. Each object in the array consists of the following elements:
-      - `text`: The text contents of a related sentence from the input document, without HTML markup.
-      - `location`: The location of the related sentence in the input document as defined by its `begin` and `end` indexes.
+    - `contexts`: A list of related material that precedes and follows åthe table, excluding its section title, which is provided in the `section_title` field. Related material includes related sentences; footnotes; and sentences from other parts of the document that refer to the table. The list is represented as an array. Each object in the array consists of the following elements:
+      - `text`: The text contents of a related material from the input document, without HTML markup.
+      - `location`: The location of the related material in the input document as defined by its `begin` and `end` indexes.
       
 ### Notes on the table output schema
 {: #notes-on-table-schema}

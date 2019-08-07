@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-31"
 
 subcollection: compare-comply
 
@@ -38,6 +38,6 @@ Compare and Comply provides:
 
 To get started with the service, see the [Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started) page.
 
-US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans. See [Enabling EU and HIPAA supported settings](https://cloud.ibm.com/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported) for more information.
+US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: external} for more information.
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-07-17"
+lastupdated: "2018-07-31"
 
 subcollection: compare-comply
 
@@ -47,12 +47,21 @@ The current version is `2018-10-15`.
 
 The following new features and changes to the service are available.
 
+### 31 July 2019
+{: #31-july-2019}
+
+The release includes the following updates:
+
+  - The addition of the `contract_currencies` array to the output of the **Element Classification** method. For more information, see [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract-currencies).
+
+   - The addition of the `text_normalized` element to the `purchase_order_dates` and `due_dates` arrays to the output of the **Purchase order understanding** method. For more information, see [Understanding purchase-order parsing](/docs/services/compare-comply?topic=compare-comply-pos).
+
 ### 16 July 2019
 {: #16-july-2019}
 
 The release includes the following updates:
 
-  - The addition of `text_normalized` and `interpretation` elements to the `contract_amounts`, `contract_terms`, and `payment_terms` arrays in the output of the **Element Classification** method. For more information, see [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
+  - The addition of the `text_normalized` and `interpretation` elements to the `contract_amounts`, `contract_terms`, and `payment_terms` arrays to the output of the **Element Classification** method. For more information, see [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
 
   - The addition of the `title` element to the `tables` array in the output of the **Element Classification** and **Tables** methods. For more information, see [Classifying tables](/docs/services/compare-comply?topic=compare-comply-understanding_tables) and [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema).
 

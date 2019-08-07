@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-18"
+lastupdated: "2019-07-31"
 
 subcollection: compare-comply
 
@@ -31,7 +31,7 @@ You can analyze invoice documents by using the **Invoice understanding** feature
 **Invoice understanding** is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to invoice parsing by completing the following [form](http://ibm.biz/invoices).
 {: important}
 
-Because **Invoice understanding** is a beta feature, it is not included in the service's SDKs. You can call the method only by using its `curl` command.
+Because **Invoice understanding** is a beta feature, iit is not included in the service's SDKs or listed in the service's API Reference. You can call the method only by using its `curl` command as described in the following sections.
 {: important}
 
 You can classify the contents of invoices in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by calling the `POST /v1/invoices` method. 
@@ -231,12 +231,12 @@ The schema is arranged as follows.
   - `invoice_dates`: An array of invoice dates. An invoice date is the date on which the invoice was issued.
     - `location`: The location of the invoice date as defined by its `begin` and `end` indexes.
     - `text`: The invoice date.
-    - `text_normalized`: The normalized version of the invoice date in `yyyy-mm-dd` format.
+    - `text_normalized`: The normalized version of the invoice date in `YYYY-MM-DD` format. This element is optional; it is returned only if normalized text exists.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `due_dates`: An array of due dates. A due date is the date on which a payment for a certain invoice is due. It is typically defined in the contract as a certain number of days following the invoice date.
     - `location`: The location of the due date as defined by its `begin` and `end` indexes.
     - `text`: The due date.
-    - `text_normalized`: The normalized version of the due date in `yyyy-mm-dd` format.
+    - `text_normalized`: The normalized version of the due date in `YYYY-MM-DD` format. This element is optional; it is returned only if normalized text exists.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `invoice_parts`: An array of invoice parts. An invoice part is a unit of goods, services, or both specified in the invoice.
     - `quantity_ordered`: The number of a specified invoice part ordered by the buyer from the supplier.

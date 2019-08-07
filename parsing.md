@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-07-31"
 
 subcollection: compare-comply
 
@@ -211,6 +211,19 @@ The `payment_terms` array identifies the payment duration or durations as declar
 |`numeric_value`   |An integer or float expressing the numeric value of the `value` key.|
 |`unit`            |A string listing the unit of the value that was found in the normalized text.|
 |`location`        |The location of the payment term as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
+
+## Contract currencies
+{: #contract-currencies}
+
+The `contract_currencies` array identifies the contract currency or currencies as declared in the document.
+
+| `contract_currencies`|Description                                              |
+|:----------------:|-----------------------------------------------------------|
+|`confidence_level`|The confidence level of the identification of the contract currency. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |The contract currency, listed as a string.      |
+|`text_normalized` |The normalized text of the `text` if applicable, listed as a string in [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html){: external} format.|
+|`location`        |The location of the contract currency as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
 ## Provenance
