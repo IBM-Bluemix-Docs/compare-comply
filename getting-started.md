@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-07-29"
+lastupdated: "2018-08-09"
 
 subcollection: compare-comply
 
@@ -115,7 +115,7 @@ The method returns a JSON object that contains:
   - [A `tables` array](#tables) that breaks down the tables that are identified in the input document.
   - [A `document_structure` object](#doc_structure) that lists section titles and leading sentences that are identified in the input document.
   - [A `parties` array](#parties) that lists the parties and each party's roles, addresses, contact information, and mentions identified in the input document.
-  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`,  `contract_types`, `contract_terms`, `payment_terms`, and `contract_currencies`](#other_arrays).
+  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`, `contract_types`, `contract_terms`, `payment_terms`, and `contract_currencies`](#other_arrays).
 
 ## Step 3: Review the analysis
 {: #review_analysis}

@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-09"
 
 subcollection: compare-comply
 
@@ -90,7 +90,7 @@ After a document is processed by the **Element classification** feature, the ser
         "unit": string,
       },
       "provenance_ids": [ string, string, ... ],
-      "location": { "begin": int, "end": int },
+      "location": { "begin": int, "end": int }
     },
     ...
   ],
@@ -167,7 +167,7 @@ After a document is processed by the **Element classification** feature, the ser
           "end" : int
         }
       },
-      "titie": {
+      "title": {
         "location": {
           "begin": int,
           "end": int,
@@ -443,7 +443,7 @@ The schema is arranged as follows.
     - `interpretation`: The details of the normalized text, if applicable.
       - `value`: A string listing the value that was found in the normalized text.
       - `numeric_value`: An integer or double expressing the numeric value of the `value` key.
-      - `unit`\*\*: A string listing the unit of the value that was found in the normalized text.    
+      - `unit`\*\*: A string listing the unit of the value that was found in the normalized text.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
   - `contract_currencies`: An array that identifiea the document's contract currency or currencies.
@@ -514,7 +514,7 @@ The schema is arranged as follows.
         - `cell_id`: The unique ID of the value in the table.
         - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
         - `text`: The text content of the table cell without HTML markup.
-    - `contexts`: A list of related material that precedes and follows åthe table, excluding its section title, which is provided in the `section_title` field. Related material includes related sentences; footnotes; and sentences from other parts of the document that refer to the table. The list is represented as an array. Each object in the array consists of the following elements:
+    - `contexts`: A list of related material that precedes and follows the table, excluding its section title, which is provided in the `section_title` field. Related material includes related sentences; footnotes; and sentences from other parts of the document that refer to the table. The list is represented as an array. Each object in the array consists of the following elements:
       - `text`: The text contents of a related material from the input document, without HTML markup.
       - `location`: The location of the related material in the input document as defined by its `begin` and `end` indexes.
   - `document_structure`: An object that describes the structure of the input document.
@@ -545,18 +545,20 @@ The schema is arranged as follows.
 
 ### \*Notes on tables
 {: #table-notes}
+
   - Row and column index values per cell are zero-based and so begin with `0`.
   - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
   - Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a possible hierarchy of column headers.
 
 ### \*\*Note on `unit` values
+{: #unit-value-note}
 
 The value of `unit` is the [ISO-4217 currency code](https://www.iso.org/iso-4217-currency-codes.html){: external} identified for the currency amount (for example, `USD` or `EUR`). If the service cannot disambiguate a currency symbol (for example, `$` or `£`), the value of `unit` contains the ambiguous symbol as-is.
   
 ### Note on `location` objects
 {: #location-note}
 
-The `location` object is included with the majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
+The `location` object is included with the majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
   
 For example, a `text` string with the value `Amount due` might have a corresponding `location` object such as
 ```json
