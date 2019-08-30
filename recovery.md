@@ -2,7 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-09-20"
+
+keywords: high availablilty,HA,disaster recovery,DR,backup,restore,custom models,online learning
 
 subcollection: compare-comply
 

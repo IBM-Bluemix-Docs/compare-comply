@@ -24,8 +24,8 @@ Compare and Comply
     invoices.md
     pos.md
     feedback.md
-    tooling.md
     batching.md
+    tooling.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

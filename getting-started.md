@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-08-09"
+lastupdated: "2018-09-19"
+
+keywords: compare and comply,compare,comply,compare comply,getting started,analyze contracts,analyze documents,classify contracts,analyze contracts,element classification,classify elements,analyze tables,tables,CompareComply,CompareAndComply,compare and comply project,compare comply project
 
 subcollection: compare-comply
 
@@ -22,10 +24,10 @@ subcollection: compare-comply
 {:swift: .ph data-hd-programlang='swift'}
 {:hide-dashboard: .hide-dashboard}
 
-# Getting started
+# Getting started with Compare and Comply
 {: #getting-started}
 
-This short tutorial introduces IBM Watson&reg; Compare and Comply and goes through the process of classifying a contract to identify component pieces, their nature, the parties affected, and any identified categories.
+This tutorial guides you through classifying the elements of a contract with IBM Watson&reg; Compare and Comply. You use the default model to analyze the contract.
 {: shortdesc}
 
 ## Where to start

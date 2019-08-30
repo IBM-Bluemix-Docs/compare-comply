@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-09-20"
+
+keywords: element classification,elements,types,parties,categories,attributes,contract,contracts,contract terms,terms,contract types,dates,effective dates,terms,payment terms,provenance,provenance ids,termination dates,amounts,contract amounts,currencies,contract currencies,payment,payments,payment terms
 
 subcollection: compare-comply
 

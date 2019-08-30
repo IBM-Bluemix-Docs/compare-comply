@@ -2,7 +2,9 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-08-09"
+lastupdated: "2019-06-20"
+
+keywords: element classification,elements,schema,schema arrangement,table,tables,unit,units,location
 
 subcollection: compare-comply
 

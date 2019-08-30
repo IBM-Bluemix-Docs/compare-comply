@@ -4,6 +4,8 @@ copyright:
 years: 2018, 2019
 lastupdated: "2019-07-17"
 
+keywords: tool,tooling,gui,suggstion,suggestions,compare,comparison,analyze,analysis,document,documents
+
 subcollection: compare-comply
 
 ---
@@ -245,12 +247,15 @@ The combined size of the two compared documents can be no larger than 3 MB.
   For example, to display unaligned elements, select the **Unaligned elements** check box. The Tooling displays unaligned elements in yellow.
   ![Comparison showing unaligned elements](images/tooling-display-unaligned.png)
   
+<!--
 ## Using purchase order understanding
 {: #tool-po}
 
 
 ## Using invoice understanding
 {: #tool-invoice}
+
+-->
   
 ## Understanding request logging in the Compare and Comply Tooling
 {: #request-logging}

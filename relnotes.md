@@ -2,7 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-07-31"
+lastupdated: "2018-08-28"
+
+keywords: release notes,beta,beta features,changes,issues
 
 subcollection: compare-comply
 
@@ -24,7 +26,7 @@ subcollection: compare-comply
 # Release notes
 {: #release_notes}
 
-The release notes provide information about changes to the IBM Watson Compare and Comply service release.
+The release notes provide information about changes to the IBM Watson&trade; Compare and Comply on IBM Cloud Pak for Data service release.
 
 ## Beta features
 {: #beta_features}
@@ -46,6 +48,13 @@ The current version is `2018-10-15`.
 {: #changes}
 
 The following new features and changes to the service are available.
+
+### 30 August 2019
+{: 30-august-2019}
+
+The release includes the following updates:
+
+ - The output of the **Purchase order understanding** method now includes the new fields `tax_ids`, `tax_totals`, and `quote_numbers`. For more information, see For more information, see [Understanding purchase-order parsing](/docs/services/compare-comply?topic=compare-comply-pos).
 
 ### 31 July 2019
 {: #31-july-2019}

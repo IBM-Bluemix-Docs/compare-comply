@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-09-20"
+
+keywords: batch,batching,batch job
 
 subcollection: compare-comply
 

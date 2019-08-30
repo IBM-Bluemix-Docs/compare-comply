@@ -2,7 +2,9 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2018-07-30"
+lastupdated: "2018-09-20"
+
+keywords: document comparison,compare,compare documents,comparison
 
 subcollection: compare-comply
 

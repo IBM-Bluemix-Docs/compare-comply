@@ -2,7 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-08-29"
+
+keywords: purchase order,purchase orders,purchase order understanding,purchase order parsing,parsing
 
 subcollection: compare-comply
 
@@ -206,7 +208,38 @@ The command output uses the following schema.
          "text": string,
          "provenance_ids": [string, string, ...]
       }
+   ],
+   "tax_totals": [  
+      {  
+         "location": {  
+            "begin": int,
+            "end": int
+         },
+         "text": string,
+         "provenance_ids" : [string, string, ...]
+      }
+   ],
+   "tax_ids": [  
+      {  
+         "location": {  
+            "begin": int,
+            "end": int
+         },
+         "text": string,
+         "provenance_ids" : [string, string, ...]
+      }
+   ],
+   "quote_numbers": [  
+      {  
+         "location": {  
+            "begin": int,
+            "end": int
+         },
+         "text": string,
+         "provenance_ids" : [string, string, ...]
+      }
    ]
+
 }
 
 ```
@@ -278,10 +311,22 @@ The schema is arranged as follows.
       - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
       - `text`: The unit price of the specified item.
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
-  - `total_amounts`: An array that specifies the total amount or amounts due for the purchase order.
+  - `total_amounts`: An array that lists the total amount or amounts due for the purchase order.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
     - `text`: The total amount or amounts.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
+  - `tax_totals`: An array that lists the total amount of taxes specified in the purchase order.
+     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
+    - `text`: The total tax amount.
+    - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
+  - `tax_ids`: An array that lists the tax identifiers specified in the purchase order.
+    - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
+    - `text`: The tax identifier.
+    - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
+  - `quote_numbers`: An array that lists the quote numbers specified in the purchase order.
+    - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
+    - `text`: The quote number.
+    - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support. 
     
 Sample output resembles the following:
 
@@ -428,6 +473,38 @@ Sample output resembles the following:
     },
     "text" : "98457",
     "provenance_ids": ["P12234"]
-  } ]
+  } ],
+  "total_amounts": [ {
+    "text": "17,788.80",
+    "location": {
+      "begin": 23945,
+      "end": 23954
+    },
+    "provenance_ids" : ["P12234"]
+  } ],
+  "tax_totals": [ {
+    "text": "0.00",
+    "location": {
+      "begin": 21279,
+      "end": 21283
+    },
+    "provenance_ids": ["P12234"]
+  } ],
+  "tax_ids": [ {
+    "text": "13-0871985",
+    "location": {
+      "begin": 5071,
+      "end": 5079
+    },
+    "provenance_ids": ["P12234"]
+  } ],
+  "quote_numbers": [ {
+    "text": "17509437",
+    "location": {
+      "begin": 19689,
+      "end": 19697
+    },
+    "provenance_ids": ["P12234"]
+  } ]  
 }
 ```

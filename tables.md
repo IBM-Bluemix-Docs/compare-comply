@@ -2,7 +2,9 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-20"
+
+keywords: table,tables,classify tables,classifying tables,table understanding,row,rows,column,columns,cell,cells,body cell,body cells,header,headers,key,value,key value pair,context,row header,row headers,column header,column headers,context,contexts
 
 subcollection: compare-comply
 
