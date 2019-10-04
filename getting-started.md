@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-09-19"
+lastupdated: "2019-10-04"
 
 keywords: compare and comply,compare,comply,compare comply,getting started,analyze contracts,analyze documents,classify contracts,analyze contracts,element classification,classify elements,analyze tables,tables,CompareComply,CompareAndComply,compare and comply project,compare comply project
 
@@ -24,10 +24,10 @@ subcollection: compare-comply
 {:swift: .ph data-hd-programlang='swift'}
 {:hide-dashboard: .hide-dashboard}
 
-# Getting started with Compare and Comply
+# Getting started with {{site.data.keyword.cncshort}}
 {: #getting-started}
 
-This tutorial guides you through classifying the elements of a contract with IBM Watson&reg; Compare and Comply. You use the default model to analyze the contract.
+This tutorial guides you through classifying the elements of a contract with {{site.data.keyword.cncfull}}. You use the default model to analyze the contract.
 {: shortdesc}
 
 ## Where to start
@@ -38,30 +38,30 @@ You can get started with the service by using either the API or the service tool
 ### Get started with the API
 {: #gs-api}
 
-This tutorial uses the `**Element classification** feature. Other service methods have similar input syntax and output formats. For more information, see the pages for other methods.
+This tutorial uses the **Element classification** feature. Other service methods have similar input syntax and output formats. For more information, see the pages for other methods.
 
 ### Get started with the tooling
 {: #gs-tool}
 
-Optionally, you can explore the service's features by using the Compare and Comply tooling. See [Using the Compare and Comply Tooling ](/docs/services/compare-comply?topic=compare-comply-using_tool) for more information.
+Optionally, you can explore the service's features by using the {{site.data.keyword.cncshort}} tooling. See [Using the {{site.data.keyword.cncshort}} Tooling ](/docs/services/compare-comply?topic=compare-comply-using_tool) for more information.
 
 ### Request limited preview features
 {: #request-preview-features}
 
-Compare and Comply has the following beta and experimental features that can be accessed by request:
+{{site.data.keyword.cncshort}} has the following beta and experimental features that can be accessed by request:
 
-  -  Invoice Understanding: Compare and Comply finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Please fill out the following [form](http://ibm.biz/invoices){: external} to request access to this feature.
-  - Purchase Order Understanding: Compare and Comply extracts important information in purchase orders. Please fill out the following [form](https://datasciencex.typeform.com/to/Fjyf6t){: external} to request access to this feature.
+  -  Invoice Understanding: {{site.data.keyword.cncshort}} finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Fill out the following [form](http://ibm.biz/invoices){: external} to request access to this feature.
+  - Purchase Order Understanding: {{site.data.keyword.cncshort}}extracts important information in purchase orders. Fill out the following [form](https://datasciencex.typeform.com/to/Fjyf6t){: external} to request access to this feature.
 
 ## Before you begin
 {: #gs-before-you-begin}
 
 - {: hide-dashboard}  Create an instance of the service:
-    1.  {: hide-dashboard} Go to the [Compare and Comply page](https://{DomainName}/catalog/services/compare-comply){: external} in the {{site.data.keyword.cloud_notm}} catalog.
+    1.  {: hide-dashboard} Go to the [{{site.data.keyword.cncshort}} page](https://{DomainName}/catalog/services/compare-comply){: external} in the {{site.data.keyword.cloud_notm}} catalog.
     1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
     1.  {: hide-dashboard} Click **Create**.
 - Copy the credentials to authenticate to your service instance:
-    1. {: hide-dashboard} From the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}/dashboard/apps), click your Compare and Comply service instance to go to the Compare and Comply service dashboard page.
+    1. {: hide-dashboard} From the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}/dashboard/apps), click your {{site.data.keyword.cncshort}} service instance to go to the {{site.data.keyword.cncshort}} service dashboard page.
     1.  On the **Manage** page, click **Show** to view your credentials.
     1.  Copy the `apikey` and `url` values.
 
@@ -84,7 +84,7 @@ curl -X POST -u "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
 ## Step 1: Identify content
 {: #identify_content}
 
-Identify appropriate documents to analyze. Compare and Comply can analyze contractual documents that meet the criteria that are listed in [Supported input formats](/docs/services/compare-comply?topic=compare-comply-formats).
+Identify appropriate documents to analyze. {{site.data.keyword.cncshort}} can analyze contractual documents that meet the criteria that are listed in [Supported input formats](/docs/services/compare-comply?topic=compare-comply-formats).
 
 For the example in this tutorial, the file must be in PDF or a supported image format.
   
@@ -132,7 +132,7 @@ The `documents` object provides basic information about the input document.
 ### Elements
 {: #elements}
 
-Each object in the `elements` array describes an element of the contract that Compare and Comply identified. The following code shows a typical element:
+Each object in the `elements` array describes an element of the contract that {{site.data.keyword.cncshort}} identified. The following code shows a typical element:
 
 ```json
 {
