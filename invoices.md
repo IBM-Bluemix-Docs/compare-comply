@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-09-04"
 
 keywords: invoice,invoices,invoice parsing,parsing,invoice understanding
 

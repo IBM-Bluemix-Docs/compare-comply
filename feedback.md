@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-09-04"
 
 keywords: feedback,document feedback
 
@@ -26,7 +26,7 @@ subcollection: compare-comply
 # Using the feedback APIs
 {: #feedback}
 
-Users, preferably subject-matter experts (SMEs), can use the IBM Watson Compare and Comply service's feedback APIs to provide feedback on a parsed document. You can provide feedback on any element that has been labeled by the service. The feedback is associated with the document for future review and consideration. The feedback APIs enable users to submit, get, and delete feedback.
+Users, preferably subject-matter experts (SMEs), can use the {{site.data.keyword.cncshort}} service's feedback APIs to provide feedback on a parsed document. You can provide feedback on any element that has been labeled by the service. The feedback is associated with the document for future review and consideration. The feedback APIs enable users to submit, get, and delete feedback.
 
 Feedback is not immediately incorporated into the training model, nor is it guaranteed to be incorporated at a later date. Instead, submitted feedback is used to suggest future updates to the training model.
 {: important}
@@ -66,7 +66,7 @@ In the following scenario, an SME named Stuart reviews a parsed governing docume
 
 These steps are described in more detail in the following sections.
 
-  You can also provide feedback by using the Compare and Comply Tooling as described at [Adding suggestions in Using the Compare and Comply Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool#add-suggestions).
+  You can also provide feedback by using the {{site.data.keyword.cncshort}} Tooling as described at [Adding suggestions in Using the {{site.data.keyword.cncshort}} Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool#add-suggestions).
   {: tip}
 
 ## Adding feedback

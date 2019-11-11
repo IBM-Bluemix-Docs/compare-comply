@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-07-17"
+lastupdated: "2019-09-04"
 
 keywords: tool,tooling,gui,suggstion,suggestions,compare,comparison,analyze,analysis,document,documents
 
@@ -25,16 +25,16 @@ subcollection: compare-comply
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: #curl .ph data-hd-programlang='curl'}
 
-# Using the Compare and Comply Tooling
+# Using the {{site.data.keyword.cncshort}} Tooling
 {: #using_tool}
 
-The Compare and Comply Tooling enables you to work with governing documents in a GUI environment. This tutorial introduces the Tooling and takes you through the process of uploading and processing documents, then working with the results.
+The {{site.data.keyword.cncshort}} Tooling enables you to work with governing documents in a GUI environment. This tutorial introduces the Tooling and takes you through the process of uploading and processing documents, then working with the results.
 {: shortdesc}
 
 ## Tooling capabilities
 {: #tooling-capabilities}
 
-The Compare and Comply Tooling provides the following capabilities:
+The {{site.data.keyword.cncshort}} Tooling provides the following capabilities:
 
   - **Analyze**: Enables you to use the **Element Classification** feature in a visual environment. It also provides the ability to provide suggestions to update and improve the training models.
 
@@ -56,35 +56,35 @@ The Compare and Comply Tooling provides the following capabilities:
 ## Before you begin
 {: #before-you-begin}
 
-You need the following before you can use the Compare and Comply Tooling:
+You need the following before you can use the {{site.data.keyword.cncshort}} Tooling:
 
  - An IBM Cloud account.
- - A Compare and Comply service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started).
+ - A {{site.data.keyword.cncshort}} service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started).
  
-## Launching the Compare and Comply Tooling
+## Launching the {{site.data.keyword.cncshort}} Tooling
 {: #launch-tool}
 
-1. Navigate to your Compare and Comply service instance on IBM Cloud.
+1. Navigate to your {{site.data.keyword.cncshort}} service instance on IBM Cloud.
 
 1. If prompted, enter your IBM Cloud login information.
 
-1. Launch the Tooling from the **Manage** tab of your service instance by clicking the **Launch Watson Compare and Comply** button.
+1. Launch the Tooling from the **Manage** tab of your service instance by clicking the **Launch Watson {{site.data.keyword.cncshort}}** button.
 
 ## Running element classification
 {: #use-tooling-ec}
 
 The Tooling launches and displays the [GDPR ](/docs/services/compare-comply?topic=compare-comply-information-security#gdpr) compliance notice. You can click **Learn more** for additional information. Click **OK** to continue using the Tooling.
 
-![Compare and Comply Tooling landing page](images/tool-landing.png)
+![{{site.data.keyword.cncshort}} Tooling landing page](images/tool-landing.png)
 
 The Tooling then displays the landing page. Click **Contracts**. The Tooling opens the **Upload new document** dialog. Click **Browse for document**. The Tooling opens a file browser. Select an [input file](/docs/services/compare-comply?topic=compare-comply-formats) and click **Open**.
 
 The maximum file size is 1.5 MB. However, you can upload JSON output files from the **Element Classification** feature that are up to 50 MB. You can process larger documents by submitting them to Element Classification by [using batch processing](/docs/services/compare-comply?topic=compare-comply-batching) and saving the output to upload to the Tooling. **The JSON _must_ be the output of the Element Classification feature. You cannot upload arbitrary JSON to the tool.**
 {: note}
 
-![Compare and Comply Tooling upload page](images/tool-landing-2.png)
+![{{site.data.keyword.cncshort}} Tooling upload page](images/tool-landing-2.png)
 
-  You can allow IBM Watson to use non-identifiable information from the document for general Watson service improvements. If you want to do so, select the **Allow Watson to use this document for learning** check box. The check box text includes a link to more information at [Understanding request logging in the Compare and Comply Tooling](#request-logging). For more information about IBM's commitment to data privacy, see [https://www.ibm.com/watson/data-privacy/](https://www.ibm.com/watson/data-privacy/){:external}.
+  You can allow IBM Watson to use non-identifiable information from the document for general Watson service improvements. If you want to do so, select the **Allow Watson to use this document for learning** check box. The check box text includes a link to more information at [Understanding request logging in the {{site.data.keyword.cncshort}} Tooling](#request-logging). For more information about IBM's commitment to data privacy, see [https://www.ibm.com/watson/data-privacy/](https://www.ibm.com/watson/data-privacy/){:external}.
   {: tip}
   
 Click **Upload and continue**.
@@ -94,33 +94,33 @@ You can then perform one or more of the following tasks.
 ### Filtering elements by labels
 {: #filter-elements}
 
-The Compare and Comply Tooling for Element Classification displays four panes. The top pane lists the name of the input file and provides the **Upload new document** icon (![Compare and Comply Tooling upload new document button](images/tooling-upload-icon.png)). The far left pane enables you to switch to other Tooling functions such as **Compare**. The middle pane enables you to select specific labeled elements to display. The right pane displays the document in HTML format.
+The {{site.data.keyword.cncshort}} Tooling for Element Classification displays four panes. The top pane lists the name of the input file and provides the **Upload new document** icon (![{{site.data.keyword.cncshort}} Tooling upload new document button](images/tooling-upload-icon.png)). The far left pane enables you to switch to other Tooling functions such as **Compare**. The middle pane enables you to select specific labeled elements to display. The right pane displays the document in HTML format.
 
-![Compare and Comply Tooling with opened document](images/tooling-open-doc.png)
+![{{site.data.keyword.cncshort}} Tooling with opened document](images/tooling-open-doc.png)
  
 1. In the left pane, select one or more labels from the **Category** listings. When you select an item, the Tooling highlights the elements in that category. For example, selecting **Dispute Resolution** highlights all elements in the document that match that category.
 
   Category selections are logical `AND` operations. That is, if you select more than one category, the Tooling highlights only the elements that match all of the selections.
   {: note}
   
-  ![Compare and Comply Tooling with category selection](images/tooling-category.png)
+  ![{{site.data.keyword.cncshort}} Tooling with category selection](images/tooling-category.png)
  
 1. After selecting the category, you can select one or more active labels from the **Nature** listings, the **Party** listings, or both. As you make additional selections, the highlights change to match the combination of selected labels.
 
   Nature and party selections are logical `OR` operations. That is, if you select more than one nature or party, the Tooling highlights all elements that match any of the selections.
   {: note}
   
-  ![Compare and Comply Tooling with category and nature selections](images/tooling-cat-nature.png)
+  ![{{site.data.keyword.cncshort}} Tooling with category and nature selections](images/tooling-cat-nature.png)
  
 1. Click a highlighted element to display all labels that are applied to the element. You can optionally suggest different classifications for the labels and elements, as described in [Adding suggestions](#add-suggestions).
-   ![Compare and Comply Tooling displaying element-specific information](images/tool-highlight.png)
+   ![{{site.data.keyword.cncshort}} Tooling displaying element-specific information](images/tool-highlight.png)
 
 1. Use the up and down arrows to the right of the document to cycle through elements that match the specified labels.
 
 1. Optionally, click **Reset filters** to clear all labels.
 
-1. Optionally, open another document by clicking the **Upload new document** icon (![Compare and Comply Tooling upload new document button](images/tooling-upload-icon.png)). The Tooling opens a file browser. Proceed as described in Step 2.
-   ![Compare and Comply Tooling: Upload a new contract](images/tooling-replace.png)
+1. Optionally, open another document by clicking the **Upload new document** icon (![{{site.data.keyword.cncshort}} Tooling upload new document button](images/tooling-upload-icon.png)). The Tooling opens a file browser. Proceed as described in Step 2.
+   ![{{site.data.keyword.cncshort}} Tooling: Upload a new contract](images/tooling-replace.png)
 
 See [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing) for listings and descriptions of all available categories, natures, and parties.
 
@@ -138,12 +138,12 @@ You can display contract metadata by clicking the **Contract metadata** tab in t
   
 The Tooling displays a list of linked identified metadata items. Click a link to go to the corresponding element in the document. The Tooling highlights the element in orange.
   
-Compare and Comply assigns confidence levels to identified **Effective dates**, **Contract amounts**, **Termination dates**, **Contract types**, and **Contract terms** items by using the following scale:
+{{site.data.keyword.cncshort}} assigns confidence levels to identified **Effective dates**, **Contract amounts**, **Termination dates**, **Contract types**, and **Contract terms** items by using the following scale:
   - Three green dots indicate a **high** level of confidence.
   - Two yellow dots indicate a **medium** level of confidence.
   - One red dot indicates a **low** level of confidence.
   
-![Compare and Comply Tooling: Contract metadata](images/tooling-metadata.png)
+![{{site.data.keyword.cncshort}} Tooling: Contract metadata](images/tooling-metadata.png)
 
 ### Adding suggestions
 {: #add-suggestions}
@@ -155,7 +155,7 @@ To provide suggestions in the Tooling, perform the following steps:
 1. Open the Tooling, open a document, and apply the labels that you want to examine. Select a highlighted passage to display information about it in the right pane.
 
 1. If you disagree with the information that the Tooling displays, click **Suggest changes**. The **Suggest changes** panel opens.
-   ![Compare and Comply Tooling: Suggestion panel](images/tool-suggestion-panel.png).
+   ![{{site.data.keyword.cncshort}} Tooling: Suggestion panel](images/tool-suggestion-panel.png).
    
 1. The panel lists each labeled element in the highlighted passage. Perform one or more of the following actions:
    - Mark the label as incorrect by clicking the **Incorrect** icon (![Incorrect icon](images/mark-icon.png)). The Tooling displays the status message **Marked incorrect** for the element. If you click the icon by accident or change your mind later, click the **Undo** icon (![Undo icon](images/tool-undo.png)).
@@ -174,7 +174,7 @@ You can view the suggestions that have been made in the Tooling by clicking the 
   The **Suggestion history** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings](https://cloud.ibm.com/account/settings){: external} for information about your plan.
   {: important}
 
-![Compare and Comply Tooling: Suggestion history](images/tool-suggestion-history.png)
+![{{site.data.keyword.cncshort}} Tooling: Suggestion history](images/tool-suggestion-history.png)
 
 ## Applying recommendations
 {: #apply-recommendations}
@@ -190,7 +190,7 @@ To apply recommendations, perform the following steps:
   - The **Current** tab shows recommendations that were generated but that are not yet accepted or rejected.
   - The **Applied** tab shows recommendations that were accepted and are now part of your service instance model.
   
-  ![Compare and Comply Tooling: Recommendations page](images/recommendations.png)
+  ![{{site.data.keyword.cncshort}} Tooling: Recommendations page](images/recommendations.png)
   
   If enough suggestions have been made by users, recommendations appear in the **Current** tab. A recommendation takes one of two types:
     - To _relabel_ a set of elements; that is, to remove the existing label and replace it with another label
@@ -210,7 +210,7 @@ To apply recommendations, perform the following steps:
 
 1. Click **Deploy** to deploy the model. When the model finishes deploying, the Tooling displays a notification at the top of the screen. You can then use the **Document visualizer** to test the new model.
 
-  ![Compare and Comply Tooling: Apply recommendations](images/recommendations-2.png)
+  ![{{site.data.keyword.cncshort}} Tooling: Apply recommendations](images/recommendations-2.png)
 
 ## Comparing documents
 {: #tool-compare}
@@ -257,12 +257,12 @@ The combined size of the two compared documents can be no larger than 3 MB.
 
 -->
   
-## Understanding request logging in the Compare and Comply Tooling
+## Understanding request logging in the {{site.data.keyword.cncshort}} Tooling
 {: #request-logging}
 
 By default, all IBM Watson&trade; services log requests and their results. Logged data is used only for ongoing service enhancements, including improvements in user experience, accuracy, and performance. The logged data is not shared or made public. All Watson users benefit from the use of logged data to drive improvements.
   
-To permit the Compare and Comply Tooling to provide logging data to IBM, select the **Allow Watson to use this document for learning** check box in the Compare and Comply Tooling each time you upload a document to it. However, if you are concerned about data privacy for any given document or otherwise do not want requests to be used by IBM, leave the check box unselected.
+To permit the {{site.data.keyword.cncshort}} Tooling to provide logging data to IBM, select the **Allow Watson to use this document for learning** check box in the {{site.data.keyword.cncshort}} Tooling each time you upload a document to it. However, if you are concerned about data privacy for any given document or otherwise do not want requests to be used by IBM, leave the check box unselected.
 
 For more information about Watson services' use of request logging, see the  [common Watson documentation](https://cloud.ibm.com/docs/services/watson?topic=watson-gs-logging-overview#controlling-request-logging-for-watson-services){: external}.
 

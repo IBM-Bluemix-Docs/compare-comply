@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-09-04"
 
 keywords: element classification,elements,types,parties,categories,attributes,contract,contracts,contract terms,terms,contract types,dates,effective dates,terms,payment terms,provenance,provenance ids,termination dates,amounts,contract amounts,currencies,contract currencies,payment,payments,payment terms
 
@@ -26,7 +26,7 @@ subcollection: compare-comply
 # Understanding element classification
 {: #contract_parsing}
 
-When you upload a contract to Compare and Comply by specifying the `model_id` value `contracts` on the `/v1/element_classification` method, the service returns the contract with an analysis of each identified element.
+When you upload a contract to {{site.data.keyword.cncshort}} by specifying the `model_id` value `contracts` on the `/v1/element_classification` method, the service returns the contract with an analysis of each identified element.
 
 The following sections describe how the returned JSON provides the analysis.
 

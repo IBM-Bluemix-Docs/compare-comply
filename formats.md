@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-09-04"
 
 keywords: document formats,format,formats,permitted formats,PDF,pdf,image,images,text,Word
 
@@ -26,13 +26,13 @@ subcollection: compare-comply
 # Supported input formats
 {: #formats}
 
-IBM Watson&reg; Compare and Comply supports a variety of input formats, including PDF, JSON, Microsoft Word, images, and text.
+{{site.data.keyword.cncfull}} supports a variety of input formats, including PDF, JSON, Microsoft Word, images, and text.
 {: shortdesc}
 
 ## General support
 {: #general}
 
-Observe the following notes regarding files submitted to Compare and Comply.
+Observe the following notes regarding files submitted to {{site.data.keyword.cncshort}}.
 
   - Not all input formats are accepted by all methods. For more information, see [Support by method](#methods) and the lists of supported methods in the details of each input type described in the following sections.
   - For optimal results, specify the MIME type when submitting a file. For example, if you submit a PDF file, it is recommended that you specify the file as follows:
@@ -43,18 +43,18 @@ Observe the following notes regarding files submitted to Compare and Comply.
     MIME types are provided with the supported file types listed in the following sections.
   - Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/services/compare-comply?topic=compare-comply-batching), files can be up to 50 MB in size.
   - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
-  - The [Compare and Comply Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool) accepts all file types other than text.
+  - The [{{site.data.keyword.cncshort}} Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool) accepts all file types other than text.
   
 ## PDF support
 {: #pdfs}
 
-Compare and Comply can process PDF files. Note the following.
+{{site.data.keyword.cncshort}} can process PDF files. Note the following.
 
   - The MIME type is `application/pdf`.
   - Both programmatic and scanned PDF files are supported. Files that have been scanned and processed by an optical character reader (OCR) are also supported.
   - Secure PDFs, which require a password to open, and restricted PDFs, which require a password to edit, cannot be processed.
   
-Compare and Comply methods that support PDF include the following.
+{{site.data.keyword.cncshort}} methods that support PDF include the following.
 
   - `/v1/html_conversion`
   - `/v1/element_classification`
@@ -65,11 +65,11 @@ Compare and Comply methods that support PDF include the following.
 ## Microsoft Word support
 {: #word}
 
-Compare and Comply can process Microsoft Word files in the following formats.
+{{site.data.keyword.cncshort}} can process Microsoft Word files in the following formats.
   - DOC (`application/msword`)
   - DOCX (`application/vnd.openxmlformats-officedocument.wordprocessingml.document`)
   
-Compare and Comply methods that support Microsoft Word files include the following.
+{{site.data.keyword.cncshort}} methods that support Microsoft Word files include the following.
 
   - `/v1/html_conversion`
   - `/v1/element_classification`
@@ -80,7 +80,7 @@ Compare and Comply methods that support Microsoft Word files include the followi
 ## Image support
 {: #images}
 
-Compare and Comply can process image files in the following formats.
+{{site.data.keyword.cncshort}} can process image files in the following formats.
 
   - BMP (`image/bmp`)
   - GIF (`image/gif`)
@@ -93,7 +93,7 @@ Compare and Comply can process image files in the following formats.
 For best results, use image files with a resolution of 300 DPI or higher. Using image files with a resolution under 300 DPI can result in non-optimal output.
 {: note}
 
-Compare and Comply methods that support images include the following.
+{{site.data.keyword.cncshort}} methods that support images include the following.
 
   - `/v1/html_conversion`
   - `/v1/element_classification`
@@ -108,7 +108,7 @@ The service can process "plain" text (ASCII) files that use a monospaced font an
 
 The MIME type is `text/plain`.
 
-Compare and Comply methods that support text include the following.
+{{site.data.keyword.cncshort}} methods that support text include the following.
 
   - `/v1/html_conversion`
   - `/v1/tables`

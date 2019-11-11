@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-09-04"
 
 subcollection: compare-comply
 
@@ -44,10 +44,10 @@ IBM is committed to providing our clients and partners with innovative data priv
 
 Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and offerings to support your compliance journey [here](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/gdpr){: external}.
 
-## Labeling and deleting data in the Compare and Comply service
+## Labeling and deleting data in the {{site.data.keyword.cncshort}} service
 {: #delete-data}
 
-The Compare and Comply service enables you to delete all data that is associated with feedback and batch-processing requests. To delete data, you must do the following:
+The {{site.data.keyword.cncshort}} service enables you to delete all data that is associated with feedback and batch-processing requests. To delete data, you must do the following:
 
 1.  Use the `X-Watson-Metadata` header to associate a customer ID with data that is passed by a request to the service; see [Specifying a customer ID](#specify-customer-id).
 1.  Use the `DELETE /v1/user_data` method to delete all data that is associated with a specified customer ID; see [Deleting data](#delete-cnc).

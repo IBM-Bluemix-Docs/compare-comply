@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-08-20"
+lastupdated: "2019-09-04"
 
 keywords: table,tables,classify tables,classifying tables,table understanding,row,rows,column,columns,cell,cells,body cell,body cells,header,headers,key,value,key value pair,context,row header,row headers,column header,column headers,context,contexts
 
@@ -501,7 +501,7 @@ The output from service represents the example's first body cell (that is, the f
 ## Understanding key-value pairs
 {: #key-value-pairs}
 
-Tables can contain key-value pairs that span multiple table cells. Compare and Comply can detect the following types of tabular key-value pairs.
+Tables can contain key-value pairs that span multiple table cells. {{site.data.keyword.cncshort}} can detect the following types of tabular key-value pairs.
 
   - Simple key-value pairs in adjacent cells, as in the following example table.
   
