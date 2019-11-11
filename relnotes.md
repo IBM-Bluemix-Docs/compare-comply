@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-09-04"
+lastupdated: "2019-11-11"
 
 keywords: release notes,beta,beta features,changes,issues
 
@@ -26,7 +26,7 @@ subcollection: compare-comply
 # Release notes
 {: #release_notes}
 
-The release notes provide information about changes to the {{site.data.keyword.cncfull}}service.
+The release notes provide information about changes to the {{site.data.keyword.cncfull}} service.
 
 ## Beta features
 {: #beta_features}

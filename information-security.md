@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-04"
+lastupdated: "2019-11-11"
 
 subcollection: compare-comply
 

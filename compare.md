@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2018-09-04"
+lastupdated: "2018-11-11"
 
 keywords: document comparison,compare,compare documents,comparison
 

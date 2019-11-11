@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-06-20"
+lastupdated: "2019-11-11"
 
 keywords: element classification,elements,schema,schema arrangement,table,tables,unit,units,location
 

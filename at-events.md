@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-10-22"
+lastupdated: "2019-11-11"
 
 keywords: compare and comply,event,security,IBM,activity tracker
 

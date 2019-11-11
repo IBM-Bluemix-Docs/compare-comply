@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-09-04"
+lastupdated: "2019-11-11"
 
 keywords: document,structure,document structure,section titles,leading sentences,paragraphs
 

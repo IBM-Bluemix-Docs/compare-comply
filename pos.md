@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-01"
+lastupdated: "2019-11-11"
 
 keywords: purchase order,purchase orders,purchase order understanding,purchase order parsing,parsing
 
