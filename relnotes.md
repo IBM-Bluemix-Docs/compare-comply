@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-08-28"
+lastupdated: "2019-11-11"
 
 keywords: release notes,beta,beta features,changes,issues
 
@@ -26,7 +26,7 @@ subcollection: compare-comply
 # Release notes
 {: #release_notes}
 
-The release notes provide information about changes to the IBM Watson&trade; Compare and Comply on IBM Cloud Pak for Data service release.
+The release notes provide information about changes to the {{site.data.keyword.cncfull}} service.
 
 ## Beta features
 {: #beta_features}
@@ -86,7 +86,7 @@ The release includes the following updates:
 ### 23 April 2019
 {: #23-april-2019}
 
-The release includes updates to the Compare and Comply Tooling. For more information, see [Using the Compare and Comply Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
+The release includes updates to the {{site.data.keyword.cncshort}} Tooling. For more information, see [Using the {{site.data.keyword.cncshort}} Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
 
 ### 17 April 2019
 {: #17-april-2019}
@@ -117,7 +117,7 @@ The release includes the following updates:
 
 The release includes the following updates:
 
-  - Additional enhancements to the Compare and Comply Tooling. For more information, see [Using the Compare and Comply Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
+  - Additional enhancements to the {{site.data.keyword.cncshort}} Tooling. For more information, see [Using the {{site.data.keyword.cncshort}} Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
   - The output of the **Table understanding** method includes a new array called `key_value_pairs` that shows key-value pairs that the service extracted from different cells in a table. For more information, see [Understanding key-value pairs](/docs/services/compare-comply?topic=compare-comply-understanding_tables#key-value-pairs).
 
 ### 8 January 2019
@@ -130,12 +130,12 @@ The release includes the following updates:
     - The `parties` array now includes an `importance` field that indicates whether the party is a `Primary` party or an `Unknown` (non-primary) party.
     - The `effective_dates`, `contract_amounts`, and `termination_dates` arrays now each include a `confidence_level` field that indicates a value of `High`, `Medium`, or `Low`.
     For more information, see [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
-  - The Compare and Comply Tooling includes several enhancements and bug fixes. For more information, see [Using the Compare and Comply Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
+  - The {{site.data.keyword.cncshort}} Tooling includes several enhancements and bug fixes. For more information, see [Using the {{site.data.keyword.cncshort}} Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
 
 ### General Availability release, 6 December 2018
 {: #6-dec-2018}
 
-The Compare and Comply service is now generally available. The GA release includes the following new features and enhancements:
+The {{site.data.keyword.cncshort}} service is now generally available. The GA release includes the following new features and enhancements:
 
   - Beta release of an analysis model for invoices, which you can access by using the `/v1/invoices` method. For more information, see [Understanding invoice parsing](/docs/services/compare-comply?topic=compare-comply-invoices). For important information about beta features, see [Beta features](#beta_features). <br/>
     **Note:** Only the `curl` API is available for this method. The method is not currently provided in other SDKs (Java, Python, Node.js, Ruby).
@@ -159,7 +159,7 @@ The following table lists file-type support by method.
 ### 9 November 2018
 {: #9nov2018}
 
-Compare and Comply now has the ability to process certain image files and text files as listed at [Supported input formats](/docs/services/compare-comply?topic=compare-comply-formats).
+{{site.data.keyword.cncshort}} now has the ability to process certain image files and text files as listed at [Supported input formats](/docs/services/compare-comply?topic=compare-comply-formats).
 
 The service can process "plain" text (ASCII) files that use a monospaced font and page breaks. Richer text formats that include non-monospaced fonts and style attributes such as bold and italics are not yet supported. If you need to process an enriched text file, convert it to PDF before submitting it to the service.
 
@@ -194,17 +194,17 @@ Changes to the service's API and output schema are ongoing throughout the course
 Beta release with the following features that have been introduced since the experimental release:
 
   - Enhanced output including a structural analysis of input documents, as described at [Understanding document structure](/docs/services/compare-comply?topic=compare-comply-doc_struct).
-  - New `batches` APIs to run Compare and Comply methods over a set of documents, as described at [Using batch processing](/docs/services/compare-comply?topic=compare-comply-batching).
+  - New `batches` APIs to run {{site.data.keyword.cncshort}} methods over a set of documents, as described at [Using batch processing](/docs/services/compare-comply?topic=compare-comply-batching).
   - The ability to parse scanned PDF files that have been processed by an optical character reader (OCR).
   - New `feedback` APIs to enable subject-matter experts to suggest feedback for future updates to the training model, as described at [Using the feedback APIs](/docs/services/compare-comply?topic=compare-comply-feedback).
   - Improved table classification, as described at [Classifying tables](/docs/services/compare-comply?topic=compare-comply-understanding_tables).
-  - Tooling for working visually on documents, as described at [Using the Compare and Comply Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
+  - Tooling for working visually on documents, as described at [Using the {{site.data.keyword.cncshort}} Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool).
 
 
 ## Known issues
 {: #known_issues}
 
-- The maximum size of an input file that can be uploaded to the service in interactive mode (that is, with a method not called by the `/v1/batches` interface, as well as in the Compare and Comply Tooling) is 1.5 MB. Files submitted through the `/v1/batches` interface can be up to 50 MB. See [Using batch processing](/docs/services/compare-comply?topic=compare-comply-batching) for information on the `/v1/batches` interface.
+- The maximum size of an input file that can be uploaded to the service in interactive mode (that is, with a method not called by the `/v1/batches` interface, as well as in the {{site.data.keyword.cncshort}} Tooling) is 1.5 MB. Files submitted through the `/v1/batches` interface can be up to 50 MB. See [Using batch processing](/docs/services/compare-comply?topic=compare-comply-batching) for information on the `/v1/batches` interface.
 - PDFs with security enabled cannot be parsed.
 - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
 

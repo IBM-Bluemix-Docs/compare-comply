@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-11-11"
 
 keywords: purchase order,purchase orders,purchase order understanding,purchase order parsing,parsing
 
@@ -101,23 +101,30 @@ The command output uses the following schema.
          "provenance_ids": [string, string, ...]
       }
    ],
-   "payment_terms": [  
-      {  
-         "location": {  
+    "payment_terms": [
+      {
+         "location": {
             "begin": int,
             "end": int
          },
          "text": string,
+         "text_normalized": string,
+         "interpretation": {
+            "value" : string,
+            "numeric_value" : int,
+            "unit": string
+          },
          "provenance_ids": [string, string, ...]
       }
    ],
-   "currencies": [  
+   "currencies": [
       {  
          "location": {  
             "begin": int,
             "end": int
          },
          "text": string,
+         "text_normalized": string,
          "provenance_ids": [string, string, ...]
       }
    ],
@@ -273,10 +280,16 @@ The schema is arranged as follows.
   - `payment_terms`: An array of payment terms that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
     - `text`: Text regarding payment terms.
+    - `text_normalized`: The normalized form of the value of the `text` field. This element is optional; it is returned only if normalized text exists.
+    - `interpretation`: The details of the normalized text, if applicable.
+        - `value`: A string that lists the value that was found in the normalized text.
+        - `numeric_value`: An integer or double that expresses the numeric value of the `value` key.
+        - `unit`: A string that lists the unit of the value that was found in the normalized text.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `currencies`: An array of currencies that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
-    - `text`: Text regarding currencies, in the form of an [ISO-4217 currency code](https://www.iso.org/iso-4217-currency-codes.html){: external}.
+    - `text`: The name of the currency in which the specified amount is due.
+    - `text_normalized`: The normalized form of the value of the `text` field, listed as a string in [ISO-4217 currency code](https://www.iso.org/iso-4217-currency-codes.html){: external} format. This element is optional; it is returned only if normalized text exists.
     - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
   - `suppliers`: An array of suppliers that are listed in the input document.
     - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
@@ -342,17 +355,24 @@ Sample output resembles the following:
   "currencies" : [ {
     "location" : {
       "begin" : 8960,
-      "end" : 8963
+      "end" : 8972
     },
-    "text" : "USD",
+    "text" : "U.S. Dollars",
+    "text_normalized" : "USD",
     "provenance_ids": ["P12234"]
   } ],
   "payment_terms" : [ {
     "location" : {
       "begin" : 6627,
-      "end" : 6633
+      "end" : 6638
     },
-    "text" : "30 Net",
+    "text" : "net 60 days",
+    "text_normalized" : "60 days",
+    "interpretation": {
+        "value" : "60",
+        "numeric_value" : 60,
+        "unit": "days"
+    },
     "provenance_ids": ["P12234"]
   } ],
   "total_amounts" : [ {

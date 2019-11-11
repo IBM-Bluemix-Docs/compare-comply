@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-11-11"
 
 keywords: batch,batching,batch job
 
@@ -60,7 +60,7 @@ Before you use batch processing, ensure that you are set with the following:
 ## Create and run a batch processing request
 {: #post-batch}
 
-The `POST /v1/batches` method creates a batch request that takes all documents in a COS bucket and uses them as input documents; applies a Compare and Comply method to them; and writes the resulting output into another COS bucket.
+The `POST /v1/batches` method creates a batch request that takes all documents in a COS bucket and uses them as input documents; applies a {{site.data.keyword.cncshort}} method to them; and writes the resulting output into another COS bucket.
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/batches` method to create and run a batch processing request. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.

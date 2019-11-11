@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2018-09-20"
+lastupdated: "2018-11-11"
 
 keywords: document comparison,compare,compare documents,comparison
 
@@ -29,7 +29,7 @@ subcollection: compare-comply
 You can use the service to compare two documents. For example, you can compare a new, unsigned contract with a signed contract from the previous year. 
 {: shortdesc}
 
-The `POST /v1/comparison` method enables you to compare two documents. Specifically, the method finds and reports semantically aligned elements from the documents. It also reports elements from each document that do not semantically align with any other element.
+The **Comparison** method enables you to compare two documents. Specifically, the method finds and reports semantically aligned elements from the documents. It also reports elements from each document that do not semantically align with any other element.
 
 ## Step 1: Identify two comparable documents
 {: #step1}
