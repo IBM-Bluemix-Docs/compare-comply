@@ -49,7 +49,7 @@ The current version is `2018-10-15`.
 
 The following new features and changes to the service are available.
 
-12 December 2019
+### 12 December 2019
 {: #12-december-2019}
 
 - **Full support for IBM Cloud IAM**
