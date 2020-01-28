@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-11"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: batch,batching,batch job
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Using batch processing
 {: #batching}
@@ -75,7 +77,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/ba
   
 ```bash
 curl -X POST -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches?version=2018-10-15&function=element_classification \
+https://{url}/compare-comply/api/v1/batches?version=2018-10-15&function=element_classification \
   -F input_credentials_file=@{path/to/input_credentials_file} \
   -F input_bucket_location={geography} \
   -F input_bucket_name={input_bucket_name} \
@@ -113,7 +115,7 @@ The following example command creates and runs a batch request with the followin
  
 ```bash
 curl -X POST -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches?version=2018-10-15&function=element_classification \
+https://{url}/compare-comply/api/v1/batches?version=2018-10-15&function=element_classification \
     -F input_credentials_file=@/Users/jsmith/cos_input_creds.json \
     -F input_bucket_location=us-geo \
     -F input_bucket_name=my_cos_input_bucket \
@@ -167,7 +169,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `GET /v1/bat
 
 ```bash
 curl -X GET -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches?version=2018-10-15
+https://{url}/compare-comply/api/v1/batches?version=2018-10-15
 ```
 {: codeblock}
 
@@ -225,7 +227,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `GET /v1/bat
 
 ```bash
 curl -X GET -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15
+https://{url}/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15
 ```
 {: codeblock}
 
@@ -262,7 +264,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `PUT /v1/bat
 
 ```bash
 curl -X PUT -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=rescan
+https://{url}/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=rescan
 ```
 {: codeblock}
 
@@ -299,7 +301,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `PUT /v1/bat
 
 ```bash
 curl -X PUT -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=cancel
+https://{url}/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=cancel
 ```
 {: codeblock}
 

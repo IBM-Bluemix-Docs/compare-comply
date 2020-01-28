@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-11"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: document formats,format,formats,permitted formats,PDF,pdf,image,images,text,Word
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Supported input formats
 {: #formats}
@@ -37,7 +39,7 @@ Observe the following notes regarding files submitted to {{site.data.keyword.cnc
   - Not all input formats are accepted by all methods. For more information, see [Support by method](#methods) and the lists of supported methods in the details of each input type described in the following sections.
   - For optimal results, specify the MIME type when submitting a file. For example, if you submit a PDF file, it is recommended that you specify the file as follows:
      ```
-     curl -u "apikey:{apikey}" -F "file=@myFile.pdf;type=application/pdf" https://gateway.watsonplatform.net/compare-comply/api/v1/{method_name}?version=2018-10-15
+     curl -u "apikey:{apikey}" -F "file=@myFile.pdf;type=application/pdf" https://{url}/compare-comply/api/v1/{method_name}?version=2018-10-15
      ```
      {: pre}
     MIME types are provided with the supported file types listed in the following sections.

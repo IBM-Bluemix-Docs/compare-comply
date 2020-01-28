@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2019
-lastupdated: "2019-11-11"
+years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: table,tables,classify tables,classifying tables,table understanding,row,rows,column,columns,cell,cells,body cell,body cells,header,headers,key,value,key value pair,context,row header,row headers,column header,column headers,context,contexts
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Classifying tables
 {: #understanding_tables}
@@ -36,7 +38,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/ta
 Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://gateway.watsonplatform.net/compare-comply/api/v1/tables?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://{url}/compare-comply/api/v1/tables?version=2018-10-15
 ```
 {: codeblock}
 

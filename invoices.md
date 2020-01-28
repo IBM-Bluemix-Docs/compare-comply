@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-11"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: invoice,invoices,invoice parsing,parsing,invoice understanding
 
@@ -23,6 +23,8 @@ subcollection: compare-comply
 {:note: .note}
 {:important: .important}
 {:preview: .preview}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Understanding invoice parsing
 {: #invoices}
@@ -45,7 +47,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/in
 Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://gateway.watsonplatform.net/compare-comply/api/v1/invoices?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://{url}/compare-comply/api/v1/invoices?version=2018-10-15
 ```
 {: codeblock}
 

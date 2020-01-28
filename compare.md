@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2019
-lastupdated: "2018-11-11"
+years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: document comparison,compare,compare documents,comparison
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Comparing two documents
 {: #compare}
@@ -46,13 +48,13 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
   - Optionally specify the value `contracts` for the `model` parameter. The only model value accepted by the `POST /v1/comparison` method is `contracts`.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}" -F "file_2=@/Users/Downloads/{file_2}" -F file_1_label="document_1" -F file_2_label="document_2" https://gateway.watsonplatform.net/compare-comply/api/v1/comparison?version=2018-10-15&model=contracts
+curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}" -F "file_2=@/Users/Downloads/{file_2}" -F file_1_label="document_1" -F file_2_label="document_2" https://{url}/compare-comply/api/v1/comparison?version=2018-10-15&model=contracts
 ```
 
 If you are submitting JSON files for comparison, specify the media type for the JSON files as follows:
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}.json;type=application/json" -F "file_2=@/Users/Downloads/{file_2}.json;type=application/json" -F file_1_label="document_1" -F file_2_label="document_2" https://gateway.watsonplatform.net/compare-comply/api/v1/comparison?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}.json;type=application/json" -F "file_2=@/Users/Downloads/{file_2}.json;type=application/json" -F file_1_label="document_1" -F file_2_label="document_2" https://{url}/compare-comply/api/v1/comparison?version=2018-10-15
 ```
 
 ## Step 3: Review the comparison

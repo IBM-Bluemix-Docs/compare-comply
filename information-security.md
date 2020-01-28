@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-11"
+  years: 2015, 2020
+lastupdated: "2019-01-28"
 
 subcollection: compare-comply
 
@@ -20,6 +20,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Information security
 {: #information-security}
@@ -68,7 +70,7 @@ curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --header "Accept: application/pdf"
 --data "{feedback_data}"
-"https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15"
+"https://{url}/compare-comply/api/v1/feedback?version=2018-10-15"
 ```
 {: codeblock}
 
@@ -90,7 +92,7 @@ To delete all data that is associated with a customer ID, use the `DELETE /v1/us
 
   ```bash
   curl -X DELETE -u "apikey:{apikey}" 
- https://gateway.watsonplatform.net/compare-comply/api/v1/user_data?customer_id=my_ID
+ https://{url}/compare-comply/api/v1/user_data?customer_id=my_ID
   ```
   {: codeblock}
 

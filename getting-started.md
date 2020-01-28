@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-11"
+  years: 2017, 2020
+lastupdated: "2020-01-28"
 
 keywords: compare and comply,compare,comply,compare comply,getting started,analyze contracts,analyze documents,classify contracts,analyze contracts,element classification,classify elements,analyze tables,tables,CompareComply,CompareAndComply,compare and comply project,compare comply project
 
@@ -23,6 +23,8 @@ subcollection: compare-comply
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 {:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Getting started with {{site.data.keyword.cncshort}}
 {: #getting-started}
@@ -56,27 +58,30 @@ Optionally, you can explore the service's features by using the {{site.data.keyw
 ## Before you begin
 {: #gs-before-you-begin}
 
-- {: hide-dashboard}  Create an instance of the service:
-    1.  {: hide-dashboard} Go to the [{{site.data.keyword.cncshort}} page](https://{DomainName}/catalog/services/compare-comply){: external} in the {{site.data.keyword.cloud_notm}} catalog.
-    1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
-    1.  {: hide-dashboard} Click **Create**.
-- Copy the credentials to authenticate to your service instance:
-    1. {: hide-dashboard} From the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}/dashboard/apps), click your {{site.data.keyword.cncshort}} service instance to go to the {{site.data.keyword.cncshort}} service dashboard page.
-    1.  On the **Manage** page, click **Show** to view your credentials.
-    1.  Copy the `apikey` and `url` values.
-
-    In some instances, you authenticate by providing basic authentication. If you see `username` and `password` in the credentials, use those values instead of `"apikey:{apikey}"` in the examples in this tutorial.
-    {: tip}
+- {: hide-dashboard} Create an instance of the service:
+    1.  Go to the [{{site.data.keyword.cncshort}} page](https://{DomainName}/catalog/services/compare-comply){: external} in the {{site.data.keyword.cloud_notm}} catalog.
+    1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
+    1.  Click **Create**.
+- {: hide-dashboard} Copy the credentials to authenticate to your service instance:
+    1.  On the **Manage** page, click **Show Credentials**.
+    1.  Copy the `API Key` and `URL` values.
 - Make sure that you have the `curl` command.
-    - The examples use the `curl` command to call methods of the HTTP interface. Install the version for your operating system from [curl.haxx.se](https://curl.haxx.se/){: external}. Install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your `PATH` environment variable.
+    - Test whether `curl` is installed. Run the following command on the command line. If the output lists the `curl` version with SSL support, you are set for the tutorial.
 
-When you enter a command, replace `{apikey}` and `{url}` with your actual API key and URL. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example:
+        ```sh
+        curl -V
+        ```
+        {: pre}
+
+    - If necessary, install a version with SSL enabled from [curl.haxx.se](https://curl.haxx.se/){: external}. Add the location of the file to your PATH environment variables if you want to run `curl` from any command-line location.
+
+When you enter a command, replace `{apikey}` and `{url}` with your actual API key and URL. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example. The URL in the example is for a service instance in the US South (Dallas, Texas).
 {: hide-dashboard}
 
 ```bash
 curl -X POST -u "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
 . . .
-"https://gateway.watsonplatform.net/compare-comply/api/v1/html_conversion?version=2018-10-15"
+"https://api.us-south.compare-comply.watson.cloud.ibm.com/compare-comply/api/v1/html_conversion?version=2018-10-15"
 ```
 {:pre}
 {: hide-dashboard}
@@ -104,8 +109,8 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/el
 
 Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the file to parse.
 
-```bash
-curl -X POST -u "apikey:{apikey}" -F "file=@{input_file}" https://gateway.watsonplatform.net/compare-comply/api/v1/element_classification?version=2018-10-15
+```sh
+curl -X POST -u "apikey:{apikey}" -F "file=@{input_file}" https://{url}/compare-comply/api/v1/element_classification?version=2018-10-15
 ```
 {: codeblock}
 

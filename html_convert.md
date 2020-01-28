@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-11"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: convert,HTML convert,conversion,HTML conversion,document conversion
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Converting an input document into HTML
 {: #html_conversion}
@@ -45,7 +47,7 @@ Replace `{apikey}` with the API key you copied earlier and `{input_file}` with t
 
 ```bash
 curl -X POST -u "apikey:{apikey}" -H "Accept: application/json"
--F "file=@{input_file}" https://gateway.watsonplatform.net/compare-comply/api/v1/html_conversion?version=2018-10-15
+-F "file=@{input_file}" https://{url}/compare-comply/api/v1/html_conversion?version=2018-10-15
 ```
 {: codeblock}
 

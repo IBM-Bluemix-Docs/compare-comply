@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-11"
+  years: 2019, 2020
+lastupdated: "2020-01-28"
 
 keywords: purchase order,purchase orders,purchase order understanding,purchase order parsing,parsing
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Understanding purchase-order parsing
 {: #pos}
@@ -44,7 +46,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/pu
 Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://gateway.watsonplatform.net/compare-comply/api/v1/purchase_orders?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://{url}/compare-comply/api/v1/purchase_orders?version=2018-10-15
 ```
 {: codeblock}
 

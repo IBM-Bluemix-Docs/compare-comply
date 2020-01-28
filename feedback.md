@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-11"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: feedback,document feedback
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Using the feedback APIs
 {: #feedback}
@@ -153,7 +155,7 @@ An example command follows.
 
 ```bash
 curl -X POST -u "apikey:{apikey}" -H 'Content-Type: application/json' 
-https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15 \
+https://{url}/compare-comply/api/v1/feedback?version=2018-10-15 \
 -d '{
   "user_id": "7uy9c1f4-57dd-42b5-9586-a2ddf3ed8b64",
   "comment": "user comments",
@@ -280,7 +282,7 @@ You can retrieval all feedback that has been added to a document by using the `G
 A example command that combines the `type_added` and `category_removed` parameters is:
 
 ```bash
-curl -X GET -u "apikey:{apikey}" https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15&type_added=Definition:None,Disclaimer:Supplier&category_removed=Assignments,Audits
+curl -X GET -u "apikey:{apikey}" https://{url}/compare-comply/api/v1/feedback?version=2018-10-15&type_added=Definition:None,Disclaimer:Supplier&category_removed=Assignments,Audits
 ```
 {: codeblock}
 
@@ -483,7 +485,7 @@ You can retrieve specific feedback from a document by using the `GET /v1/feedbac
 An example command is:
 
 ```bash
-curl -X GET -u "apikey:{apikey}" https://gateway.watsonplatform.net/compare-comply/api/v1/feedback/9730b437-cb86-4d40-9a84-ff6948bb3dd1?version=2018-10-15
+curl -X GET -u "apikey:{apikey}" https://{url}/compare-comply/api/v1/feedback/9730b437-cb86-4d40-9a84-ff6948bb3dd1?version=2018-10-15
 ```
 {: codeblock}
 
@@ -561,14 +563,14 @@ The command returns output similar to the following:
 You can delete all feedback in a document collection by using the `DELETE /v1/feedback` method. The method requires only the `version` date parameter.
 
 ```bash
-curl -X DELETE -u "apikey:{apikey}" https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15
+curl -X DELETE -u "apikey:{apikey}" https://{url}/compare-comply/api/v1/feedback?version=2018-10-15
 ```
 {: pre}
 
 Alternatively, you can delete all feedback from documents with a specific customer ID by specifying the ID in the call headers:
 
 ```bash
-curl -X DELETE -u "apikey:{apikey}" -H 'x-watson-metadata: customer_id=3910' https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15
+curl -X DELETE -u "apikey:{apikey}" -H 'x-watson-metadata: customer_id=3910' https://{url}/compare-comply/api/v1/feedback?version=2018-10-15
 ```
 {: pre}
 
@@ -594,7 +596,7 @@ You can delete specific feedback from a document by using the `DELETE /v1/feedba
 An example command is:
   
 ```bash
-curl -X DELETE -u "apikey:{apikey}" https://gateway.watsonplatform.net/compare-comply/api/v1/feedback/5206038a-5ea0-4f48-bee1-0780c56c53c9?version=2018-10-15
+curl -X DELETE -u "apikey:{apikey}" https://{url}/compare-comply/api/v1/feedback/5206038a-5ea0-4f48-bee1-0780c56c53c9?version=2018-10-15
 ```
 {: codeblock}
 
