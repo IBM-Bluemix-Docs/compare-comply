@@ -12,13 +12,13 @@ Compare and Comply
 
     {: .navgroup id="howto"}
     html_convert.md
-    
+
     {: topicgroup}
     Element classification
         schema.md
         parsing.md
         doc_structure.md
-    
+
     tables.md
     compare.md
     invoices.md
@@ -26,6 +26,8 @@ Compare and Comply
     feedback.md
     batching.md
     tooling.md
+    /watson/watson-keyservice
+    /watson/watson-public-private-endpoints
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -35,7 +37,6 @@ Compare and Comply
     at-events.md
     /watson/watson-using-sdks
     [Watson GitHub repos](https://github.com/watson-developer-cloud)
-
     {: .navgroup-end}
 
     {: .navgroup id="help"}
