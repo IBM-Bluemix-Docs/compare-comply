@@ -46,7 +46,7 @@ This tutorial uses the **Element classification** feature. Other service methods
 ### Get started with the tooling
 {: #gs-tool}
 
-Optionally, you can explore the service's features by using the {{site.data.keyword.cncshort}} tooling. See [Using the {{site.data.keyword.cncshort}} Tooling ](/docs/services/compare-comply?topic=compare-comply-using_tool) for more information.
+Optionally, you can explore the service's features by using the {{site.data.keyword.cncshort}} tooling. See [Using the {{site.data.keyword.cncshort}} Tooling ](/docs/compare-comply?topic=compare-comply-using_tool) for more information.
 
 ### Request limited preview features
 {: #request-preview-features}
@@ -60,13 +60,13 @@ Optionally, you can explore the service's features by using the {{site.data.keyw
 {: #gs-before-you-begin}
 
 - {: hide-dashboard} Create an instance of the service:
-    1.  Go to the [{{site.data.keyword.cncshort}} page](https://{DomainName}/catalog/services/compare-comply){: external} in the {{site.data.keyword.cloud_notm}} catalog.
+    1.  Go to the [{{site.data.keyword.cncshort}} page](https://{DomainName}/catalog/compare-comply){: external} in the {{site.data.keyword.cloud_notm}} catalog.
     1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
     1.  Click **Create**.
 - {: hide-dashboard} Copy the credentials to authenticate to your service instance:
     1.  On the **Manage** page, click **Show Credentials**.
     1.  Copy the `API Key` and `URL` values.
-- {:curl}Make sure that you have the `curl` command.
+- {:curl} Make sure that you have the `curl` command.
     - Test whether `curl` is installed. Run the following command on the command line. If the output lists the `curl` version with SSL support, you are set for the tutorial.
 
         ```sh
@@ -82,7 +82,7 @@ When you enter a command, replace `{apikey}` and `{url}` with your actual API ke
 ```bash
 curl -X POST -u "apikey:{apikey}"{: apikey}
 . . .
-"{url}/compare-comply/api/v1/html_conversion?version=2018-10-15"{: url}
+"{url}/v1/html_conversion?version=2018-10-15"{: url}
 ```
 {:pre}
 {: hide-dashboard}
@@ -90,14 +90,14 @@ curl -X POST -u "apikey:{apikey}"{: apikey}
 ## Step 1: Identify content
 {: #identify_content}
 
-Identify appropriate documents to analyze. {{site.data.keyword.cncshort}} can analyze contractual documents that meet the criteria that are listed in [Supported input formats](/docs/services/compare-comply?topic=compare-comply-formats).
+Identify appropriate documents to analyze. {{site.data.keyword.cncshort}} can analyze contractual documents that meet the criteria that are listed in [Supported input formats](/docs/compare-comply?topic=compare-comply-formats).
 
 For the example in this tutorial, the file must be in PDF or a supported image format.
   
   You can submit PDF files that were scanned and processed by an optical character reader (OCR).
   {: tip}
 
-- Files can be up to 1.5 MB when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/services/compare-comply?topic=compare-comply-batching), files can be up to 50 MB.
+- Files can be up to 1.5 MB when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/compare-comply?topic=compare-comply-batching), files can be up to 50 MB.
 - The service cannot process secure PDFs (which require a password to open) or restricted PDFs (which require a password to edit).
 
 ## Step 2: Classify a contract's elements
@@ -108,13 +108,13 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/el
   - `file` (**required** `file`): The input file that is to be classified.
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
 
-Replace `{apikey}` and `{url}` with, respectively, the API key and URL you copied earlier. Replace `{input_file}` with the path to the file to parse.
+Replace `{apikey}` with the API key you copied earlier and `{url}` with the URL you copied earlier. Replace `{input_file}` with the path to the file to parse.
 {: hide-dashboard}
 
-```sh
-curl -X POST -u "apikey:{apikey}"{: apikey} -F "file=@{input_file}" {url}/compare-comply/api/v1/element_classification?version=2018-10-15{: url}
-```
-{: pre}
+  ```sh
+  curl -X POST -u "apikey:{apikey}"{: apikey} -F "file=@{input_file}" "{url}/v1/element_classification?version=2018-10-15"{: url}
+  ```
+  {: pre}
 
 The method returns a JSON object that contains:
 
@@ -129,7 +129,7 @@ The method returns a JSON object that contains:
 ## Step 3: Review the analysis
 {: #review_analysis}
 
-This section provides a high-level overview of the output of the `POST /v1/element_classification` method, focusing on the major sections. See [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) for a detailed discussion of the method's output.
+This section provides a high-level overview of the output of the `POST /v1/element_classification` method, focusing on the major sections. See [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) for a detailed discussion of the method's output.
 
 ### Documents
 {: #documents}
@@ -176,9 +176,9 @@ Each object in the `elements` array describes an element of the contract that {{
 Each element has five important sections:
   - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
   - `text`: The text of the classified element.
-  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties that are affected by the element. For more information, see [Types](/docs/services/compare-comply?topic=compare-comply-contract_parsing#types) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing). 
-  - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. For more information, see [Categories](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing). 
-  - `attributes`: An array that lists zero or more objects that define attributes of  the element. Currently supported attribute types include `Currency`, `DateTime`, `DefinedTerm`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`. Each object in the attributes array also includes the identified element's text and location; location is defined by the begin and end indexes of the text in the input document. For more information, see [Attributes](/docs/services/compare-comply?topic=compare-comply-contract_parsing#attributes) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
+  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties that are affected by the element. For more information, see [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#types) in [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing). 
+  - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. For more information, see [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing). 
+  - `attributes`: An array that lists zero or more objects that define attributes of  the element. Currently supported attribute types include `Currency`, `DateTime`, `DefinedTerm`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`. Each object in the attributes array also includes the identified element's text and location; location is defined by the begin and end indexes of the text in the input document. For more information, see [Attributes](/docs/compare-comply?topic=compare-comply-contract_parsing#attributes) in [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing).
   
 Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values that are listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis that is associated with the element.
 
@@ -195,17 +195,17 @@ Some sentences do not contain any identifiable attributes, in which case the ser
 ### Tables
 {: tables}
 
-The `tables` array details the structure and content of any tables that are found in the input document. See [Classifying tables](/docs/services/compare-comply?topic=compare-comply-understanding_tables) and [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) for details.
+The `tables` array details the structure and content of any tables that are found in the input document. See [Classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables) and [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) for details.
 
 ### Document structure
 {: #doc_structure}
 
-The `document_structure` object identifies the section titles and leading sentences of the input document. See [Understanding document structure](/docs/services/compare-comply?topic=compare-comply-doc_struct) for details.
+The `document_structure` object identifies the section titles and leading sentences of the input document. See [Understanding document structure](/docs/compare-comply?topic=compare-comply-doc_struct) for details.
 
 ### Parties
 {: #parties}
 
-The `parties` array lists available information about parties that are affected by the input document, including the party's name, role, importance, address or addresses, and contacts. The array also lists all mentions of the party in the input document. For more information, see [Parties](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_parties) in [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing).
+The `parties` array lists available information about parties that are affected by the input document, including the party's name, role, importance, address or addresses, and contacts. The array also lists all mentions of the party in the input document. For more information, see [Parties](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_parties) in [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing).
 
 ```json
 {
@@ -275,7 +275,7 @@ Each of the arrays contains zero or more objects that list the following items:
 
 You successfully classified a contract to identify its elements, tables, structure, parties, and other information. You can use the analysis to quickly understand and enforce the classified contract. The next steps are:
 
- - [Understanding element classification](/docs/services/compare-comply?topic=compare-comply-contract_parsing)
- - [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) and [classifying tables](/docs/services/compare-comply?topic=compare-comply-understanding_tables)
+ - [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing)
+ - [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables)
 
 

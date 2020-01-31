@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-01-31"
 
 keywords: document formats,format,formats,permitted formats,PDF,pdf,image,images,text,Word
 
@@ -39,13 +39,13 @@ Observe the following notes regarding files submitted to {{site.data.keyword.cnc
   - Not all input formats are accepted by all methods. For more information, see [Support by method](#methods) and the lists of supported methods in the details of each input type described in the following sections.
   - For optimal results, specify the MIME type when submitting a file. For example, if you submit a PDF file, it is recommended that you specify the file as follows:
      ```
-     curl -u "apikey:{apikey}" -F "file=@myFile.pdf;type=application/pdf" https://{url}/compare-comply/api/v1/{method_name}?version=2018-10-15
+     curl -u "apikey:{apikey}" -F "file=@myFile.pdf;type=application/pdf" "{url}/v1/{method_name}?version=2018-10-15"
      ```
      {: pre}
     MIME types are provided with the supported file types listed in the following sections.
-  - Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/services/compare-comply?topic=compare-comply-batching), files can be up to 50 MB in size.
+  - Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/compare-comply?topic=compare-comply-batching), files can be up to 50 MB in size.
   - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
-  - The [{{site.data.keyword.cncshort}} Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool) accepts all file types other than text.
+  - The [{{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool) accepts all file types other than text.
   
 ## PDF support
 {: #pdfs}

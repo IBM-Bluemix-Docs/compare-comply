@@ -26,7 +26,7 @@ subcollection: compare-comply
 # Understanding document structure
 {: #doc_struct}
 
-The output of the **Element classification** method includes a `document_structure` object that details the structural composition of the input document. See [Classifying elements](/docs/services/compare-comply?topic=compare-comply-output_schema) for the placement of the `document_structure` information in the output of the method.
+The output of the **Element classification** method includes a `document_structure` object that details the structural composition of the input document. See [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) for the placement of the `document_structure` information in the output of the method.
 
 ## Document structure output
 {: #struct_output}

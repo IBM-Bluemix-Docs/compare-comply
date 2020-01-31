@@ -66,15 +66,15 @@ Some of the following tasks use the {{site.data.keyword.cncshort}} Registration 
 
 There are several methods for backing up the data stored in {{site.data.keyword.cncshort}}. These methods need to be included in your disaster recovery plan.
 
-  - Data you need keep a copy of, such as source documents that were processed as [batches](/docs/services/compare-comply?topic=compare-comply-batching).
+  - Data you need keep a copy of, such as source documents that were processed as [batches](/docs/compare-comply?topic=compare-comply-batching).
   - Data in {{site.data.keyword.cncshort}} data stores that you need to retrieve and store a copy of, such as customized models.
   
-Some data must be recreated from scratch; for example, [feedback](/docs/services/compare-comply?topic=compare-comply-feedback) provided since the last backup.
+Some data must be recreated from scratch; for example, [feedback](/docs/compare-comply?topic=compare-comply-feedback) provided since the last backup.
 
 ### Batch API
 {: #batch-api}
 
-The [Batch API](/docs/services/compare-comply?topic=compare-comply-batching) uses customer-provided Cloud Object Storage (COS) buckets to read input documents and to store results.  It is recommended that you use cross-regional buckets for business-critical documents. Cross-regional buckets are automatically replicated across multiple regions and remain available if one region is offline. If you must use single-region or one-zone buckets, you must back up the data in those buckets.
+The [Batch API](/docs/compare-comply?topic=compare-comply-batching) uses customer-provided Cloud Object Storage (COS) buckets to read input documents and to store results.  It is recommended that you use cross-regional buckets for business-critical documents. Cross-regional buckets are automatically replicated across multiple regions and remain available if one region is offline. If you must use single-region or one-zone buckets, you must back up the data in those buckets.
 
 If batches are a critical component of your application, some of the batch jobs might need to be run again after recovery. You must keep enough information in your application's log to be able to know, for each batch submitted, the batch ID returned by the Batch API, and the locations of the input and output buckets.
 
@@ -103,12 +103,12 @@ Consider using your backups to restore to a new {{site.data.keyword.cncshort}} i
 
 The database containing the status of batch jobs can be up to 24 hours old. This means that {{site.data.keyword.cncshort}} does not know about batches that were started or were running up to 24 hours before the disaster. This does _not_ mean that data is lost, because the data is in COS buckets. What can be lost, however, are the IDs and statuses for batch jobs that were running or started after the time of the last backup.
 
-Use the [`GET /v1/batches`](/docs/services/compare-comply?topic=compare-comply-batching#get-list-batch) method to get a list of batch statuses known by the recovered system. Then use your application's log to get the information about the batches that were started or were running close to the time of the disaster. For batch jobs that are not listed in the output of the `GET /v1/batches` method, look in the COS output bucket of that batch job. If the bucket contains a `{batch_ID}.json` file, the file lists the final status of the batch job. If the file does not exist, then the batch job did not finish and needs to be re-submitted. Use the [`POST /v1/batches`](/docs/services/compare-comply?topic=compare-comply-batching#post-batch) method to rerun the batch job from scratch. If it was a large batch that already processed a number of input files, as determined by the corresponding JSON output files in the output bucket, you can remove the corresponding input files from the input COS bucket. The new batch job processes the remaining input file or files and adds the results to the same output bucket.
+Use the [`GET /v1/batches`](/docs/compare-comply?topic=compare-comply-batching#get-list-batch) method to get a list of batch statuses known by the recovered system. Then use your application's log to get the information about the batches that were started or were running close to the time of the disaster. For batch jobs that are not listed in the output of the `GET /v1/batches` method, look in the COS output bucket of that batch job. If the bucket contains a `{batch_ID}.json` file, the file lists the final status of the batch job. If the file does not exist, then the batch job did not finish and needs to be re-submitted. Use the [`POST /v1/batches`](/docs/compare-comply?topic=compare-comply-batching#post-batch) method to rerun the batch job from scratch. If it was a large batch that already processed a number of input files, as determined by the corresponding JSON output files in the output bucket, you can remove the corresponding input files from the input COS bucket. The new batch job processes the remaining input file or files and adds the results to the same output bucket.
 
 ### Feedback
 {: #restore-feedback}
 
-Feedback provided by using the {{site.data.keyword.cncshort}} Tooling after the time of the latest backup of the feedback data store is lost. You need to reload the documents you were using into the tool and manually redo the missing feedback. You can use the [`GET /v1/feedback`](/docs/services/compare-comply?topic=compare-comply-feedback#get_all_feedback) method to retrieve all feedback for a given document. Feedback objects include a creation timestamp that can tell you when the last feedback entry was made.
+Feedback provided by using the {{site.data.keyword.cncshort}} Tooling after the time of the latest backup of the feedback data store is lost. You need to reload the documents you were using into the tool and manually redo the missing feedback. You can use the [`GET /v1/feedback`](/docs/compare-comply?topic=compare-comply-feedback#get_all_feedback) method to retrieve all feedback for a given document. Feedback objects include a creation timestamp that can tell you when the last feedback entry was made.
 
 ### Custom models
 {: #restore-custom-models}

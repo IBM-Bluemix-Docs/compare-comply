@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-01-31"
 
 keywords: convert,HTML convert,conversion,HTML conversion,document conversion
 
@@ -28,7 +28,7 @@ subcollection: compare-comply
 # Converting an input document into HTML
 {: #html_conversion}
 
-You can transform an [input document](/docs/services/compare-comply?topic=compare-comply-formats) into HTML by using the **HTML conversion** feature. This example uses the `POST /v1/html_conversion` method.
+You can transform an [input document](/docs/compare-comply?topic=compare-comply-formats) into HTML by using the **HTML conversion** feature. This example uses the `POST /v1/html_conversion` method.
 {: shortdesc}
 
   The **HTML conversion** feature is available only on `Standard` and `Premium` plans. It is not available on the free `Lite` plan. See [https://cloud.ibm.com/account/settings](https://cloud.ibm.com/account/settings){: external} for information about your plan.
@@ -43,11 +43,11 @@ You can specify the response content type to return the converted HTML in either
   - To return JSON explicitly, specify the header `-H "Accept: application/json"`. This is the default.
   - To return raw HTML, specify the header `-H "Accept: text/html"`.
   
-Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the input file to convert.
+Replace `{apikey}` with the API key you copied earlier, `{url}` with the URL you copied earlier, and `{input_file}` with the path to the input file to convert.
 
 ```bash
 curl -X POST -u "apikey:{apikey}" -H "Accept: application/json"
--F "file=@{input_file}" https://{url}/compare-comply/api/v1/html_conversion?version=2018-10-15
+-F "file=@{input_file}" "{url}/v1/html_conversion?version=2018-10-15"
 ```
 {: codeblock}
 

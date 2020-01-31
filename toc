@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="compare-comply" category="ai" audience="service" href="/docs/compare-comply/?topic=compare-comply-about#about" path="compare-comply"}
+{: .toc subcollection="compare-comply" category="ai" audience="service" href="/docs/compare-comply?topic=compare-comply-getting-started" path="compare-comply"}
 Compare and Comply
 
     {: .navgroup id="learn"}
