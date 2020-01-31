@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-01-31"
 
 keywords: document comparison,compare,compare documents,comparison
 
@@ -45,6 +45,7 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
   - Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
   - Replace `{file_1}` and `{file_2}` with the path to the files you want to compare.
   - Optionally specify values for `file_1_label` and `file_2_label` to identify files 1 and 2, respectively. If you do not specify labels, the method uses the default label values `file_1` and `file_2`.
+  - Replace `{url}` with the URL you copied in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
   - Optionally specify the value `contracts` for the `model` parameter. The only model value accepted by the `POST /v1/comparison` method is `contracts`.
 
 ```bash

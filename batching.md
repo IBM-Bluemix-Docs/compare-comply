@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-01-31"
 
 keywords: batch,batching,batch job
 
@@ -92,13 +92,13 @@ The values of the `input_credentials_file` and `output_credentials_file` are fil
 
 ```json
 {
-  "apikey": "ursB8336HDIeqbUmz1D1iuK_ddM0K2bKxvZjY3EEbl98",
-  "endpoints": "https://cos-service.bluemix.net/endpoints",
-  "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloud-object-storage:global:a/a75da04c40cf41c9d881eadd3812339c:73389937-2ab2-4f92-83d3-69c2b6b78ea7::",
-  "iam_apikey_name": "auto-generated-apikey-112d0b22-259d-4f0d-a302-c882a659d3bb",
+  "apikey": "BoKNKUkhOKUIWh-E_0bQ9AAvVYZwaJf9SEG8FMT252p6",
+  "endpoints": "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints",
+  "iam_apikey_description": "Auto-generated for key a7ae684c-584b-4b2f-b601-8af688994b60",
+  "iam_apikey_name": "Service credentials-1",
   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
-  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/a75da04c40cf41c9d881eadd3812339c::serviceid:ServiceId-9f4eeeae-e345-4178-91e1-d517328c07b8",
-  "resource_instance_id": "crn:v1:bluemix:public:cloud-object-storage:global:a/a75da04c40cf41c9d881eadd3812339c:73389937-2ab2-4f92-83d3-69c2b6b78ea7::"
+  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/a75da04c40cf41c9d881eadd3812339c::serviceid:ServiceId-8729fee9-d6bd-4645-ac30-a321c5accce3",
+  "resource_instance_id": "crn:v1:bluemix:public:cloud-object-storage:global:a/a75da04c40cf41c9d881eadd3812339c:391a651c-1dfe-49a0-8e84-a5e6c07fe607::"
 }
 ```
 

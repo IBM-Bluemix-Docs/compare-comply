@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-01-31"
 
 keywords: compare and comply,compare,comply,compare comply,getting started,analyze contracts,analyze documents,classify contracts,analyze contracts,element classification,classify elements,analyze tables,tables,CompareComply,CompareAndComply,compare and comply project,compare comply project
 
@@ -25,6 +25,7 @@ subcollection: compare-comply
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'}
 {:url: data-credential-placeholder='url'}
+{:curl: .curl}
 
 # Getting started with {{site.data.keyword.cncshort}}
 {: #getting-started}
@@ -65,7 +66,7 @@ Optionally, you can explore the service's features by using the {{site.data.keyw
 - {: hide-dashboard} Copy the credentials to authenticate to your service instance:
     1.  On the **Manage** page, click **Show Credentials**.
     1.  Copy the `API Key` and `URL` values.
-- Make sure that you have the `curl` command.
+- {:curl}Make sure that you have the `curl` command.
     - Test whether `curl` is installed. Run the following command on the command line. If the output lists the `curl` version with SSL support, you are set for the tutorial.
 
         ```sh
@@ -79,9 +80,9 @@ When you enter a command, replace `{apikey}` and `{url}` with your actual API ke
 {: hide-dashboard}
 
 ```bash
-curl -X POST -u "apikey:L_HALhLVIksh1b73l97LSs6R_3gLo4xkujAaxm7i-b9x"
+curl -X POST -u "apikey:{apikey}"{: apikey}
 . . .
-"https://api.us-south.compare-comply.watson.cloud.ibm.com/compare-comply/api/v1/html_conversion?version=2018-10-15"
+"{url}/compare-comply/api/v1/html_conversion?version=2018-10-15"{: url}
 ```
 {:pre}
 {: hide-dashboard}
@@ -97,7 +98,7 @@ For the example in this tutorial, the file must be in PDF or a supported image f
   {: tip}
 
 - Files can be up to 1.5 MB when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/services/compare-comply?topic=compare-comply-batching), files can be up to 50 MB.
-- The service cannot process secure PDFs (with a password to open) or restricted PDFs (with a password to edit).
+- The service cannot process secure PDFs (which require a password to open) or restricted PDFs (which require a password to edit).
 
 ## Step 2: Classify a contract's elements
 {: #parse_contract}
@@ -107,12 +108,13 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/el
   - `file` (**required** `file`): The input file that is to be classified.
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
 
-Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the file to parse.
+Replace `{apikey}` and `{url}` with, respectively, the API key and URL you copied earlier. Replace `{input_file}` with the path to the file to parse.
+{: hide-dashboard}
 
 ```sh
-curl -X POST -u "apikey:{apikey}" -F "file=@{input_file}" https://{url}/compare-comply/api/v1/element_classification?version=2018-10-15
+curl -X POST -u "apikey:{apikey}"{: apikey} -F "file=@{input_file}" {url}/compare-comply/api/v1/element_classification?version=2018-10-15{: url}
 ```
-{: codeblock}
+{: pre}
 
 The method returns a JSON object that contains:
 
@@ -169,6 +171,7 @@ Each object in the `elements` array describes an element of the contract that {{
     } ]
 }
 ```
+{: codeblock}
 
 Each element has five important sections:
   - `location`: An object that identifies the location of the element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
@@ -243,6 +246,7 @@ The `parties` array lists available information about parties that are affected 
   ...
 }
 ```
+{: codeblock}
   
 ### Other arrays
 {: #other_arrays}

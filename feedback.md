@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-01-31"
 
 keywords: feedback,document feedback
 
@@ -78,6 +78,7 @@ You can add feedback to a document programmatically by using the `POST /v1/feedb
 
 In a `bash` shell or equivalent environment such as Cygwin, issue the following command to add feedback to a document, with values as follows:
   - Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
+  - Replace `{url}` with the URL you copied in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
   - Create a `feedback_data` object, which is a specifically formatted object specifying the feedback you want to add to the document. The `feedback_data` object must be in the following format.
     ```json
     {
