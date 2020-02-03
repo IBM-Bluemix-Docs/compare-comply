@@ -83,6 +83,7 @@ When you enter a command, replace `{apikey}` and `{url}` with your actual API ke
 curl -X POST -u "apikey:{apikey}"
 . . .
 "https://api.us-south.compare-comply.watson.cloud.ibm.com/instances/262e3672-e2ab-409a-a543-cf9eac54cec0/v1/html_conversion?version=2018-10-15"
+```
 {:pre}
 {: hide-dashboard}
 
