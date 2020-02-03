@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-11"
+  years: 2018, 2020
+lastupdated: "2020-01-31"
 
 keywords: batch,batching,batch job
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Using batch processing
 {: #batching}
@@ -30,7 +32,7 @@ The `/v1/batches` APIs enable you to run Compare and Comply methods over a colle
 
 All batch requests return a batch status object that include a `batch_id`. The `batch_id` can be used to monitor the status of a request and to cancel a request.
 
-Batch-processing requests require access credentials for a Cloud Object Storage (COS) instance and the name of an input and output bucket in that instance. Details are provided in [Before you begin](/docs/services/compare-comply?topic=compare-comply-batching#before-you-batch).
+Batch-processing requests require access credentials for a Cloud Object Storage (COS) instance and the name of an input and output bucket in that instance. Details are provided in [Before you begin](/docs/compare-comply?topic=compare-comply-batching#before-you-batch).
 {: important}
 
 Files submitted through the `/v1/batches` APIs can be up to 50 MB in size.
@@ -50,12 +52,12 @@ The batching API endpoints are as follows.
 {: #before-you-batch}
 
 Before you use batch processing, ensure that you are set with the following:
- - All of the items listed in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin). 
- - A [Cloud Object Storage (COS)](https://cloud.ibm.com/catalog/services/cloud-object-storage){:external} instance on the IBM Cloud. For information, see the COS documentation, particularly the following:
-   - [About IBM Cloud Object Storage](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-cos#about-ibm-cloud-object-storage){: external}
-    - [Order storage](/docs/services/cloud-object-storage?topic-cloud-object-storage-order-storage){: external}
-    - [Service credentials](/docs/services/cloud-object-storage?topic=cloud-object-storage-service-credentials){: external}
-    - [Bucket permissions](/docs/services/cloud-object-storage?topic=cloud-object-storage-buckets#bucket-permissions){: external}
+ - All of the items listed in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin). 
+ - A [Cloud Object Storage (COS)](https://cloud.ibm.com/catalog/cloud-object-storage){:external} instance on the IBM Cloud. For information, see the COS documentation, particularly the following:
+   - [About IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-about-cos#about-ibm-cloud-object-storage){: external}
+    - [Order storage](/docs/cloud-object-storage?topic-cloud-object-storage-order-storage){: external}
+    - [Service credentials](/docs/cloud-object-storage?topic=cloud-object-storage-service-credentials){: external}
+    - [Bucket permissions](/docs/cloud-object-storage?topic=cloud-object-storage-buckets#bucket-permissions){: external}
 
 ## Create and run a batch processing request
 {: #post-batch}
@@ -75,7 +77,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/ba
   
 ```bash
 curl -X POST -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches?version=2018-10-15&function=element_classification \
+"{url}/v1/batches?version=2018-10-15&function=element_classification" \
   -F input_credentials_file=@{path/to/input_credentials_file} \
   -F input_bucket_location={geography} \
   -F input_bucket_name={input_bucket_name} \
@@ -90,13 +92,13 @@ The values of the `input_credentials_file` and `output_credentials_file` are fil
 
 ```json
 {
-  "apikey": "ursB8336HDIeqbUmz1D1iuK_ddM0K2bKxvZjY3EEbl98",
-  "endpoints": "https://cos-service.bluemix.net/endpoints",
-  "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloud-object-storage:global:a/a75da04c40cf41c9d881eadd3812339c:73389937-2ab2-4f92-83d3-69c2b6b78ea7::",
-  "iam_apikey_name": "auto-generated-apikey-112d0b22-259d-4f0d-a302-c882a659d3bb",
+  "apikey": "BoKNKUkhOKUIWh-E_0bQ9AAvVYZwaJf9SEG8FMT252p6",
+  "endpoints": "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints",
+  "iam_apikey_description": "Auto-generated for key d7cd684c-564b-4b2f-b601-8af688194b60",
+  "iam_apikey_name": "Service credentials-1",
   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
-  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/a75da04c40cf41c9d881eadd3812339c::serviceid:ServiceId-9f4eeeae-e345-4178-91e1-d517328c07b8",
-  "resource_instance_id": "crn:v1:bluemix:public:cloud-object-storage:global:a/a75da04c40cf41c9d881eadd3812339c:73389937-2ab2-4f92-83d3-69c2b6b78ea7::"
+  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/a15da04d40cf41c9d761eadd3812309c::serviceid:ServiceId-8729fee9-d6bd-4645-ac30-a321c5accce3",
+  "resource_instance_id": "crn:v1:bluemix:public:cloud-object-storage:global:a/a15da04d40cf41c9d761eadd3812309c:391a651c-1cba-49a0-8e84-b5e6d07fe412::"
 }
 ```
 
@@ -113,7 +115,7 @@ The following example command creates and runs a batch request with the followin
  
 ```bash
 curl -X POST -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches?version=2018-10-15&function=element_classification \
+"{url}/v1/batches?version=2018-10-15&function=element_classification" \
     -F input_credentials_file=@/Users/jsmith/cos_input_creds.json \
     -F input_bucket_location=us-geo \
     -F input_bucket_name=my_cos_input_bucket \
@@ -166,8 +168,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `GET /v1/bat
   - `status` (optional `string`): An optional status string used to filter the output. Permitted values are `pending`, `active`, `completed`, and `canceled`.
 
 ```bash
-curl -X GET -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches?version=2018-10-15
+curl -X GET -u "apikey:{apikey}" "{url}/v1/batches?version=2018-10-15"
 ```
 {: codeblock}
 
@@ -224,8 +225,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `GET /v1/bat
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
 
 ```bash
-curl -X GET -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15
+curl -X GET -u "apikey:{apikey}" "{url}/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15"
 ```
 {: codeblock}
 
@@ -261,8 +261,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `PUT /v1/bat
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
 
 ```bash
-curl -X PUT -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=rescan
+curl -X PUT -u "apikey:{apikey}" "{url}/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=rescan"
 ```
 {: codeblock}
 
@@ -298,8 +297,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `PUT /v1/bat
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
 
 ```bash
-curl -X PUT -u "apikey:{apikey}" \ 
-https://gateway.watsonplatform.net/compare-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=cancel
+curl -X PUT -u "apikey:{apikey}" "{url}/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=cancel"
 ```
 {: codeblock}
 

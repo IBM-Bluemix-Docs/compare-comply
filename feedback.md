@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-11"
+  years: 2018, 2020
+lastupdated: "2020-01-31"
 
 keywords: feedback,document feedback
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Using the feedback APIs
 {: #feedback}
@@ -66,7 +68,7 @@ In the following scenario, an SME named Stuart reviews a parsed governing docume
 
 These steps are described in more detail in the following sections.
 
-  You can also provide feedback by using the {{site.data.keyword.cncshort}} Tooling as described at [Adding suggestions in Using the {{site.data.keyword.cncshort}} Tooling](/docs/services/compare-comply?topic=compare-comply-using_tool#add-suggestions).
+  You can also provide feedback by using the {{site.data.keyword.cncshort}} Tooling as described at [Adding suggestions in Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool#add-suggestions).
   {: tip}
 
 ## Adding feedback
@@ -75,7 +77,8 @@ These steps are described in more detail in the following sections.
 You can add feedback to a document programmatically by using the `POST /v1/feedback` method. 
 
 In a `bash` shell or equivalent environment such as Cygwin, issue the following command to add feedback to a document, with values as follows:
-  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
+  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
+  - Replace `{url}` with the URL you copied in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
   - Create a `feedback_data` object, which is a specifically formatted object specifying the feedback you want to add to the document. The `feedback_data` object must be in the following format.
     ```json
     {
@@ -134,7 +137,7 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
 <!--
 You can assemble the body of the `feedback_data` object as follows:
 
-  1. Run the `POST /v1/element_classification` method as described at [Step 2: Classify a contract's elements in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#parse_contract), and save its output to a file.
+  1. Run the `POST /v1/element_classification` method as described at [Step 2: Classify a contract's elements in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#parse_contract), and save its output to a file.
   1. For the `feedback_type` field, specify a value of `"element_classification"`.
   1. For the `collection_id` field, optionally specify a value of your choosing. 
   1. In the saved output file, look in the `elements` array for the element for which you want to provide feedback. The most common element for posting feedback is `sentence`.
@@ -152,8 +155,7 @@ You can assemble the body of the `feedback_data` object as follows:
 An example command follows.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -H 'Content-Type: application/json' 
-https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15 \
+curl -X POST -u "apikey:{apikey}" -H 'Content-Type: application/json' "{url}/v1/feedback?version=2018-10-15" \
 -d '{
   "user_id": "7uy9c1f4-57dd-42b5-9586-a2ddf3ed8b64",
   "comment": "user comments",
@@ -267,12 +269,12 @@ You can retrieval all feedback that has been added to a document by using the `G
   - `document_title` (optional `string`): If this parameter is specified, the service returns only the records associated with the specified title.
   - `model_id` (optional `string`): If this parameter is specified, the service returns only the records with the specified element model ID.
   - `model_version` (optional `string`): If this parameter is specified, the service returns only the records with the specified element model version.  
-  - `category_removed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` removed. See [Categories](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
-  - `category_added` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` added. See [Categories](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
-  - `category_not_changed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` unchanged. See [Categories](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
-  - `type_removed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types removed. See [Types](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
-  - `type_added` (optional `string`): A comma-separated list of `types` in which each `type` object is of the form `{"nature": "{nature}", "party": "{party}"}`. If this parameter is specified, the service returns only the records that have one or more of the specified types added. See [Types](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
-  - `type_not_changed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types unchanged. See [Types](/docs/services/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+  - `category_removed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` removed. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+  - `category_added` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` added. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+  - `category_not_changed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` unchanged. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+  - `type_removed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types removed. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+  - `type_added` (optional `string`): A comma-separated list of `types` in which each `type` object is of the form `{"nature": "{nature}", "party": "{party}"}`. If this parameter is specified, the service returns only the records that have one or more of the specified types added. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+  - `type_not_changed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types unchanged. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
   - `page_limit` (optional `int`): The number of documents that you want to be returned in the response. The default is `10`. The maximum is `100`.
   - `cursor` (optional `string`): A string that lists the documents you want to be returned in the response.
   - `sort` (optional `string`): A comma-separated list of fields in the document on which to sort returned results. You can optionally specify a sort direction by prefixing the field with `-` for descending order or `+` for ascending order. Ascending order is the default sort direction.
@@ -280,7 +282,7 @@ You can retrieval all feedback that has been added to a document by using the `G
 A example command that combines the `type_added` and `category_removed` parameters is:
 
 ```bash
-curl -X GET -u "apikey:{apikey}" https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15&type_added=Definition:None,Disclaimer:Supplier&category_removed=Assignments,Audits
+curl -X GET -u "apikey:{apikey}" "{url}/v1/feedback?version=2018-10-15&type_added=Definition:None,Disclaimer:Supplier&category_removed=Assignments,Audits"
 ```
 {: codeblock}
 
@@ -483,7 +485,7 @@ You can retrieve specific feedback from a document by using the `GET /v1/feedbac
 An example command is:
 
 ```bash
-curl -X GET -u "apikey:{apikey}" https://gateway.watsonplatform.net/compare-comply/api/v1/feedback/9730b437-cb86-4d40-9a84-ff6948bb3dd1?version=2018-10-15
+curl -X GET -u "apikey:{apikey}" "{url}/v1/feedback/9730b437-cb86-4d40-9a84-ff6948bb3dd1?version=2018-10-15"
 ```
 {: codeblock}
 
@@ -561,14 +563,14 @@ The command returns output similar to the following:
 You can delete all feedback in a document collection by using the `DELETE /v1/feedback` method. The method requires only the `version` date parameter.
 
 ```bash
-curl -X DELETE -u "apikey:{apikey}" https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15
+curl -X DELETE -u "apikey:{apikey}" "{url}/v1/feedback?version=2018-10-15"
 ```
 {: pre}
 
 Alternatively, you can delete all feedback from documents with a specific customer ID by specifying the ID in the call headers:
 
 ```bash
-curl -X DELETE -u "apikey:{apikey}" -H 'x-watson-metadata: customer_id=3910' https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15
+curl -X DELETE -u "apikey:{apikey}" -H "x-watson-metadata: customer_id=3910" "{url}/v1/feedback?version=2018-10-15"
 ```
 {: pre}
 
@@ -594,7 +596,7 @@ You can delete specific feedback from a document by using the `DELETE /v1/feedba
 An example command is:
   
 ```bash
-curl -X DELETE -u "apikey:{apikey}" https://gateway.watsonplatform.net/compare-comply/api/v1/feedback/5206038a-5ea0-4f48-bee1-0780c56c53c9?version=2018-10-15
+curl -X DELETE -u "apikey:{apikey}" "{url}/v1/feedback/5206038a-5ea0-4f48-bee1-0780c56c53c9?version=2018-10-15"
 ```
 {: codeblock}
 

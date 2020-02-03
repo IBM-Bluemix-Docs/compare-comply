@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2019
-lastupdated: "2018-11-11"
+years: 2018, 2020
+lastupdated: "2020-01-31"
 
 keywords: document comparison,compare,compare documents,comparison
 
@@ -22,6 +22,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Comparing two documents
 {: #compare}
@@ -34,25 +36,26 @@ The **Comparison** method enables you to compare two documents. Specifically, th
 ## Step 1: Identify two comparable documents
 {: #step1}
 
-Identify two documents to compare. See [Step 1 in Getting started](/docs/services/compare-comply?topic=compare-and-comply-getting-started#identify_content) and [Supported input formats](/docs/services/compare-comply?topic=compare-comply-formats) for information on document requirements. For best results, choose two documents that are related to each other; for example, an original contract and a revised version of the same contract.
+Identify two documents to compare. See [Step 1 in Getting started](/docs/compare-comply?topic=compare-and-comply-getting-started#identify_content) and [Supported input formats](/docs/compare-comply?topic=compare-comply-formats) for information on document requirements. For best results, choose two documents that are related to each other; for example, an original contract and a revised version of the same contract.
 
 ## Step 2: Compare two documents
 {: #step2}
 
 In a `bash` shell or equivalent environment such as Cygwin, issue the following command to compare the documents, with values as follows:
-  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
+  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
   - Replace `{file_1}` and `{file_2}` with the path to the files you want to compare.
   - Optionally specify values for `file_1_label` and `file_2_label` to identify files 1 and 2, respectively. If you do not specify labels, the method uses the default label values `file_1` and `file_2`.
+  - Replace `{url}` with the URL you copied in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
   - Optionally specify the value `contracts` for the `model` parameter. The only model value accepted by the `POST /v1/comparison` method is `contracts`.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}" -F "file_2=@/Users/Downloads/{file_2}" -F file_1_label="document_1" -F file_2_label="document_2" https://gateway.watsonplatform.net/compare-comply/api/v1/comparison?version=2018-10-15&model=contracts
+curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@{file_1}" -F "file_2=@/{file_2}" -F file_1_label="document_1" -F file_2_label="document_2" "{url}/v1/comparison?version=2018-10-15&model=contracts"
 ```
 
 If you are submitting JSON files for comparison, specify the media type for the JSON files as follows:
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}.json;type=application/json" -F "file_2=@/Users/Downloads/{file_2}.json;type=application/json" -F file_1_label="document_1" -F file_2_label="document_2" https://gateway.watsonplatform.net/compare-comply/api/v1/comparison?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@/{file_1}.json;type=application/json" -F "file_2=@/{file_2}.json;type=application/json" -F file_1_label="document_1" -F file_2_label="document_2" "{url}/v1/comparison?version=2018-10-15"
 ```
 
 ## Step 3: Review the comparison

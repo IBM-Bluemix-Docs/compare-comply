@@ -36,7 +36,7 @@ subcollection: compare-comply
   - Table extraction, which parses each cell in the table and associates metadata such as row and column headers
   - A feedback API and user interface that lets subject matter experts send corrections and suggestions to IBM data science teams for continuous improvements of models
 
-To get started with the service, see the [Getting started](/docs/services/compare-comply?topic=compare-comply-getting-started) page.
+To get started with the service, see the [Getting started](/docs/compare-comply?topic=compare-comply-getting-started) page.
 
 US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: external} for more information.
 

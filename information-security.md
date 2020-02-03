@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-11"
+  years: 2015, 2020
+lastupdated: "2019-01-31"
 
 subcollection: compare-comply
 
@@ -20,6 +20,8 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Information security
 {: #information-security}
@@ -34,8 +36,8 @@ The products, services, and other capabilities described herein are not suitable
 
 If you need to request GDPR support for {{site.data.keyword.cloud}} {{site.data.keyword.watson}} resources that are created
 
--   In the European Union (EU), see [Requesting support for IBM Cloud Watson resources created in the European Union](/docs/services/watson?topic=watson-getting-started-gdpr-sar#request-EU).
--   Outside of the EU, see [Requesting support for resources outside the European Union](/docs/services/watson?topic=watson-getting-started-gdpr-sar#request-non-EU).
+-   In the European Union (EU), see [Requesting support for IBM Cloud Watson resources created in the European Union](/docs/watson?topic=watson-getting-started-gdpr-sar#request-EU).
+-   Outside of the EU, see [Requesting support for resources outside the European Union](/docs/watson?topic=watson-getting-started-gdpr-sar#request-non-EU).
 
 ## European Union General Data Protection Regulation (GDPR)
 {: #gdpr}
@@ -68,7 +70,7 @@ curl -X POST -u "apikey:{apikey}"
 --header "Content-Type: application/json"
 --header "Accept: application/pdf"
 --data "{feedback_data}"
-"https://gateway.watsonplatform.net/compare-comply/api/v1/feedback?version=2018-10-15"
+"{url}/v1/feedback?version=2018-10-15"
 ```
 {: codeblock}
 
@@ -89,8 +91,7 @@ The customer ID is associated with data that is sent with the request.
 To delete all data that is associated with a customer ID, use the `DELETE /v1/user_data` method. You pass the string `customer_id={id}` as a query parameter with the request. The following example deletes all data for the customer ID `my_ID`:
 
   ```bash
-  curl -X DELETE -u "apikey:{apikey}" 
- https://gateway.watsonplatform.net/compare-comply/api/v1/user_data?customer_id=my_ID
+  curl -X DELETE -u "apikey:{apikey}" "{url}/v1/user_data?customer_id=my_ID"
   ```
   {: codeblock}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-11"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: invoice,invoices,invoice parsing,parsing,invoice understanding
 
@@ -23,6 +23,8 @@ subcollection: compare-comply
 {:note: .note}
 {:important: .important}
 {:preview: .preview}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
 
 # Understanding invoice parsing
 {: #invoices}
@@ -30,22 +32,22 @@ subcollection: compare-comply
 You can analyze invoice documents by using the **Invoice understanding** feature.
 {: shortdesc}
 
-**Invoice understanding** is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to invoice parsing by completing the following [form](http://ibm.biz/invoices).
+**Invoice understanding** is a beta feature. For information about beta features, see [Beta features](/docs/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/compare-comply?topic=compare-comply-release_notes). You must request access to invoice parsing by completing the following [form](http://ibm.biz/invoices).
 {: important}
 
 Because **Invoice understanding** is a beta feature, iit is not included in the service's SDKs or listed in the service's API Reference. You can call the method only by using its `curl` command as described in the following sections.
 {: important}
 
-You can classify the contents of invoices in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by calling the `POST /v1/invoices` method. 
+You can classify the contents of invoices in your [input document](/docs/compare-comply?topic=compare-comply-formats) by calling the `POST /v1/invoices` method. 
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/invoices` method to classify an invoice. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
   - `file` (**required** `file`): The input file that is to be classified for invoice information.
 
-Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
+Replace `{apikey}` with the API key you copied earlier, `{url}` with the URL you copied earlier, and `{input_file}` with the path to the input file to parse.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://gateway.watsonplatform.net/compare-comply/api/v1/invoices?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -F "file=@{input_file}" "{url}/v1/invoices?version=2018-10-15"
 ```
 {: codeblock}
 

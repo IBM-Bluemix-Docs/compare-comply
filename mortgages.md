@@ -26,10 +26,10 @@ subcollection: compare-comply
 You can analyze mortgage closing disclosure documents by calling the `POST /v1/mortgage_closing_disclosures` method.
 {: shortdesc}
 
-Mortgage parsing is a beta feature. For information about beta features, see [Beta features](/docs/services/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/services/compare-comply?topic=compare-comply-release_notes). You must request access to mortgage parsing by completing the following [form](http://ibm.biz/mortgage).
+Mortgage parsing is a beta feature. For information about beta features, see [Beta features](/docs/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/compare-comply?topic=compare-comply-release_notes). You must request access to mortgage parsing by completing the following [form](http://ibm.biz/mortgage).
 {: important}
 
-You can classify the contents of mortgage closure disclosure documents in your [input document](/docs/services/compare-comply?topic=compare-comply-formats) by using the `POST /v1/mortgage_closing_disclosures` method.
+You can classify the contents of mortgage closure disclosure documents in your [input document](/docs/compare-comply?topic=compare-comply-formats) by using the `POST /v1/mortgage_closing_disclosures` method.
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/mortgage_closing_disclosures` method to classify a mortgage. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
