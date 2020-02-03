@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-02-03"
 
 keywords: compare and comply,compare,comply,compare comply,getting started,analyze contracts,analyze documents,classify contracts,analyze contracts,element classification,classify elements,analyze tables,tables,CompareComply,CompareAndComply,compare and comply project,compare comply project
 
@@ -76,14 +76,13 @@ Optionally, you can explore the service's features by using the {{site.data.keyw
 
     - If necessary, install a version with SSL enabled from [curl.haxx.se](https://curl.haxx.se/){: external}. Add the location of the file to your PATH environment variables if you want to run `curl` from any command-line location.
 
-When you enter a command, replace `{apikey}` and `{url}` with your actual API key and URL. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example. The URL in the example is for a service instance in the US South (Dallas, Texas).
+When you enter a command, replace `{apikey}` and `{url}` with your actual API key and URL. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example. The URL in the example is for a service instance in the Dallas location.
 {: hide-dashboard}
 
 ```bash
-curl -X POST -u "apikey:{apikey}"{: apikey}
+curl -X POST -u "apikey:{apikey}"
 . . .
-"{url}/v1/html_conversion?version=2018-10-15"{: url}
-```
+"https://api.us-south.compare-comply.watson.cloud.ibm.com/instances/262e3672-e2ab-409a-a543-cf9eac54cec0/v1/html_conversion?version=2018-10-15"
 {:pre}
 {: hide-dashboard}
 
