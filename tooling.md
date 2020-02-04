@@ -23,7 +23,7 @@ subcollection: compare-comply
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 
 # Using the {{site.data.keyword.cncshort}} Tooling
 {: #using_tool}

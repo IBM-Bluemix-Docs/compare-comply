@@ -23,7 +23,7 @@ subcollection: compare-comply
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'}
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
