@@ -38,6 +38,6 @@ subcollection: compare-comply
 
 To get started with the service, see the [Getting started](/docs/compare-comply?topic=compare-comply-getting-started) page.
 
-US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: external} for more information.
+US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported){: external} for more information.
 
 
