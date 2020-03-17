@@ -36,23 +36,23 @@ The products, services, and other capabilities described herein are not suitable
 
 If you need to request GDPR support for {{site.data.keyword.cloud}} {{site.data.keyword.watson}} resources that are created
 
--   In the European Union (EU), see [Requesting support for IBM Cloud Watson resources created in the European Union](/docs/watson?topic=watson-getting-started-gdpr-sar#request-EU).
--   Outside of the EU, see [Requesting support for resources outside the European Union](/docs/watson?topic=watson-getting-started-gdpr-sar#request-non-EU).
+-   In the European Union (EU), see [Requesting support for IBM Cloud Watson resources created in the European Union](/docs/watson?topic=watson-gdpr-sar#request-EU).
+-   Outside of the EU, see [Requesting support for resources outside the European Union](/docs/watson?topic=watson-gdpr-sar#request-non-EU).
 
 ## European Union General Data Protection Regulation (GDPR)
 {: #gdpr}
 
 IBM is committed to providing our clients and partners with innovative data privacy, security and governance solutions to assist them on their journey to GDPR compliance.
 
-Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and offerings to support your compliance journey [here](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/gdpr){: external}.
+Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and offerings to support your compliance journey [here](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/data-responsibility/gdpr){: external}.
 
 ## Labeling and deleting data in the {{site.data.keyword.cncshort}} service
 {: #delete-data}
 
 The {{site.data.keyword.cncshort}} service enables you to delete all data that is associated with feedback and batch-processing requests. To delete data, you must do the following:
 
-1.  Use the `X-Watson-Metadata` header to associate a customer ID with data that is passed by a request to the service; see [Specifying a customer ID](#specify-customer-id).
-1.  Use the `DELETE /v1/user_data` method to delete all data that is associated with a specified customer ID; see [Deleting data](#delete-cnc).
+1.  Use the `X-Watson-Metadata` header to associate a customer ID with data that is passed by a request to the service; see [Specifying a customer ID](/docs/compare-comply?topic=compare-comply-information-security#specify-customer-id).
+1.  Use the `DELETE /v1/user_data` method to delete all data that is associated with a specified customer ID; see [Deleting data](/docs/compare-comply?topic=compare-comply-information-security#delete-cnc).
 
 By default, no customer ID is associated with data.
 
@@ -100,4 +100,4 @@ The `DELETE /v1/user_data` method deletes all data that is associated with the s
 ## Health Insurance Portability and Accountability Act (HIPAA)
 {: #cnc-hipaa}
 
-US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: external} for more information.
+US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported){: external} for more information.

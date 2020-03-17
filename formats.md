@@ -36,7 +36,7 @@ subcollection: compare-comply
 
 Observe the following notes regarding files submitted to {{site.data.keyword.cncshort}}.
 
-  - Not all input formats are accepted by all methods. For more information, see [Support by method](#methods) and the lists of supported methods in the details of each input type described in the following sections.
+  - Not all input formats are accepted by all methods. For more information, see [Support by method](/docs/compare-comply?topic=compare-comply-formats#methods) and the lists of supported methods in the details of each input type described in the following sections.
   - For optimal results, specify the MIME type when submitting a file. For example, if you submit a PDF file, it is recommended that you specify the file as follows:
      ```
      curl -u "apikey:{apikey}" -F "file=@myFile.pdf;type=application/pdf" "{url}/v1/{method_name}?version=2018-10-15"

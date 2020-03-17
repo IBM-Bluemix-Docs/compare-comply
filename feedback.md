@@ -59,12 +59,12 @@ Observe the following warnings and precautions when working with the feedback AP
 
 In the following scenario, an SME named Stuart reviews a parsed governing document and provides feedback on it by using the feedback API. After Stuart finishes his review, an SME named Ann takes the document, reviews it and Stuart's feedback, and uses the feedback API to provide additional feedback. At a high level, the steps are:
 
-1. Stuart reviews the legal document and labels it by using the the `POST /v1/feedback` API method, as described in [Adding feedback](#add_feedback).
+1. Stuart reviews the legal document and labels it by using the the `POST /v1/feedback` API method, as described in [Adding feedback](/docs/compare-comply?topic=compare-comply-feedback#add_feedback).
 1. Ann starts reviewing the legal document that was labeled by Stuart.
-1. Ann retrieves all feedback provided on the document by using the `GET /v1/feedback` method, as described in [Getting all feedback](#get_all_feedback).
+1. Ann retrieves all feedback provided on the document by using the `GET /v1/feedback` method, as described in [Getting all feedback](/docs/compare-comply?topic=compare-comply-feedback#get_all_feedback).
 1. Ann provides her own feedback by using the `POST /v1/feedback` API method.
-1. Ann retrieves the feedback she provided by using the `GET /v1/feedback/{feedback_id}` method, as described in [Getting specific feedback](#get_spec_feedback).
-1. Ann, Stuart, or another user can optionally delete <!-- all feedback by using the `DELETE /v1/feedback` method, as described in [Deleting feedback](#delete_feedback), or -->specific feedback by using the `DELETE /v1/feedback/{feedback_id}` method, as described in [Deleting specific feedback](#delete_spec_feedback).
+1. Ann retrieves the feedback she provided by using the `GET /v1/feedback/{feedback_id}` method, as described in [Getting specific feedback](/docs/compare-comply?topic=compare-comply-feedback#get_spec_feedback).
+1. Ann, Stuart, or another user can optionally delete specific feedback by using the `DELETE /v1/feedback/{feedback_id}` method, as described in [Deleting specific feedback](/docs/compare-comply?topic=compare-comply-feedback#delete_spec_feedback).
 
 These steps are described in more detail in the following sections.
 

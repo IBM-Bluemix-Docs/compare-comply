@@ -46,14 +46,14 @@ This tutorial uses the **Element classification** feature. Other service methods
 ### Get started with the tooling
 {: #gs-tool}
 
-Optionally, you can explore the service's features by using the {{site.data.keyword.cncshort}} tooling. See [Using the {{site.data.keyword.cncshort}} Tooling ](/docs/compare-comply?topic=compare-comply-using_tool) for more information.
+Optionally, you can explore the service's features by using the {{site.data.keyword.cncshort}} tooling. See [Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool) for more information.
 
 ### Request limited preview features
 {: #request-preview-features}
 
 {{site.data.keyword.cncshort}} has the following beta and experimental features that can be accessed by request:
 
-  -  Invoice Understanding: {{site.data.keyword.cncshort}} finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Fill out the following [form](http://ibm.biz/invoices){: external} to request access to this feature.
+  -  Invoice Understanding: {{site.data.keyword.cncshort}} finds and extracts important information such as buyer, supplier, invoice date, and amount owed. Fill out the following [form](https://datasciencex.typeform.com/to/NFyK7J){: external} to request access to this feature.
   - Purchase Order Understanding: {{site.data.keyword.cncshort}}extracts important information in purchase orders. Fill out the following [form](https://datasciencex.typeform.com/to/Fjyf6t){: external} to request access to this feature.
 
 ## Before you begin
@@ -74,7 +74,7 @@ Optionally, you can explore the service's features by using the {{site.data.keyw
         ```
         {: pre}
 
-    - If necessary, install a version with SSL enabled from [curl.haxx.se](https://curl.haxx.se/){: external}. Add the location of the file to your PATH environment variables if you want to run `curl` from any command-line location.
+    - If necessary, install a version with SSL enabled from [curl.haxx.se](https://curl.haxx.se){: external}. Add the location of the file to your PATH environment variables if you want to run `curl` from any command-line location.
 
 When you enter a command, replace `{apikey}` and `{url}` with your actual API key and URL. Omit the braces, which indicate a variable value, from the command. An actual value resembles the following example. The URL in the example is for a service instance in the Dallas location.
 {: hide-dashboard}
@@ -118,13 +118,13 @@ Replace `{apikey}` with the API key you copied earlier and `{url}` with the URL 
 
 The method returns a JSON object that contains:
 
-  - [A `documents` object](#documents) that includes the input document's title, an HTML version of the input document, and the MD5 hash of the input document.
+  - [A `documents` object](/docs/compare-comply?topic=compare-comply-getting-started#documents) that includes the input document's title, an HTML version of the input document, and the MD5 hash of the input document.
   - Information about the model used to classify the input document.  
-  - [An `elements` array](#elements) that details semantic elements that are identified in the input document.
-  - [A `tables` array](#tables) that breaks down the tables that are identified in the input document.
-  - [A `document_structure` object](#doc_structure) that lists section titles and leading sentences that are identified in the input document.
-  - [A `parties` array](#parties) that lists the parties and each party's roles, addresses, contact information, and mentions identified in the input document.
-  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`, `contract_types`, `contract_terms`, `payment_terms`, and `contract_currencies`](#other_arrays).
+  - [An `elements` array](/docs/compare-comply?topic=compare-comply-getting-started#elements) that details semantic elements that are identified in the input document.
+  - [A `tables` array](/docs/compare-comply?topic=compare-comply-getting-started#tables) that breaks down the tables that are identified in the input document.
+  - [A `document_structure` object](/docs/compare-comply?topic=compare-comply-getting-started#doc_structure) that lists section titles and leading sentences that are identified in the input document.
+  - [A `parties` array](/docs/compare-comply?topic=compare-comply-getting-started#parties) that lists the parties and each party's roles, addresses, contact information, and mentions identified in the input document.
+  - [Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`, `contract_types`, `contract_terms`, `payment_terms`, and `contract_currencies`](/docs/compare-comply?topic=compare-comply-getting-started#other_arrays).
 
 ## Step 3: Review the analysis
 {: #review_analysis}

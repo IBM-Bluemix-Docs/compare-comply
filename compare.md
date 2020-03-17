@@ -36,7 +36,7 @@ The **Comparison** method enables you to compare two documents. Specifically, th
 ## Step 1: Identify two comparable documents
 {: #step1}
 
-Identify two documents to compare. See [Step 1 in Getting started](/docs/compare-comply?topic=compare-and-comply-getting-started#identify_content) and [Supported input formats](/docs/compare-comply?topic=compare-comply-formats) for information on document requirements. For best results, choose two documents that are related to each other; for example, an original contract and a revised version of the same contract.
+Identify two documents to compare. See [Step 1 in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#identify_content) and [Supported input formats](/docs/compare-comply?topic=compare-comply-formats) for information on document requirements. For best results, choose two documents that are related to each other; for example, an original contract and a revised version of the same contract.
 
 ## Step 2: Compare two documents
 {: #step2}
