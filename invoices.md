@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-03-25"
 
 keywords: invoice,invoices,invoice parsing,parsing,invoice understanding
 
@@ -32,7 +32,7 @@ subcollection: compare-comply
 You can analyze invoice documents by using the **Invoice understanding** feature.
 {: shortdesc}
 
-**Invoice understanding** is a beta feature. For information about beta features, see [Beta features](/docs/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/compare-comply?topic=compare-comply-release_notes). You must request access to invoice parsing by completing the following [form](http://ibm.biz/invoices).
+**Invoice understanding** is a beta feature. For information about beta features, see [Beta features](/docs/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/compare-comply?topic=compare-comply-release_notes). New requests for access to invoice parsing are now discontinued.
 {: important}
 
 Because **Invoice understanding** is a beta feature, iit is not included in the service's SDKs or listed in the service's API Reference. You can call the method only by using its `curl` command as described in the following sections.
