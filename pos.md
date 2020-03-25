@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-03-25"
 
 keywords: purchase order,purchase orders,purchase order understanding,purchase order parsing,parsing
 
@@ -31,7 +31,7 @@ subcollection: compare-comply
 You can analyze purchase orders by using the **Purchase order understanding** feature.
 {: shortdesc}
 
-**Purchase order understanding** is a beta feature. For information about beta features, see [Beta features](/docs/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/compare-comply?topic=compare-comply-release_notes). You must request access to purchase-order parsing by completing the following [form](https://datasciencex.typeform.com/to/Fjyf6t){: external}.
+**Purchase order understanding** is a beta feature. For information about beta features, see [Beta features](/docs/compare-comply?topic=compare-comply-release_notes#beta_features) in the [Release notes](/docs/compare-comply?topic=compare-comply-release_notes). New requests for access to purchase-order parsing are now discontinued.
 {: important}
 
 Because **Purchase order understanding** is a beta feature, it is not included in the service's SDKs or listed in the service's API Reference. You can call the method only by using its `curl` command as described in the following sections.
