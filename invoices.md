@@ -52,143 +52,182 @@ The command output uses the following schema.
 
 ```json
 {
-    "model_id": "invoices",
-    "model_version": "string",
-    "document": {
-        "title": "string",
-        "html": "string",
-        "hash": "string"
-    },
-    "buyers": [
-        {
-            "location": {
-                "begin": int,
-                "end": int
-            },
-            "text": "string",
-            "provenance_ids": [ "string", "string", ... ]
+  "model_id": "invoices",
+  "model_version": "string",
+  "document": {
+    "title": "string",
+    "html": "string",
+    "hash": "string"
+  },
+  "buyers": [
+    {
+      "location": {
+        "begin": int,
+        "end": int
+      },
+      "text": "string",
+      "provenance_ids": [
+        "string",
+        "string", ...
+      ]
+    }
+  ],
+  "suppliers": [
+    {
+      "location": {
+        "begin": int,
+        "end": int
+      },
+      "text": "string",
+      "provenance_ids": [
+        "string",
+        "string", ...
+      ]
+    }
+  ],
+  "totals_due": [
+    {
+      "amount": {
+        "location": {
+          "begin": int,
+          "end": int
+        },
+        "text": "string",
+        "provenance_ids": [
+          "string",
+          "string", ...
+        ]
+      },
+      "currency": {
+        "location": {
+          "begin": int,
+          "end": int
+        },
+        "text": "string",
+        "provenance_ids": [
+          "string",
+          "string", ...
+        ]
+      }
+    }
+  ],
+  "currencies": [
+    {
+      "location": {
+        "begin": int,
+        "end": int
+      },
+      "text": "string",
+      "provenance_ids": [
+        "string",
+        "string", ...
+      ]
+    }
+  ],
+  "purchase_order_numbers": [
+    {
+      "location": {
+        "begin": int,
+        "end": int
+      },
+      "text": "string",
+      "provenance_ids": [
+        "string",
+        "string", ...
+      ]
+    }
+  ],
+  "invoice_numbers": [
+    {
+      "location": {
+        "begin": int,
+        "end": int
+      },
+      "text": "string",
+      "provenance_ids": [
+        "string",
+        "string", ...
+      ]
+    }
+  ],
+  "invoice_dates": [
+    {
+      "location": {
+        "begin": int,
+        "end": int
+      },
+      "text": "string",
+      "text_normalized": "string",
+      "provenance_ids": [
+        "string",
+        "string", ...
+      ]
+    }
+  ],
+  "due_dates": [
+    {
+      "location": {
+        "begin": int,
+        "end": int
+      },
+      "text": "string",
+      "text_normalized": "string",
+      "provenance_ids": [
+        "string",
+        "string", ...
+      ]
+    }
+  ],
+  "invoice_parts": [
+    {
+      "quantity_ordered": {
+        "location": {
+          "begin": int,
+          "end": int
+        },
+        "text": "string",
+        "provenance_ids": [
+          "string",
+          "string", ...
+        ]
+      },
+      "part_description": {
+        "location": {
+          "begin": int,
+          "end": int
+        },
+        "text": "string",
+        "provenance_ids": [
+          "string",
+          "string", ...
+        ]
+      },
+      "unit_price": {
+        "amount": {
+          "location": {
+            "begin": int,
+            "end": int
+          },
+          "text": "string",
+          "provenance_ids": [
+            "string",
+            "string", ...
+          ]
+        },
+        "currency": {
+          "location": {
+            "begin": int,
+            "end": int
+          },
+          "text": "string",
+          "provenance_ids": [
+            "string",
+            "string", ...
+          ]
         }
-    ],
-    "suppliers": [
-        {
-            "location": {
-                "begin": int,
-                "end": int
-            },
-            "text": "string",
-            "provenance_ids": [ "string", "string", ... ]
-        }
-    ],
-    "totals_due": [
-        {
-            "amount": {
-                "location": {
-                    "begin": int,
-                    "end": int
-                },
-                "text": "string",
-                "provenance_ids": [ "string", "string", ... ]
-            },
-            "currency": {
-                "location": {
-                    "begin": int,
-                    "end": int
-                },
-                "text": "string",
-                "provenance_ids": [ "string", "string", ... ]
-            }
-        }
-    ],
-    "currencies": [
-        {
-            "location": {
-                "begin": int,
-                "end": int
-            },
-            "text": "string",
-            "provenance_ids": [ "string", "string", ... ]
-        }
-    ],
-    "purchase_order_numbers": [
-        {
-            "location": {
-                "begin": int,
-                "end": int
-            },
-            "text": "string",
-            "provenance_ids": [ "string", "string", ... ]
-        }
-    ],
-    "invoice_numbers": [
-        {
-            "location": {
-                "begin": int,
-                "end": int
-            },
-            "text": "string",
-            "provenance_ids": [ "string", "string", ... ]
-        }
-    ],
-    "invoice_dates": [
-        {
-            "location": {
-                "begin": int,
-                "end": int
-            },
-            "text": "string",
-            "text_normalized": "string",
-            "provenance_ids": [ "string", "string", ... ]
-        }
-    ],
-    "due_dates": [
-        {
-            "location": {
-                "begin": int,
-                "end": int
-            },
-            "text": "string",
-            "text_normalized": "string",
-            "provenance_ids": [ "string", "string", ... ]
-        }
-    ],
-    "invoice_parts": [
-        {
-            "quantity_ordered": {
-                "location": {
-                    "begin": int,
-                    "end": int
-                },
-                "text": "string",
-                "provenance_ids": [ "string", "string", ... ]
-            },
-            "part_description": {
-                "location": {
-                    "begin": int,
-                    "end": int
-                },
-                "text": "string",
-                "provenance_ids": [ "string", "string", ... ]
-            },
-            "unit_price": {
-                "amount": {
-                    "location": {
-                        "begin": int,
-                        "end": int
-                    },
-                    "text": "string",
-                    "provenance_ids": [ "string", "string", ... ]
-                },
-                "currency": {
-                    "location": {
-                        "begin": int,
-                        "end": int
-                    },
-                    "text": "string",
-                    "provenance_ids": [ "string", "string", ... ]
-                }
-            }
-        }
-    ]
+      }
+    }
+  ]
 }
 ```
 

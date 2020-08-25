@@ -28,7 +28,7 @@ subcollection: compare-comply
 The {{site.data.keyword.cncshort}} tooling enables you to work with governing documents in a GUI environment. This tutorial introduces the tooling and takes you through the process of uploading and processing documents, then working with the results.
 {: shortdesc}
 
-## tooling capabilities
+## Tooling capabilities
 {: #tooling-capabilities}
 
 The {{site.data.keyword.cncshort}} tooling provides the following capabilities:
@@ -149,15 +149,14 @@ To provide suggestions in the tooling, perform the following steps:
 1. Open the tooling, open a document, and apply the labels that you want to examine. Select a highlighted passage to display information about it in the right pane.
 
 1. If you disagree with the information that the tooling displays, click **Suggest changes**. The **Suggest changes** panel opens.
-   ![{{site.data.keyword.cncshort}} tooling: Suggestion panel](images/tool-suggestion-panel.png).
 
+   ![{{site.data.keyword.cncshort}} tooling: Suggestion panel](images/tool-suggestion-panel.png).
 1. The panel lists each labeled element in the highlighted passage. Perform one or more of the following actions:
    - Mark the label as incorrect by clicking the **Incorrect** icon (![Incorrect icon](images/mark-icon.png)). The tooling displays the status message **Marked incorrect** for the element. If you click the icon by accident or change your mind later, click the **Undo** icon (![Undo icon](images/tool-undo.png)).
    - Suggest a different label for the element by clicking **+ Suggest Label** and selecting a label from the drop-down menu. The tooling displays the status message **Suggested**. You can undo the suggestion by clicking the **Undo** icon (![Undo icon](images/tool-undo.png)).
    - Optionally explain your feedback by entering a brief text description in the **Any comments? (optional)** field.
 
    To close the **Suggest changes** panel and abandon your feedback, click the **X** in the upper right corner of the panel.
-
 1. When you are done providing feedback on the highlighted element, click **Submit**.
 
 ### Viewing the suggestion history
@@ -200,7 +199,8 @@ To apply recommendations, perform the following steps:
 
 1. After you review and accept or reject all recommendations, click **Apply**. The tooling displays a confirmation dialog box that contains a summary of your selections and an estimate of the precision and recall values for the new model.
 
-  **Warning**: If you reject a recommendation and then click **Apply**, the recommendation is not displayed again.
+  If you reject a recommendation and then click **Apply**, the recommendation is not displayed again.
+  {: tip}
 
 1. Click **Deploy** to deploy the model. When the model finishes deploying, the tooling displays a notification at the top of the screen. You can then use the **Document visualizer** to test the new model.
 

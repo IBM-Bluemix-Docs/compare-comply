@@ -86,22 +86,22 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
     {
       "document": {
         "hash": "string",
-        "title": "string", # optional, the document title,
+        "title": "string" # optional, the document title,
       },
-      "feedback_type": "string", # required, string that identifies the type of feedback; currently supported value is `element_classification`
-      "model_id": "string", # optional, identifies the model id,
-      "model_version": "string", # optional, identifies the model version,
+      "feedback_type": "string" # required, string that identifies the type of feedback; currently supported value is `element_classification`
+      "model_id": "string" # optional, identifies the model id,
+      "model_version": "string" # optional, identifies the model version,
       "location": {
         "begin": int,
         "end": int
       },
-      "text": "string", # required, text to which feedback is being applied
+      "text": "string" # required, text to which feedback is being applied
       "original_labels": { # required, empty node is allowed
         "types": [ # required, empty array is allowed
           {
             "label": { # contains labeling info in the form of nature and party attributes
-              "nature": "string", # required, empty string is allowed,
-              "party": "string", # required, empty string is allowed
+              "nature": "string" # required, empty string is allowed,
+              "party": "string" # required, empty string is allowed
             },
             "provenance_ids": [ # required, empty array is allowed
                 "string", ...
@@ -110,7 +110,7 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
         ],
         "categories": [ # required, empty array is allowed
           {
-            "label": "string", # required, empty string is not allowed,
+            "label": "string" # required, empty string is not allowed,
             "provenance_ids": [ # required, empty array is allowed
                 "string", ...
             ]
@@ -119,16 +119,16 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
       },
       "updated_labels": { # required, empty node is allowed
         "types": [
-            {
-                "label": {
-                  "nature": "string", # required, empty string is allowed,
-                  "party": "string", # required, empty string is allowed
-                }
+          {
+            "label": {
+              "nature": "string" # required, empty string is allowed,
+              "party": "string" # required, empty string is allowed
             }
+          }
         ],
         "categories": [ # required, empty array is allowed
           {
-            "label": "string", # required, empty string is not allowed
+            "label": "string" # required, empty string is not allowed
           }
         ]
       }
