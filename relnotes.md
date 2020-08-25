@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-12"
+  years: 2017, 2020
+lastupdated: "2020-08-25"
 
 keywords: release notes,beta,beta features,changes,issues
 
@@ -78,34 +78,32 @@ The following new features and changes to the service are available.
 
 The release includes the following updates:
 
- - The output of the **Purchase order understanding** method now includes the new fields `tax_ids`, `tax_totals`, and `quote_numbers`. For more information, see For more information, see [Understanding purchase-order parsing](/docs/compare-comply?topic=compare-comply-pos).
+- The output of the **Purchase order understanding** method now includes the new fields `tax_ids`, `tax_totals`, and `quote_numbers`. For more information, see For more information, see [Understanding purchase-order parsing](/docs/compare-comply?topic=compare-comply-pos).
 
 ### 31 July 2019
 {: #31-july-2019}
 
 The release includes the following updates:
 
-  - The addition of the `contract_currencies` array to the output of the **Element Classification** method. For more information, see [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing#contract-currencies).
-
-   - The addition of the `text_normalized` element to the `purchase_order_dates` and `due_dates` arrays to the output of the **Purchase order understanding** method. For more information, see [Understanding purchase-order parsing](/docs/compare-comply?topic=compare-comply-pos).
+- The addition of the `contract_currencies` array to the output of the **Element Classification** method. For more information, see [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing#contract-currencies).
+- The addition of the `text_normalized` element to the `purchase_order_dates` and `due_dates` arrays to the output of the **Purchase order understanding** method. For more information, see [Understanding purchase-order parsing](/docs/compare-comply?topic=compare-comply-pos).
 
 ### 16 July 2019
 {: #16-july-2019}
 
 The release includes the following updates:
 
-  - The addition of the `text_normalized` and `interpretation` elements to the `contract_amounts`, `contract_terms`, and `payment_terms` arrays to the output of the **Element Classification** method. For more information, see [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing).
-
-  - The addition of the `title` element to the `tables` array in the output of the **Element Classification** and **Tables** methods. For more information, see [Classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables) and [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema).
+- The addition of the `text_normalized` and `interpretation` elements to the `contract_amounts`, `contract_terms`, and `payment_terms` arrays to the output of the **Element Classification** method. For more information, see [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing).
+- The addition of the `title` element to the `tables` array in the output of the **Element Classification** and **Tables** methods. For more information, see [Classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables) and [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema).
 
 ### 19 June 2019
 {: #19-june-2019}
 
 The release includes the following updates:
 
-  - A new category, `Order of Precedence`, has been introduced. For more information, see [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories).
-  - The **Purchase Order Understanding** beta feature now includes `provenance_ids` arrays for each identified object. For more information, see [Understanding purchase-order parsing](/docs/compare-comply?topic=compare-comply-pos).
-  - The **Invoice Understanding** beta feature now includes `text_normalized` fields for the `invoice_dates` and `due_dates` elements. For more information, see [Understanding invoice parsing](/docs/compare-comply?topic-conmpare-comply-invoices).
+- A new category, `Order of Precedence`, has been introduced. For more information, see [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories).
+- The **Purchase Order Understanding** beta feature now includes `provenance_ids` arrays for each identified object. For more information, see [Understanding purchase-order parsing](/docs/compare-comply?topic=compare-comply-pos).
+- The **Invoice Understanding** beta feature now includes `text_normalized` fields for the `invoice_dates` and `due_dates` elements. For more information, see [Understanding invoice parsing](/docs/compare-comply?topic=compare-comply-invoices).
 
 ### 23 April 2019
 {: #23-april-2019}
@@ -117,68 +115,71 @@ The release includes updates to the {{site.data.keyword.cncshort}} Tooling. For 
 
 The release includes the following updates:
 
-  - The addition of the `contract_terms` array to the output of the **Element Classification** method. For more information, see [Contract terms](/docs/compare-comply?topic=compare-comply-contract_parsing#contract-terms) and [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema).
-  
-  - The addition of the `text_normalized` element to the `effective_dates` and `termination_dates` arrays in the output of the **Element Classification** method. For more information, see [Other arrays](/docs/compare-comply?topic=compare-comply-getting-started#other_arrays), [Effective dates](/docs/compare-comply?topic=compare-comply-contract_parsing#effective_dates), and [Termination dates](/docs/compare-comply?topic=compare-comply-contract_parsing#termination_dates).
+- The addition of the `contract_terms` array to the output of the **Element Classification** method. For more information, see [Contract terms](/docs/compare-comply?topic=compare-comply-contract_parsing#contract-terms) and [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema).
+- The addition of the `text_normalized` element to the `effective_dates` and `termination_dates` arrays in the output of the **Element Classification** method. For more information, see [Other arrays](/docs/compare-comply?topic=compare-comply-getting-started#other_arrays), [Effective dates](/docs/compare-comply?topic=compare-comply-contract_parsing#effective_dates), and [Termination dates](/docs/compare-comply?topic=compare-comply-contract_parsing#termination_dates).
 
 ### 19 March 2019
 {: #19-march-2019}
 
 The release includes the following updates:
 
-  - Updates to the `attributes` values available in Element Classification. For more information, see [Attributes](/docs/compare-comply?topic=compare-comply-contract_parsing#attributes). 
+- Updates to the `attributes` values available in Element Classification. For more information, see [Attributes](/docs/compare-comply?topic=compare-comply-contract_parsing#attributes).
 
     The `Address` attribute value has been deprecated.
-    {: important}
-  
-  - Documentation updates for metadata fields. For more information, see the descriptions beginning at [Effective dates](/docs/compare-comply?topic=compare-comply-contract_parsing#effective_dates).
-  
-  - Beta release of an analysis model for purchase orders, which you can access by using the `/v1/purchase_orders` method. For more information, see [Understanding purchase-order parsing](/docs/compare-comply?topic=compare-comply-pos). For important information about beta features, see [Beta features](#beta_features). <br/>
-  **Note:** Only the `curl` API is available for this method. The method is not currently provided in other SDKs (Go, Java, Python, Node.js, Ruby, Swift).
+    {: deprecated}
+
+- Documentation updates for metadata fields. For more information, see the descriptions beginning at [Effective dates](/docs/compare-comply?topic=compare-comply-contract_parsing#effective_dates).
+
+- Beta release of an analysis model for purchase orders, which you can access by using the `/v1/purchase_orders` method. For more information, see [Understanding purchase-order parsing](/docs/compare-comply?topic=compare-comply-pos). For important information about beta features, see [Beta features](#beta_features).
+
+    Only the `curl` API is available for this method. The method is not currently provided in other SDKs (Go, Java, Python, Node.js, Ruby, Swift).
+    {: note}
 
 ### 5 March 2019
 {: #5-march-2019}
 
 The release includes the following updates:
 
-  - Additional enhancements to the {{site.data.keyword.cncshort}} Tooling. For more information, see [Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool).
-  - The output of the **Table understanding** method includes a new array called `key_value_pairs` that shows key-value pairs that the service extracted from different cells in a table. For more information, see [Understanding key-value pairs](/docs/compare-comply?topic=compare-comply-understanding_tables#key-value-pairs).
+- Additional enhancements to the {{site.data.keyword.cncshort}} Tooling. For more information, see [Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool).
+- The output of the **Table understanding** method includes a new array called `key_value_pairs` that shows key-value pairs that the service extracted from different cells in a table. For more information, see [Understanding key-value pairs](/docs/compare-comply?topic=compare-comply-understanding_tables#key-value-pairs).
 
 ### 8 January 2019
 {: #8-jan-2019}
 
 The release includes the following updates:
 
-  - The output of the `/v1/tables` method now includes an `attributes` array for each body cell. For more information, see [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Attributes](/docs/compare-comply?topic=compare-comply-output_schema#attributes).
-  - The output of the `/v1/element_classification` method now includes the following:
+- The output of the `/v1/tables` method now includes an `attributes` array for each body cell. For more information, see [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Attributes](/docs/compare-comply?topic=compare-comply-contract_parsing#attributes).
+- The output of the `/v1/element_classification` method now includes the following:
     - The `parties` array now includes an `importance` field that indicates whether the party is a `Primary` party or an `Unknown` (non-primary) party.
     - The `effective_dates`, `contract_amounts`, and `termination_dates` arrays now each include a `confidence_level` field that indicates a value of `High`, `Medium`, or `Low`.
     For more information, see [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing).
-  - The {{site.data.keyword.cncshort}} Tooling includes several enhancements and bug fixes. For more information, see [Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool).
+- The {{site.data.keyword.cncshort}} Tooling includes several enhancements and bug fixes. For more information, see [Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool).
 
 ### General Availability release, 6 December 2018
 {: #6-dec-2018}
 
 The {{site.data.keyword.cncshort}} service is now generally available. The GA release includes the following new features and enhancements:
 
-  - Beta release of an analysis model for invoices, which you can access by using the `/v1/invoices` method. For more information, see [Understanding invoice parsing](/docs/compare-comply?topic=compare-comply-invoices). For important information about beta features, see [Beta features](#beta_features). <br/>
-    **Note:** Only the `curl` API is available for this method. The method is not currently provided in other SDKs (Java, Python, Node.js, Ruby).
-  - The output of the `POST /v1/comparison` method now includes a boolean named `significant_elements` that indicates if the aligned text contains contractual clauses of significance.. For more information, see [Comparing two documents](/docs/compare-comply?topic=compare-comply-compare).
-  - The service accepts Microsoft Word files (DOC, DOCX). For more information, see [Supported input formats](/docs/compare-comply?topic=compare-comply-formats). 
-  
+- Beta release of an analysis model for invoices, which you can access by using the `/v1/invoices` method. For more information, see [Understanding invoice parsing](/docs/compare-comply?topic=compare-comply-invoices). For important information about beta features, see [Beta features](#beta_features).
+
+    Only the `curl` API is available for this method. The method is not currently provided in other SDKs (Java, Python, Node.js, Ruby).
+    {: note}
+
+- The output of the `POST /v1/comparison` method now includes a boolean named `significant_elements` that indicates if the aligned text contains contractual clauses of significance.. For more information, see [Comparing two documents](/docs/compare-comply?topic=compare-comply-compare).
+- The service accepts Microsoft Word files (DOC, DOCX). For more information, see [Supported input formats](/docs/compare-comply?topic=compare-comply-formats).
+
 The following table lists file-type support by method.
 
 | Method           |PDF support   |Word support     |Image support        |Text support    |
 |------------------|-----------------|-----------------------------------------|
-|Tooling*           | Supported    | Supported | All supported image formats | **Not** supported |
+|Tooling[^tooling]           | Supported    | Supported | All supported image formats | **Not** supported |
 |`/v1/html_conversion`| Supported | Supported | All supported image formats | Supported |
 |`/v1/element_classification`| Supported | Supported | All supported image formats | **Not** supported |
 |`/v1/tables`      | Supported | Supported | All supported image formats | Supported |
 |`/v1/invoices`    | Supported | Supported | All supported image formats | **Not** supported |
 |`/v1/comparison`*  | Supported | Supported | All supported image formats | **Not** supported |
 
-\* The Tooling and `/v1/comparison` method also accept JSON files from the output of the `/v1/element_classification` method.
-{: note}
+[^tooling]: The Tooling and `/v1/comparison` method also accept JSON files from the output of the `/v1/element_classification` method.
 
 ### 9 November 2018
 {: #9nov2018}
@@ -187,18 +188,19 @@ The following table lists file-type support by method.
 
 The service can process "plain" text (ASCII) files that use a monospaced font and page breaks. Richer text formats that include non-monospaced fonts and style attributes such as bold and italics are not yet supported. If you need to process an enriched text file, convert it to PDF before submitting it to the service.
 
-Supported image formats currently include the following. 
-  - BMP
-  - GIF
-  - JPEG
-  - JPEG2000
-  - PNG
-  - RAW
-  - TIFF
+Supported image formats currently include the following.
+
+- BMP
+- GIF
+- JPEG
+- JPEG2000
+- PNG
+- RAW
+- TIFF
 
 See the table at [General Availability release, 6 December 2018](#6-dec-2018) for supported file types.
 
-The `/v1/feedback` methods do not accept image or text files. 
+The `/v1/feedback` methods do not accept image or text files.
 
 The `/v1/batches` methods accept images and text files according to the method called in the batch job. For example, if your batch job calls the `/v1/html_conversion` method, it accepts both images and text files. Similarly, if your batch job calls the `/v1/element_classification` method, it accepts images but not text files.
 
@@ -208,22 +210,21 @@ The `/v1/batches` methods accept images and text files according to the method c
 Changes to the service's API and output schema are ongoing throughout the course of the beta. The API and output schema will be stabilized when the service becomes generally available (GA). When writing applications that access the service, be aware that the API calls and output can change in a future release; applications that access the service therefore need not to be used in a production environment. The following list summarizes the major API and schema changes in the current release.
 {: important}
 
-  - A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
-  - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/compare-comply?topic=compare-comply-getting-started) and [Classifying elements](/docs/compare-comply?compare-comply-output_schema) for details.
-  - Changes to the `/v1/tables` method's output schema. See [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables) for information about the table parsing format.
-  - Changes to the input and output parameters in the `/v1/feedback` and `/v1/feedback/{feedback_id}` methods. See [Using the feedback APIs](/docs/compare-comply?topic=compare-comply-feedback).
+- A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
+- Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/compare-comply?topic=compare-comply-getting-started) and [Classifying elements](/docs/compare-comply?compare-comply-output_schema) for details.
+- Changes to the `/v1/tables` method's output schema. See [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables) for information about the table parsing format.
+- Changes to the input and output parameters in the `/v1/feedback` and `/v1/feedback/{feedback_id}` methods. See [Using the feedback APIs](/docs/compare-comply?topic=compare-comply-feedback).
 
 ### 30 August 2018
 
 Beta release with the following features that have been introduced since the experimental release:
 
-  - Enhanced output including a structural analysis of input documents, as described at [Understanding document structure](/docs/compare-comply?topic=compare-comply-doc_struct).
-  - New `batches` APIs to run {{site.data.keyword.cncshort}} methods over a set of documents, as described at [Using batch processing](/docs/compare-comply?topic=compare-comply-batching).
-  - The ability to parse scanned PDF files that have been processed by an optical character reader (OCR).
-  - New `feedback` APIs to enable subject-matter experts to suggest feedback for future updates to the training model, as described at [Using the feedback APIs](/docs/compare-comply?topic=compare-comply-feedback).
-  - Improved table classification, as described at [Classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables).
-  - Tooling for working visually on documents, as described at [Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool).
-
+- Enhanced output including a structural analysis of input documents, as described at [Understanding document structure](/docs/compare-comply?topic=compare-comply-doc_struct).
+- New `batches` APIs to run {{site.data.keyword.cncshort}} methods over a set of documents, as described at [Using batch processing](/docs/compare-comply?topic=compare-comply-batching).
+- The ability to parse scanned PDF files that have been processed by an optical character reader (OCR).
+- New `feedback` APIs to enable subject-matter experts to suggest feedback for future updates to the training model, as described at [Using the feedback APIs](/docs/compare-comply?topic=compare-comply-feedback).
+- Improved table classification, as described at [Classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables).
+- Tooling for working visually on documents, as described at [Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool).
 
 ## Known issues
 {: #known_issues}
