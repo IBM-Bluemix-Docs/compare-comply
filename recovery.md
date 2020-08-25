@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-11"
+  years: 2020
+lastupdated: "2020-08-25"
 
 keywords: high availablilty,HA,disaster recovery,DR,backup,restore,custom models,online learning
 
@@ -79,7 +79,7 @@ The [Batch API](/docs/compare-comply?topic=compare-comply-batching) uses custome
 If batches are a critical component of your application, some of the batch jobs might need to be run again after recovery. You must keep enough information in your application's log to be able to know, for each batch submitted, the batch ID returned by the Batch API, and the locations of the input and output buckets.
 
 ### Feedback
-{: #feedback}
+{: #recovery-feedback}
 
 Feedback provided with the {{site.data.keyword.cncshort}} Tooling is stored in an internal data store. Feedback entered after the time of the last backup of this store is lost. To facilitate recovery, you need to keep a log with the name of the documents loaded into the Tooling and the time they were loaded.
 

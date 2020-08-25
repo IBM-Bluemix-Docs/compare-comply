@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-08-25"
 
 keywords: feedback,document feedback
 
@@ -38,21 +38,21 @@ Feedback is not immediately incorporated into the training model, nor is it guar
 
 The feedback API endpoints are as follows.
 
- - `POST /v1/feedback`: Creates or adds feedback to a document.
- - `GET /v1/feedback`: Gets all feedback from a document.
- - `GET /v1/feedback/{feedback_id}`: Gets specified feedback from a document.
+- `POST /v1/feedback`: Creates or adds feedback to a document.
+- `GET /v1/feedback`: Gets all feedback from a document.
+- `GET /v1/feedback/{feedback_id}`: Gets specified feedback from a document.
 <!-- `DELETE /v1/feedback`: Deletes all feedback from the document. -->
- - `DELETE /v1/feedback/{feedback_id}`: Deletes specified feedback from a document.
- 
+- `DELETE /v1/feedback/{feedback_id}`: Deletes specified feedback from a document.
+
 ## Warnings
 {: #feedback_warnings}
 
 Observe the following warnings and precautions when working with the feedback APIs.
 
-  - Users of the feedback API must be able to provide accurate, consistent, and professionally informed feedback on documents. 
-  - Use extreme caution if you issue the `POST /v1/feedback` or `DELETE /v1/feedback/{feedback_id}` methods.
-  - You cannot change posted feedback. You can, however, delete it and replace it by reposting different feedback.
-  - The unauthorized use of a `GET /v1/feedback` or `GET /v1/feedback/{feedback_id}` method on a confidential document can potentially result in information being exposed to unauthorized users.
+- Users of the feedback API must be able to provide accurate, consistent, and professionally informed feedback on documents.
+- Use extreme caution if you issue the `POST /v1/feedback` or `DELETE /v1/feedback/{feedback_id}` methods.
+- You cannot change posted feedback. You can, however, delete it and replace it by reposting different feedback.
+- The unauthorized use of a `GET /v1/feedback` or `GET /v1/feedback/{feedback_id}` method on a confidential document can potentially result in information being exposed to unauthorized users.
 
 ## Workflow for using feedback
 {: #feedback_steps}
@@ -68,69 +68,71 @@ In the following scenario, an SME named Stuart reviews a parsed governing docume
 
 These steps are described in more detail in the following sections.
 
-  You can also provide feedback by using the {{site.data.keyword.cncshort}} Tooling as described at [Adding suggestions in Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool#add-suggestions).
-  {: tip}
+You can also provide feedback by using the {{site.data.keyword.cncshort}} Tooling as described at [Adding suggestions in Using the {{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool#add-suggestions).
+{: tip}
 
 ## Adding feedback
 {: #add_feedback}
 
-You can add feedback to a document programmatically by using the `POST /v1/feedback` method. 
+You can add feedback to a document programmatically by using the `POST /v1/feedback` method.
 
 In a `bash` shell or equivalent environment such as Cygwin, issue the following command to add feedback to a document, with values as follows:
-  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
-  - Replace `{url}` with the URL you copied in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
-  - Create a `feedback_data` object, which is a specifically formatted object specifying the feedback you want to add to the document. The `feedback_data` object must be in the following format.
+
+- Replace `{apikey}` with the API key you copied in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
+- Replace `{url}` with the URL you copied in [Before you begin in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#gs-before-you-begin).
+- Create a `feedback_data` object, which is a specifically formatted object specifying the feedback you want to add to the document. The `feedback_data` object must be in the following format.
+
     ```json
     {
       "document": {
-        "hash": string,
-        "title": string, # optional, the document title,
+        "hash": "string",
+        "title": "string" # optional, the document title,
       },
-      "feedback_type": string, # required, string that identifies the type of feedback; currently supported value is `element_classification`
-      "model_id": string, # optional, identifies the model id,
-      "model_version": string, # optional, identifies the model version,
+      "feedback_type": "string" # required, string that identifies the type of feedback; currently supported value is `element_classification`
+      "model_id": "string" # optional, identifies the model id,
+      "model_version": "string" # optional, identifies the model version,
       "location": {
         "begin": int,
         "end": int
       },
-      "text": string, # required, text to which feedback is being applied
+      "text": "string" # required, text to which feedback is being applied
       "original_labels": { # required, empty node is allowed
         "types": [ # required, empty array is allowed
           {
             "label": { # contains labeling info in the form of nature and party attributes
-              "nature": string, # required, empty string is allowed,
-              "party": string, # required, empty string is allowed
+              "nature": "string" # required, empty string is allowed,
+              "party": "string" # required, empty string is allowed
             },
             "provenance_ids": [ # required, empty array is allowed
-                string, ...
+                "string", ...
             ]
           }
         ],
         "categories": [ # required, empty array is allowed
           {
-            "label": string, # required, empty string is not allowed,
+            "label": "string" # required, empty string is not allowed,
             "provenance_ids": [ # required, empty array is allowed
-                string, ...
+                "string", ...
             ]
           }
         ]
       },
       "updated_labels": { # required, empty node is allowed
         "types": [
-            {
-                "label": {
-                  "nature": string, # required, empty string is allowed,
-                  "party": string, # required, empty string is allowed
-                }
+          {
+            "label": {
+              "nature": "string" # required, empty string is allowed,
+              "party": "string" # required, empty string is allowed
             }
+          }
         ],
         "categories": [ # required, empty array is allowed
           {
-            "label": string, # required, empty string is not allowed
+            "label": "string" # required, empty string is not allowed
           }
         ]
       }
-    }    
+    }
     ```
     {: codeblock}
 
@@ -139,17 +141,17 @@ You can assemble the body of the `feedback_data` object as follows:
 
   1. Run the `POST /v1/element_classification` method as described at [Step 2: Classify a contract's elements in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#parse_contract), and save its output to a file.
   1. For the `feedback_type` field, specify a value of `"element_classification"`.
-  1. For the `collection_id` field, optionally specify a value of your choosing. 
+  1. For the `collection_id` field, optionally specify a value of your choosing.
   1. In the saved output file, look in the `elements` array for the element for which you want to provide feedback. The most common element for posting feedback is `sentence`.
   1. Locate the `begin` and `end` indexes for the element you identified; for example:
     ```
     "sentence": {
         "begin": 31443,
-        "end": 31488    
+        "end": 31488
     }
     ```
     {: screen}
-  1. 
+  1.
 -->
 
 An example command follows.
@@ -240,51 +242,50 @@ curl -X POST -u "apikey:{apikey}" -H 'Content-Type: application/json' "{url}/v1/
 
 The command makes the following feedback:
 
-  - It removes the type label `{"nature": "End User", "party": "Exclusion"}`.
-  - It removes the category `{"label": "Amendments"}`.
-  
-  Because the previous items are present in the `original_labels` object but not in the `updated_labels` object, the service considers the type and category to have been removed.
-  
-  - It adds the type label `{"nature": "Disclaimer", "party": "Buyer"}`.
-  - It adds the category `{"label": "Audits"}`.
-  
-  Because the previous items are present in the `updated_labels` object but not in the `original_labels` object, the service considers the type and category to have been added.
-  
-  - It does not change the type label `{"nature": "Obligation", "party": "IBM"}`.
-  - It does not change the category `{"label": "Responsibilities"}`.
-  
-  Because the previous items are present in both the `original_labels` and `updated_labels` objects, the service considers the type and category to be correct.
+- It removes the type label `{"nature": "End User", "party": "Exclusion"}`.
+- It removes the category `{"label": "Amendments"}`.
 
+Because the previous items are present in the `original_labels` object but not in the `updated_labels` object, the service considers the type and category to have been removed.
+
+- It adds the type label `{"nature": "Disclaimer", "party": "Buyer"}`.
+- It adds the category `{"label": "Audits"}`.
+
+Because the previous items are present in the `updated_labels` object but not in the `original_labels` object, the service considers the type and category to have been added.
+
+- It does not change the type label `{"nature": "Obligation", "party": "IBM"}`.
+- It does not change the category `{"label": "Responsibilities"}`.
+
+Because the previous items are present in both the `original_labels` and `updated_labels` objects, the service considers the type and category to be correct.
 
 ## Listing all feedback
 {: #get_all_feedback}
 
 You can retrieval all feedback that has been added to a document by using the `GET /v1/feedback/` method. The method takes the following input parameters:
 
-  - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
-  - `feedback_type` (optional `string`): If this parameter is specified, the service returns only the records having the specified feedback type. Currently the only supported value is `element_classification`.
-  - `user_id` (optional `string`): If this parameter is specified, the service returns only the records with the specified user ID.
-  - `before` (optional `string`): If this parameter is specified in the format `YYYY-MM-DD`, the service returns only the records with dates prior to the specified date.
-  - `after` (optional `string`): If this parameter is specified in the format `YYYY-MM-DD`, the service returns only the records with dates subsequent to the specified date.
-  - `document_title` (optional `string`): If this parameter is specified, the service returns only the records associated with the specified title.
-  - `model_id` (optional `string`): If this parameter is specified, the service returns only the records with the specified element model ID.
-  - `model_version` (optional `string`): If this parameter is specified, the service returns only the records with the specified element model version.  
-  - `category_removed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` removed. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
-  - `category_added` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` added. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
-  - `category_not_changed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` unchanged. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
-  - `type_removed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types removed. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
-  - `type_added` (optional `string`): A comma-separated list of `types` in which each `type` object is of the form `{"nature": "{nature}", "party": "{party}"}`. If this parameter is specified, the service returns only the records that have one or more of the specified types added. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
-  - `type_not_changed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types unchanged. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
-  - `page_limit` (optional `int`): The number of documents that you want to be returned in the response. The default is `10`. The maximum is `100`.
-  - `cursor` (optional `string`): A string that lists the documents you want to be returned in the response.
-  - `sort` (optional `string`): A comma-separated list of fields in the document on which to sort returned results. You can optionally specify a sort direction by prefixing the field with `-` for descending order or `+` for ascending order. Ascending order is the default sort direction.
-  
+- `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
+- `feedback_type` (optional `string`): If this parameter is specified, the service returns only the records having the specified feedback type. Currently the only supported value is `element_classification`.
+- `user_id` (optional `string`): If this parameter is specified, the service returns only the records with the specified user ID.
+- `before` (optional `string`): If this parameter is specified in the format `YYYY-MM-DD`, the service returns only the records with dates prior to the specified date.
+- `after` (optional `string`): If this parameter is specified in the format `YYYY-MM-DD`, the service returns only the records with dates subsequent to the specified date.
+- `document_title` (optional `string`): If this parameter is specified, the service returns only the records associated with the specified title.
+- `model_id` (optional `string`): If this parameter is specified, the service returns only the records with the specified element model ID.
+- `model_version` (optional `string`): If this parameter is specified, the service returns only the records with the specified element model version.
+- `category_removed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` removed. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+- `category_added` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` added. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+- `category_not_changed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` unchanged. See [Categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+- `type_removed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types removed. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+- `type_added` (optional `string`): A comma-separated list of `types` in which each `type` object is of the form `{"nature": "{nature}", "party": "{party}"}`. If this parameter is specified, the service returns only the records that have one or more of the specified types added. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+- `type_not_changed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types unchanged. See [Types](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+- `page_limit` (optional `int`): The number of documents that you want to be returned in the response. The default is `10`. The maximum is `100`.
+- `cursor` (optional `string`): A string that lists the documents you want to be returned in the response.
+- `sort` (optional `string`): A comma-separated list of fields in the document on which to sort returned results. You can optionally specify a sort direction by prefixing the field with `-` for descending order or `+` for ascending order. Ascending order is the default sort direction.
+
 A example command that combines the `type_added` and `category_removed` parameters is:
 
 ```bash
 curl -X GET -u "apikey:{apikey}" "{url}/v1/feedback?version=2018-10-15&type_added=Definition:None,Disclaimer:Supplier&category_removed=Assignments,Audits"
 ```
-{: codeblock}
+{: pre}
 
 The output of the command resembles the following.
 
@@ -479,15 +480,15 @@ The output of the command resembles the following.
 
 You can retrieve specific feedback from a document by using the `GET /v1/feedback/{feedback_id}` method. The method takes the following input parameters.
 
-  - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
-  - `feedback_id` (**required** `string`): The feedback ID for which the service is to return details. You can obtain the `feedback_id` from the output of the `GET /v1/feedback` method.
-  
+- `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
+- `feedback_id` (**required** `string`): The feedback ID for which the service is to return details. You can obtain the `feedback_id` from the output of the `GET /v1/feedback` method.
+
 An example command is:
 
 ```bash
 curl -X GET -u "apikey:{apikey}" "{url}/v1/feedback/9730b437-cb86-4d40-9a84-ff6948bb3dd1?version=2018-10-15"
 ```
-{: codeblock}
+{: pre}
 
 The command returns output similar to the following:
 
@@ -590,15 +591,15 @@ The service returns the following output on success:
 
 You can delete specific feedback from a document by using the `DELETE /v1/feedback/{feedback_id}` method. The method takes the following input parameters.
 
-  - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
-  - `feedback_id` (**required** `string`): The feedback ID the service is to delete. You can obtain the `feedback_id` from the output of the `GET /v1/feedback/{feedback_id}` method.
+- `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
+- `feedback_id` (**required** `string`): The feedback ID the service is to delete. You can obtain the `feedback_id` from the output of the `GET /v1/feedback/{feedback_id}` method.
 
 An example command is:
-  
+
 ```bash
 curl -X DELETE -u "apikey:{apikey}" "{url}/v1/feedback/5206038a-5ea0-4f48-bee1-0780c56c53c9?version=2018-10-15"
 ```
-{: codeblock}
+{: pre}
 
 The service returns the following output on success:
 
@@ -608,4 +609,3 @@ The service returns the following output on success:
   "message": "Successfully deleted the feedback with id  - 5206038a-5ea0-4f48-bee1-0780c56c53c9"
 }
 ```
-
