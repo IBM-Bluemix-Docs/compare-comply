@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2020
-lastupdated: "2020-08-25"
+years: 2018, 2021
+lastupdated: "2021-01-25"
 
 keywords: tool,tooling,gui,suggstion,suggestions,compare,comparison,analyze,analysis,document,documents
 
@@ -25,10 +25,13 @@ subcollection: compare-comply
 # Using the {{site.data.keyword.cncshort}} tooling
 {: #using_tool}
 
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
+
 The {{site.data.keyword.cncshort}} tooling enables you to work with governing documents in a GUI environment. This tutorial introduces the tooling and takes you through the process of uploading and processing documents, then working with the results.
 {: shortdesc}
 
-## Tooling capabilities
+## tooling capabilities
 {: #tooling-capabilities}
 
 The {{site.data.keyword.cncshort}} tooling provides the following capabilities:
@@ -55,7 +58,7 @@ The {{site.data.keyword.cncshort}} tooling provides the following capabilities:
 You need the following before you can use the {{site.data.keyword.cncshort}} tooling:
 
 - An {{site.data.keyword.cloud_notm}} account.
-- A {{site.data.keyword.cncshort}} service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting started](/docs/compare-comply?topic=compare-comply-getting-started).
+- A {{site.data.keyword.cncshort}} service instance.
 
 ## Launching the {{site.data.keyword.cncshort}} tooling
 {: #launch-tool}
@@ -123,19 +126,20 @@ See [Understanding element classification](/docs/compare-comply?topic=compare-co
 
 You can display contract metadata by clicking the **Contract metadata** tab in the middle pane. Contract metadata can include any of the following items:
 
-  - **Parties**, including names and postal addresses.
-  - **Effective dates** that are identified in the document.
-  - **Contract amounts** (monetary amounts) that are identified in the document.
-  - **Termination dates** that are identified in the document.
-  - The **contract types** of the document.
-  - The **contract terms** of the document.
+- **Parties**, including names and postal addresses.
+- **Effective dates** that are identified in the document.
+- **Contract amounts** (monetary amounts) that are identified in the document.
+- **Termination dates** that are identified in the document.
+- The **contract types** of the document.
+- The **contract terms** of the document.
 
 The tooling displays a list of linked identified metadata items. Click a link to go to the corresponding element in the document. The tooling highlights the element in orange.
 
 {{site.data.keyword.cncshort}} assigns confidence levels to identified **Effective dates**, **Contract amounts**, **Termination dates**, **Contract types**, and **Contract terms** items by using the following scale:
-  - Three green dots indicate a **high** level of confidence.
-  - Two yellow dots indicate a **medium** level of confidence.
-  - One red dot indicates a **low** level of confidence.
+
+- Three green dots indicate a **high** level of confidence.
+- Two yellow dots indicate a **medium** level of confidence.
+- One red dot indicates a **low** level of confidence.
 
 ![{{site.data.keyword.cncshort}} tooling: Contract metadata](images/tooling-metadata.png)
 
@@ -149,14 +153,16 @@ To provide suggestions in the tooling, perform the following steps:
 1. Open the tooling, open a document, and apply the labels that you want to examine. Select a highlighted passage to display information about it in the right pane.
 
 1. If you disagree with the information that the tooling displays, click **Suggest changes**. The **Suggest changes** panel opens.
+    ![{{site.data.keyword.cncshort}} tooling: Suggestion panel](images/tool-suggestion-panel.png).
 
-   ![{{site.data.keyword.cncshort}} tooling: Suggestion panel](images/tool-suggestion-panel.png).
 1. The panel lists each labeled element in the highlighted passage. Perform one or more of the following actions:
-   - Mark the label as incorrect by clicking the **Incorrect** icon (![Incorrect icon](images/mark-icon.png)). The tooling displays the status message **Marked incorrect** for the element. If you click the icon by accident or change your mind later, click the **Undo** icon (![Undo icon](images/tool-undo.png)).
-   - Suggest a different label for the element by clicking **+ Suggest Label** and selecting a label from the drop-down menu. The tooling displays the status message **Suggested**. You can undo the suggestion by clicking the **Undo** icon (![Undo icon](images/tool-undo.png)).
-   - Optionally explain your feedback by entering a brief text description in the **Any comments? (optional)** field.
 
-   To close the **Suggest changes** panel and abandon your feedback, click the **X** in the upper right corner of the panel.
+    - Mark the label as incorrect by clicking the **Incorrect** icon (![Incorrect icon](images/mark-icon.png)). The tooling displays the status message **Marked incorrect** for the element. If you click the icon by accident or change your mind later, click the **Undo** icon (![Undo icon](images/tool-undo.png)).
+    - Suggest a different label for the element by clicking **+ Suggest Label** and selecting a label from the drop-down menu. The tooling displays the status message **Suggested**. You can undo the suggestion by clicking the **Undo** icon (![Undo icon](images/tool-undo.png)).
+    - Optionally explain your feedback by entering a brief text description in the **Any comments? (optional)** field.
+
+    To close the **Suggest changes** panel and abandon your feedback, click the **X** in the upper right corner of the panel.
+
 1. When you are done providing feedback on the highlighted element, click **Submit**.
 
 ### Viewing the suggestion history
@@ -164,8 +170,8 @@ To provide suggestions in the tooling, perform the following steps:
 
 You can view the suggestions that have been made in the tooling by clicking the **Suggestion history** icon (![Suggestion history icon](images/tool-suggestion-icon.png)). The **Suggestion history** page opens.
 
-  The **Suggestion history** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings](https://cloud.ibm.com/account/settings){: external} for information about your plan.
-  {: important}
+The **Suggestion history** feature is available only on `Premium` plans. See [https://cloud.ibm.com/account/settings](https://cloud.ibm.com/account/settings){: external} for information about your plan.
+{: important}
 
 ![{{site.data.keyword.cncshort}} tooling: Suggestion history](images/tool-suggestion-history.png)
 
@@ -180,31 +186,30 @@ You can use recommendations to customize your service instance based on labeling
 To apply recommendations, perform the following steps:
 
 1. Click the **Recommendations** icon (![Recommendations icon](images/recommendations-icon.png)). The tooling displays the Recommendations page, which is divided into two tabs:
-  - The **Current** tab shows recommendations that were generated but that are not yet accepted or rejected.
-  - The **Applied** tab shows recommendations that were accepted and are now part of your service instance model.
 
-  ![{{site.data.keyword.cncshort}} tooling: Recommendations page](images/recommendations.png)
+    - The **Current** tab shows recommendations that were generated but that are not yet accepted or rejected.
+    - The **Applied** tab shows recommendations that were accepted and are now part of your service instance model.
 
-  If enough suggestions have been made by users, recommendations appear in the **Current** tab. A recommendation takes one of two types:
-    - To _relabel_ a set of elements; that is, to remove the existing label and replace it with another label
-    - To _remove_ a label entirely from a set of elements
+    ![{{site.data.keyword.cncshort}} tooling: Recommendations page](images/recommendations.png)
 
+    If enough suggestions have been made by users, recommendations appear in the **Current** tab. A recommendation takes one of two types:
+
+        - To _relabel_ a set of elements; that is, to remove the existing label and replace it with another label
+        - To _remove_ a label entirely from a set of elements
 1. Review the list of **Current** recommendations. Click on a recommendation to view the elements to which the recommendation applies.
-
 1. For each recommendation, perform one of the following tasks:
-  - To accept a recommendation, select the radio button in the recommendation's **Accept** column.
-  - To reject a recommendation, select the radio button in the recommendation's **Reject** column.
 
-  The **Apply** button at the bottom of the screen becomes active when you first accept or reject a recommendation.
+    - To accept a recommendation, select the radio button in the recommendation's **Accept** column.
+    - To reject a recommendation, select the radio button in the recommendation's **Reject** column.
 
+    The **Apply** button at the bottom of the screen becomes active when you first accept or reject a recommendation.
 1. After you review and accept or reject all recommendations, click **Apply**. The tooling displays a confirmation dialog box that contains a summary of your selections and an estimate of the precision and recall values for the new model.
 
-  If you reject a recommendation and then click **Apply**, the recommendation is not displayed again.
-  {: tip}
-
+    If you reject a recommendation and then click **Apply**, the recommendation is not displayed again.
+    {: important}
 1. Click **Deploy** to deploy the model. When the model finishes deploying, the tooling displays a notification at the top of the screen. You can then use the **Document visualizer** to test the new model.
 
-  ![{{site.data.keyword.cncshort}} tooling: Apply recommendations](images/recommendations-2.png)
+    ![{{site.data.keyword.cncshort}} tooling: Apply recommendations](images/recommendations-2.png)
 
 ## Comparing documents
 {: #tool-compare}
@@ -218,28 +223,27 @@ The combined size of the two compared documents can be no larger than 3 MB.
 {: note}
 
 1. Ensure that you meet the requirements that are listed in [Before you begin](#before-you-begin), then [launch the tooling](#launch-tool).
-
 1. When the tooling launches, click the **Compare** icon (![compare icon](images/tooling-compare-icon.png)). The tooling displays the Comparison  page.
-![Comparison page](images/tooling-compare-landing.png)
 
+    ![Comparison page](images/tooling-compare-landing.png)
 1. In the **Base document** panel, click **Browse for document**. The tooling opens a file browser. Select an [input file](/docs/compare-comply?topic=compare-comply-formats) as the base document for comparison and click **Open**. The panel displays the name of the file that you selected.
-
 1. In the **Comparison document** panel, click  **Browse for document**. The tooling opens a file browser. Select an [input file](/docs/compare-comply?topic=compare-comply-formats) as the base document for comparison and click **Open**. The panel displays the name of the file that you selected.
-  ![Comparison tooling with two files selected](images/tooling-select-2-docs.png)
 
+    ![Comparison tooling with two files selected](images/tooling-select-2-docs.png)
 1. Click **Compare new**. The tooling processes the documents and displays a side-by-side comparison of them.
-  ![Comparison displaying two compared files](images/tooling-compared-docs.png)
 
+    ![Comparison displaying two compared files](images/tooling-compared-docs.png)
 1. The tooling lists the number of matched elements that it detected between the two documents and highlights the matched elements in blue. Use the up and down arrows to navigate through the matches.
-
 1. Optionally, click the **Toggle filter list** icon (![filter list icon](images/tool-compare-toggle-filter-list-icon.png)) on the left side of the screen and select different filters.
-  ![Comparison filter list](images/tool-compare-toggle-filter-list.png)
 
+    ![Comparison filter list](images/tool-compare-toggle-filter-list.png)
 1. Optionally, click the **Toggle display options** icon (![display options icon](images/tooling-eye-icon.png)) on the left side of the screen and select different display options.
-  ![Comparison display options](images/tooling-display-options.png)
 
-  For example, to display unaligned elements, select the **Unaligned elements** check box. The tooling displays unaligned elements in yellow.
-  ![Comparison showing unaligned elements](images/tooling-display-unaligned.png)
+    ![Comparison display options](images/tooling-display-options.png)
+
+    For example, to display unaligned elements, select the **Unaligned elements** check box. The tooling displays unaligned elements in yellow.
+
+    ![Comparison showing unaligned elements](images/tooling-display-unaligned.png)
 
 <!--
 ## Using purchase order understanding

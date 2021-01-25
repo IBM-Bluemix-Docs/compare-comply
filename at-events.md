@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2020
-lastupdated: "2020-08-25"
+  years: 2016, 2021
+lastupdated: "2021-01-25"
 
 keywords: compare and comply,event,security,IBM,activity tracker
 
@@ -12,17 +12,21 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:note: .note}
+{:deprecated: .deprecated}
 {:important: .important}
+{:note: .note}
 {:tip: .tip}
-{:download: .download}
-{:table: .aria-labeledby="caption"}
+{:preview: .preview}
+{:beta: .beta}
+{:pre: .pre}
+{:codeblock: .codeblock}
+{:screen: .screen}
 
 # Activity Tracker events
 {: #at_events}
+
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
 
 As a security officer, auditor, or manager, you can use the Activity Tracker service to track how users and applications interact with the {{site.data.keyword.cncfullnotm}} service in {{site.data.keyword.cloud}}.
 {: shortdesc}

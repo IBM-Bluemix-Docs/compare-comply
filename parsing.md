@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-11"
+  years: 2017, 2021
+lastupdated: "2021-01-25"
 
 keywords: element classification,elements,types,parties,categories,attributes,contract,contracts,contract terms,terms,contract types,dates,effective dates,terms,payment terms,provenance,provenance ids,termination dates,amounts,contract amounts,currencies,contract currencies,payment,payments,payment terms
 
@@ -12,19 +12,21 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
-{:note: .note}
-{:important: .important}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Understanding element classification
 {: #contract_parsing}
+
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
 
 When you upload a contract to {{site.data.keyword.cncshort}} by specifying the `model_id` value `contracts` on the `/v1/element_classification` method, the service returns the contract with an analysis of each identified element.
 
@@ -52,15 +54,15 @@ Each `nature` key is paired with a `party` key, which contains either the name o
 
 The `parties` array specifies the participants that are listed in the contract. Each `party` object is associated with other objects that provide details about the party, including:
 
-  - `role`: The party's role. Values are listed in the table that follows this list.
-  - `importance`: The importance of the party. Possible values are `Primary` for a primary party and `Unknown` for a non-primary party.
-  - `addresses`: An array that identifies addresses.
+- `role`: The party's role. Values are listed in the table that follows this list.
+- `importance`: The importance of the party. Possible values are `Primary` for a primary party and `Unknown` for a non-primary party.
+- `addresses`: An array that identifies addresses.
     - `text`: An address.
     - `location`: The location of the address as defined by its `begin` and `end` indexes.
-  - `contacts`: An array that defines the names and roles of contacts that are identified in the input document.
+- `contacts`: An array that defines the names and roles of contacts that are identified in the input document.
     - `name`: The name of a contact.
     - `role`: The role of the contact.
-  - `mentions`: An array that lists all mentions of the party in the input document.
+- `mentions`: An array that lists all mentions of the party in the input document.
     - `text`: The name of the party.
     - `location`: The location of the mention as defined by its `begin` and `end` indexes.
 
@@ -232,4 +234,3 @@ The `contract_currencies` array identifies the contract currency or currencies a
 {: #provenance}
 
 Each object in the `types` and `categories` arrays includes a `provenance_ids` array. The `provenance_ids` array has one or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-

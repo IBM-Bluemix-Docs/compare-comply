@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2020
-lastupdated: "2020-01-31"
+years: 2018, 2021
+lastupdated: "2021-01-25"
 
 keywords: table,tables,classify tables,classifying tables,table understanding,row,rows,column,columns,cell,cells,body cell,body cells,header,headers,key,value,key value pair,context,row header,row headers,column header,column headers,context,contexts
 
@@ -12,35 +12,36 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:note: .note}
-{:important: .important}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-{:apikey: data-credential-placeholder='apikey'}
-{:url: data-credential-placeholder='url'}
 
 # Classifying tables
 {: #understanding_tables}
 
-You can classify the contents of tables in your [input document](/docs/compare-comply?topic=compare-comply-formats) by using the **Understanding tables** method. 
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
+
+You can classify the contents of tables in your [input document](/docs/compare-comply?topic=compare-comply-formats) by using the **Understanding tables** method.
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/tables` method to classify the contents of tables in your document. The method takes the following input parameters:
-  - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
-  - `file` (**required** `file`): The input file that is to be classified.
-  - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
-  
+
+- `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
+- `file` (**required** `file`): The input file that is to be classified.
+- `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
+
 Replace `{apikey}` with the API key you copied earlier, `{url}` with the URL you copied earlier, and `{input_file}` with the path to the input file to parse.
 
 ```bash
 curl -X POST -u "apikey:{apikey}" -F "file=@{input_file}" "{url}/v1/tables?version=2018-10-15"
 ```
-{: codeblock}
+{: pre}
 
 ## Output schema
 {: #table-output-schema}
@@ -186,99 +187,100 @@ The output schema from the method is as follows. The output of the **Understandi
   ]
 }
 ```
+{: screen}
 
 ## Schema arrangement
 {: #table-schema-arrangement}
 
 The schema is arranged as follows.
 
-  - `tables`: An array that defines the tables identified in the input document.
+- `tables`: An array that defines the tables identified in the input document.
     - `location`: The location of the current table as defined by its `begin` and `end` indexes in the input document.
     - `text`: The textual contents of the current table from the input document without associated markup content.
     - `section_title`: If identified, the location of a section title contained in the current table. Empty if no section title is identified.
-      - `text`: The text of the identified section title.
-      - `location`: The location of the section title in the input document as defined by its `begin` and `end` indexes.
+        - `text`: The text of the identified section title.
+        - `location`: The location of the section title in the input document as defined by its `begin` and `end` indexes.
     - `title`: If identified, the title or caption of the current table of the form `Table x.: ...`. Empty when no title is identified. When exposed, the `title` is also excluded from the `contexts` array of the same table.
-      - `location`: The location of the title in the input document as defined by its `begin` and `end` indexes.
-      - `text`: The text of the identified table title or caption.
+        - `location`: The location of the title in the input document as defined by its `begin` and `end` indexes.
+        - `text`: The text of the identified table title or caption.
     - `table_headers`: An array of table-level cells applicable as headers to all the other cells of the current table. Each table header is defined as a collection of the following elements:
-      - `cell_id`: The unique ID of the cell in the current table.
-      - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
-      - `text`: The textual contents of the cell from the input document without associated markup content.
-      - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
-      - `row_index_end`: The `end` index of the cell's `row` location in the current table.
-      - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
-      - `column_index_end`: The `end` index of the cell's `column` location in the current table.
+        - `cell_id`: The unique ID of the cell in the current table.
+        - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
+        - `text`: The textual contents of the cell from the input document without associated markup content.
+        - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
+        - `row_index_end`: The `end` index of the cell's `row` location in the current table.
+        - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
+        - `column_index_end`: The `end` index of the cell's `column` location in the current table.
     - `column_headers`: An array of column-level cells, each applicable as a header to other cells in the same column as itself, of the current table. Each column header is defined as a collection of the following items:
-      - `cell_id`: The unique ID of the cell in the current table.
-      - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
-      - `text`: The textual contents of the cell from the input document without associated markup content.
-      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`. 
-      - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
-      - `row_index_end`: The `end` index of the cell's `row` location in the current table.
-      - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
-      - `column_index_end`: The `end` index of the cell's `column` location in the current table.
+        - `cell_id`: The unique ID of the cell in the current table.
+        - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
+        - `text`: The textual contents of the cell from the input document without associated markup content.
+        - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`.
+        - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
+        - `row_index_end`: The `end` index of the cell's `row` location in the current table.
+        - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
+        - `column_index_end`: The `end` index of the cell's `column` location in the current table.
     - `row_headers`: An array of row-level cells, each applicable as a header to other cells in the same row as itself, of the current table. Each row header is defined as a collection of the following items:
-      - `cell_id`: The unique ID of the cell in the current table.
-      - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
-      - `text`: The textual contents of the cell from the input document without associated markup content.
-      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`. 
-      - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
-      - `row_index_end`: The `end` index of the cell's `row` location in the current table.
-      - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
-      - `column_index_end`: The `end` index of the cell's `column` location in the current table.
+        - `cell_id`: The unique ID of the cell in the current table.
+        - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
+        - `text`: The textual contents of the cell from the input document without associated markup content.
+        - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`.
+        - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
+        - `row_index_end`: The `end` index of the cell's `row` location in the current table.
+        - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
+        - `column_index_end`: The `end` index of the cell's `column` location in the current table.
     - `body_cells`: An array of cells that are not table header or column header or row header cells, of the current table with corresponding row and column header associations. Each body cell is defined as a collection of the following items:
-      - `cell_id`: The unique ID of the cell in the current table.
-      - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
-      - `text`: The textual contents of the cell from the input document without associated markup content.
-      - `row_index_begin`: The `begin` index of this cell's `row` location in the current table.
-      - `row_index_end`: The `end` index of this cell's `row` location in the current table.
-      - `column_index_begin`: The `begin` index of this cell's `column` location in the current table.
-      - `column_index_end`: The `end` index of this cell's `column` location in the current table.
-      - `row_header_ids`: An array of values, each being the `cell_id` value of a row header that is applicable to this body cell.
-      - `row_header_texts`: An array of values, each being the `text` value of a row header that is applicable to this body cell.
-      - `row_header_texts_normalized`: If you provide customization input, the normalized version of the row header texts according to the customization; otherwise, the same value as `row_header_texts`. 
-      - `column_header_ids`: An array of values, each being the `cell_id` value of a column header that is applicable to this body cell.
-      - `column_header_texts`: An array of values, each being the `text` value of a column header that is applicable to this body cell.
-      - `column_header_texts_normalized`: If you provide customization input, the normalized version of the column header texts according to the customization; otherwise, the same value as `column_header_texts`.
-      - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
-        - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`.
-        - `text`: The text that is associated with the attribute.
-        - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
-    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/compare-comply?topic=compare-comply-understanding_tables#key-value-pairs).
-      - `key`: An object that specifies a key for a key-value pair.
-        - `cell_id`: The unique ID of the key in the table.
-        - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.
-        - `text`: The text content of the table cell without HTML markup.
-      - `value`: An array that specifies the value or values for a key-value pair.
-        - `cell_id`: The unique ID of the value in the table.
-        - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
-        - `text`: The text content of the table cell without HTML markup.
+        - `cell_id`: The unique ID of the cell in the current table.
+        - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
+        - `text`: The textual contents of the cell from the input document without associated markup content.
+        - `row_index_begin`: The `begin` index of this cell's `row` location in the current table.
+        - `row_index_end`: The `end` index of this cell's `row` location in the current table.
+        - `column_index_begin`: The `begin` index of this cell's `column` location in the current table.
+        - `column_index_end`: The `end` index of this cell's `column` location in the current table.
+        - `row_header_ids`: An array of values, each being the `cell_id` value of a row header that is applicable to this body cell.
+        - `row_header_texts`: An array of values, each being the `text` value of a row header that is applicable to this body cell.
+        - `row_header_texts_normalized`: If you provide customization input, the normalized version of the row header texts according to the customization; otherwise, the same value as `row_header_texts`.
+        - `column_header_ids`: An array of values, each being the `cell_id` value of a column header that is applicable to this body cell.
+        - `column_header_texts`: An array of values, each being the `text` value of a column header that is applicable to this body cell.
+        - `column_header_texts_normalized`: If you provide customization input, the normalized version of the column header texts according to the customization; otherwise, the same value as `column_header_texts`.
+        - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
+            - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`.
+            - `text`: The text that is associated with the attribute.
+            - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
+    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](#key-value-pairs).
+        - `key`: An object that specifies a key for a key-value pair.
+            - `cell_id`: The unique ID of the key in the table.
+            - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.
+            - `text`: The text content of the table cell without HTML markup.
+        - `value`: An array that specifies the value or values for a key-value pair.
+            - `cell_id`: The unique ID of the value in the table.
+            - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.
+            - `text`: The text content of the table cell without HTML markup.
     - `contexts`: A list of related material that precedes and follows åthe table, excluding its section title, which is provided in the `section_title` field. Related material includes related sentences; footnotes; and sentences from other parts of the document that refer to the table. The list is represented as an array. Each object in the array consists of the following elements:
-      - `text`: The text contents of a related material from the input document, without HTML markup.
-      - `location`: The location of the related material in the input document as defined by its `begin` and `end` indexes.
-      
+        - `text`: The text contents of a related material from the input document, without HTML markup.
+        - `location`: The location of the related material in the input document as defined by its `begin` and `end` indexes.
+
 ### Notes on the table output schema
 {: #notes-on-table-schema}
 
-  - Row and column index values per cell are zero-based and so begin with `0`.
-  - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
-  - Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a possible hierarchy of column headers.
+- Row and column index values per cell are zero-based and so begin with `0`.
+- Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
+- Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a possible hierarchy of column headers.
 
 ## Examples
 {: #table-examples}
 
 The following is an example table from an input document.
- ![Example table](images/example-table.png)
+![Example table](images/example-table.png)
 
 The table is composed as follows:
- ![Table composition](images/table-comp.png)
- 
+![Table composition](images/table-comp.png)
+
 where:
 
-  - **Bold text** indicates a column header
-  - _Italic text_ indicates a row header
-  - Unstyled text indicates a body cell
+- **Bold text** indicates a column header
+- _Italic text_ indicates a row header
+- Unstyled text indicates a body cell
 
 The output from service represents the example's first body cell (that is, the first cell in row 3 with a value of `35.0%`) as follows.
 
@@ -290,7 +292,7 @@ The output from service represents the example's first body cell (that is, the f
       "end": 5879
     },
     "text": "...",
-    "section_title": { 
+    "section_title": {
       "text": "",
       "location": {
         "begin": 0,
@@ -420,7 +422,7 @@ The output from service represents the example's first body cell (that is, the f
       "column_index_begin" : 0,
       "column_index_end" : 0
     } ],
-    "key_value_pairs" : [ ],    
+    "key_value_pairs" : [ ],
     "body_cells" : [ {
       "cell_id" : "bodyCell-2450-2455",
       "location" : {
@@ -493,33 +495,31 @@ The output from service represents the example's first body cell (that is, the f
       "column_header_texts" : [ "Nine months ended September 30,", "2004" ],
       "column_header_texts_normalized" : [ "Nine months ended September 30,", "Year 2" ],
       "attributes": [ ]
-    }, 
+    },
     ...
   ],
   "contexts": [ ]
 }
 ```
+{: screen}
 
 ## Understanding key-value pairs
 {: #key-value-pairs}
 
 Tables can contain key-value pairs that span multiple table cells. {{site.data.keyword.cncshort}} can detect the following types of tabular key-value pairs.
 
-  - Simple key-value pairs in adjacent cells, as in the following example table.
-  
+- Simple key-value pairs in adjacent cells, as in the following example table.
+
 | Key | Value                                     |
 |----------------|--------------------------------|
 |**Item number**|123456789|
 |**Date**          |1/1/2019|
 |**Amount**        |$1000|
 
-  - Key-value pairs in the same cell, as in the following example table.
+- Key-value pairs in the same cell, as in the following example table.
 
 | | |
 |-|-|
 |**Item number**: 123456789|**Address**: 123 Anywhere Dr|
 |**Date**: 1/1/2019 | |
 |**Amount**: $1000 | &nbsp; |
-
-
-

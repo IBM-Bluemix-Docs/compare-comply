@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2020
-lastupdated: "2020-08-25"
+years: 2018, 2021
+lastupdated: "2021-01-25"
 
 keywords: element classification,elements,schema,schema arrangement,table,tables,unit,units,location
 
@@ -12,19 +12,21 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:note: .note}
-{:important: .important}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Classifying elements
 {: #output_schema}
+
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
 
 After a document is processed by the **Element classification** feature, the service provides JSON output in the following schema.
 {: shortdesc}
@@ -49,9 +51,9 @@ After a document is processed by the **Element classification** feature, the ser
         {
           "label": { "nature": "string", "party": "string" },
           "provenance_ids": ["string", "string", ...]
-          ...
+            ...
         }
-      ...
+        ...
       ],
       "categories": [
         {
@@ -241,16 +243,16 @@ After a document is processed by the **Element classification** feature, the ser
           "column_header_texts": [ "string" ],
           "column_header_texts_normalized": [ "string" ],
           "attributes" : [
-             {
-               "type" : "string",
-               "text" : "string",
-               "location" : {
-                 "begin" : int,
-                 "end" : int
-               }
-             },
-             ...
-           ]
+            {
+              "type" : "string",
+              "text" : "string",
+              "location" : {
+                "begin" : int,
+                "end" : int
+              }
+            },
+            ...
+          ]
         },
         ...
       ],
@@ -373,6 +375,7 @@ After a document is processed by the **Element classification** feature, the ser
   ]
 }
 ```
+{: screen}
 
 ## Schema arrangement
 {: #schema-arrangement}
@@ -395,7 +398,7 @@ The schema is arranged as follows.
         - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `categories`: An array that lists the functional categories into which the element falls; in other words, the subject matter of the element.
         - `label`: A string that lists the identified category. You can find a list of [categories](/docs/compare-comply?topic=compare-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/compare-comply?topic=compare-comply-contract_parsing).
-      - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
+        - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
         - `type`: The type of attribute. Possible values are `Currency`, `DateTime`, `DefinedTerm`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person` as described at [Attributes](/docs/compare-comply?topic=compare-comply-contract_parsing#attributes).
         - `text`: The text that is associated with the attribute.
@@ -554,6 +557,7 @@ The schema is arranged as follows.
 The `location` object is included with the majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
 
 For example, a `text` string with the value `Amount due` might have a corresponding `location` object such as
+
 ```json
 {
   ...
@@ -563,5 +567,7 @@ For example, a `text` string with the value `Amount due` might have a correspond
   }
   ...
 }
-  ```
+```
+{: screen}
+
 The `begin` index indicates that the string begins at character position `2510` in the transformed HTML; this is the location of the letter `A` in `Amount`. The `end` index indicates that the string ends at character position `2519`; this is the location of the letter `e` in `due`.
