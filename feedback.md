@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-08-25"
+  years: 2018, 2021
+lastupdated: "2021-01-25"
 
 keywords: feedback,document feedback
 
@@ -12,21 +12,21 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
-{:note: .note}
-{:important: .important}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-{:apikey: data-credential-placeholder='apikey'}
-{:url: data-credential-placeholder='url'}
 
 # Using the feedback APIs
 {: #feedback}
+
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
 
 Users, preferably subject-matter experts (SMEs), can use the {{site.data.keyword.cncshort}} service's feedback APIs to provide feedback on a parsed document. You can provide feedback on any element that has been labeled by the service. The feedback is associated with the document for future review and consideration. The feedback APIs enable users to submit, get, and delete feedback.
 
@@ -86,22 +86,22 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
     {
       "document": {
         "hash": "string",
-        "title": "string" # optional, the document title,
+        "title": "string", # optional, the document title,
       },
-      "feedback_type": "string" # required, string that identifies the type of feedback; currently supported value is `element_classification`
-      "model_id": "string" # optional, identifies the model id,
-      "model_version": "string" # optional, identifies the model version,
+      "feedback_type": "string", # required, string that identifies the type of feedback; currently supported value is `element_classification`
+      "model_id": "string", # optional, identifies the model id,
+      "model_version": "string", # optional, identifies the model version,
       "location": {
         "begin": int,
         "end": int
       },
-      "text": "string" # required, text to which feedback is being applied
+      "text": "string", # required, text to which feedback is being applied
       "original_labels": { # required, empty node is allowed
         "types": [ # required, empty array is allowed
           {
             "label": { # contains labeling info in the form of nature and party attributes
-              "nature": "string" # required, empty string is allowed,
-              "party": "string" # required, empty string is allowed
+              "nature": "string", # required, empty string is allowed,
+              "party": "string", # required, empty string is allowed
             },
             "provenance_ids": [ # required, empty array is allowed
                 "string", ...
@@ -110,7 +110,7 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
         ],
         "categories": [ # required, empty array is allowed
           {
-            "label": "string" # required, empty string is not allowed,
+            "label": "string", # required, empty string is not allowed,
             "provenance_ids": [ # required, empty array is allowed
                 "string", ...
             ]
@@ -119,16 +119,16 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
       },
       "updated_labels": { # required, empty node is allowed
         "types": [
-          {
-            "label": {
-              "nature": "string" # required, empty string is allowed,
-              "party": "string" # required, empty string is allowed
+            {
+                "label": {
+                  "nature": "string", # required, empty string is allowed,
+                  "party": "string", # required, empty string is allowed
+                }
             }
-          }
         ],
         "categories": [ # required, empty array is allowed
           {
-            "label": "string" # required, empty string is not allowed
+            "label": "string", # required, empty string is not allowed
           }
         ]
       }
@@ -239,6 +239,7 @@ curl -X POST -u "apikey:{apikey}" -H 'Content-Type: application/json' "{url}/v1/
   }
 }
 ```
+{: screen}
 
 The command makes the following feedback:
 
@@ -474,6 +475,7 @@ The output of the command resembles the following.
   }
 }
 ```
+{: screen}
 
 ## Getting specific feedback
 {: #get_spec_feedback}
@@ -556,6 +558,7 @@ The command returns output similar to the following:
   }
 }
 ```
+{: screen}
 
 <!--
 ###Deleting all feedback
@@ -609,3 +612,4 @@ The service returns the following output on success:
   "message": "Successfully deleted the feedback with id  - 5206038a-5ea0-4f48-bee1-0780c56c53c9"
 }
 ```
+{: screen}

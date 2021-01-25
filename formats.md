@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-01-31"
+  years: 2018, 2021
+lastupdated: "2021-01-25"
 
 keywords: document formats,format,formats,permitted formats,PDF,pdf,image,images,text,Word
 
@@ -12,21 +12,21 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:note: .note}
-{:important: .important}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-{:apikey: data-credential-placeholder='apikey'}
-{:url: data-credential-placeholder='url'}
 
 # Supported input formats
 {: #formats}
+
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
 
 {{site.data.keyword.cncfull}} supports a variety of input formats, including PDF, JSON, Microsoft Word, images, and text.
 {: shortdesc}
@@ -36,73 +36,76 @@ subcollection: compare-comply
 
 Observe the following notes regarding files submitted to {{site.data.keyword.cncshort}}.
 
-  - Not all input formats are accepted by all methods. For more information, see [Support by method](/docs/compare-comply?topic=compare-comply-formats#methods) and the lists of supported methods in the details of each input type described in the following sections.
-  - For optimal results, specify the MIME type when submitting a file. For example, if you submit a PDF file, it is recommended that you specify the file as follows:
-     ```
-     curl -u "apikey:{apikey}" -F "file=@myFile.pdf;type=application/pdf" "{url}/v1/{method_name}?version=2018-10-15"
-     ```
-     {: pre}
+- Not all input formats are accepted by all methods. For more information, see [Support by method](/docs/compare-comply?topic=compare-comply-formats#methods) and the lists of supported methods in the details of each input type described in the following sections.
+- For optimal results, specify the MIME type when submitting a file. For example, if you submit a PDF file, it is recommended that you specify the file as follows:
+
+    ```sh
+    curl -u "apikey:{apikey}" -F "file=@myFile.pdf;type=application/pdf" "{url}/v1/{method_name}?version=2018-10-15"
+    ```
+    {: pre}
+
     MIME types are provided with the supported file types listed in the following sections.
-  - Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/compare-comply?topic=compare-comply-batching), files can be up to 50 MB in size.
-  - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
-  - The [{{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool) accepts all file types other than text.
-  
+- Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/compare-comply?topic=compare-comply-batching), files can be up to 50 MB in size.
+- Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
+- The [{{site.data.keyword.cncshort}} Tooling](/docs/compare-comply?topic=compare-comply-using_tool) accepts all file types other than text.
+
 ## PDF support
 {: #pdfs}
 
 {{site.data.keyword.cncshort}} can process PDF files. Note the following.
 
-  - The MIME type is `application/pdf`.
-  - Both programmatic and scanned PDF files are supported. Files that have been scanned and processed by an optical character reader (OCR) are also supported.
-  - Secure PDFs, which require a password to open, and restricted PDFs, which require a password to edit, cannot be processed.
-  
+- The MIME type is `application/pdf`.
+- Both programmatic and scanned PDF files are supported. Files that have been scanned and processed by an optical character reader (OCR) are also supported.
+- Secure PDFs, which require a password to open, and restricted PDFs, which require a password to edit, cannot be processed.
+
 {{site.data.keyword.cncshort}} methods that support PDF include the following.
 
-  - `/v1/html_conversion`
-  - `/v1/element_classification`
-  - `/v1/tables`
-  - `/v1/invoices`
-  - `/v1/comparison`
+- `/v1/html_conversion`
+- `/v1/element_classification`
+- `/v1/tables`
+- `/v1/invoices`
+- `/v1/comparison`
 
 ## Microsoft Word support
 {: #word}
 
 {{site.data.keyword.cncshort}} can process Microsoft Word files in the following formats.
-  - DOC (`application/msword`)
-  - DOCX (`application/vnd.openxmlformats-officedocument.wordprocessingml.document`)
-  
+
+- DOC (`application/msword`)
+- DOCX (`application/vnd.openxmlformats-officedocument.wordprocessingml.document`)
+
 {{site.data.keyword.cncshort}} methods that support Microsoft Word files include the following.
 
-  - `/v1/html_conversion`
-  - `/v1/element_classification`
-  - `/v1/tables`
-  - `/v1/invoices`
-  - `/v1/comparison`
+- `/v1/html_conversion`
+- `/v1/element_classification`
+- `/v1/tables`
+- `/v1/invoices`
+- `/v1/comparison`
 
 ## Image support
 {: #images}
 
 {{site.data.keyword.cncshort}} can process image files in the following formats.
 
-  - BMP (`image/bmp`)
-  - GIF (`image/gif`)
-  - JPEG (`image/jpeg`)
-  - JPEG2000 (`image/jpeg`)
-  - PNG (`image/png`)
-  - RAW (no specific MIME type)
-  - TIFF (`image/tiff`)
+- BMP (`image/bmp`)
+- GIF (`image/gif`)
+- JPEG (`image/jpeg`)
+- JPEG2000 (`image/jpeg`)
+- PNG (`image/png`)
+- RAW (no specific MIME type)
+- TIFF (`image/tiff`)
 
 For best results, use image files with a resolution of 300 DPI or higher. Using image files with a resolution under 300 DPI can result in non-optimal output.
 {: note}
 
 {{site.data.keyword.cncshort}} methods that support images include the following.
 
-  - `/v1/html_conversion`
-  - `/v1/element_classification`
-  - `/v1/tables`
-  - `/v1/invoices`
-  - `/v1/comparison`
-  
+- `/v1/html_conversion`
+- `/v1/element_classification`
+- `/v1/tables`
+- `/v1/invoices`
+- `/v1/comparison`
+
 ## Text support
 {: #text}
 
@@ -112,8 +115,8 @@ The MIME type is `text/plain`.
 
 {{site.data.keyword.cncshort}} methods that support text include the following.
 
-  - `/v1/html_conversion`
-  - `/v1/tables`
+- `/v1/html_conversion`
+- `/v1/tables`
 
 ## Support by method
 {: #methods}
@@ -132,6 +135,6 @@ The service's methods can accept different types of files as specified in the fo
 \* The Tooling and `/v1/comparison` method also accept JSON files from the output of the `/v1/element_classification` method.
 {: note}
 
-The `/v1/feedback` methods do not accept image or text files. 
+The `/v1/feedback` methods do not accept image or text files.
 
 The `/v1/batches` methods accept images and text files according to the method called in the batch job. For example, if your batch job calls the `/v1/html_conversion` method, it accepts both images and text files. Similarly, if your batch job calls the `/v1/element_classification` method, it accepts images but not text files.

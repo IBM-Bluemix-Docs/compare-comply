@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-08-25"
+  years: 2018, 2021
+lastupdated: "2021-01-25"
 
 keywords: batch,batching,batch job
 
@@ -12,21 +12,21 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
-{:note: .note}
-{:important: .important}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-{:apikey: data-credential-placeholder='apikey'}
-{:url: data-credential-placeholder='url'}
 
 # Using batch processing
 {: #batching}
+
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
 
 The `/v1/batches` APIs enable you to run Compare and Comply methods over a collection of input documents. Batch processing is available only for the `POST /v1/html_conversion`, `POST /v1/element_classification`, `POST /v1/tables`, `POST /v1/mortgage_closing_disclosures`, and `POST /v1/invoices` methods. Batch processing is _not_ available for the `POST /v1/comparison` method.
 {: shortdesc}
@@ -217,6 +217,7 @@ The method returns a JSON object that contains batch-request status objects, as 
     ]
 }
 ```
+{: screen}
 
 ## Get the status of a specified batch request
 {: #get-spec-batch}
@@ -327,3 +328,4 @@ The method returns a JSON object that provides the status of the specified batch
   "updated": "2018-07-30T20:21:22.724+0000"
 }
 ```
+{: screen}

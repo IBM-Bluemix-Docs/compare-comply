@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2020
-lastupdated: "2020-01-31"
+years: 2018, 2021
+lastupdated: "2021-01-25"
 
 keywords: document comparison,compare,compare documents,comparison
 
@@ -12,23 +12,23 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:note: .note}
-{:important: .important}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-{:apikey: data-credential-placeholder='apikey'}
-{:url: data-credential-placeholder='url'}
 
 # Comparing two documents
 {: #compare}
 
-You can use the service to compare two documents. For example, you can compare a new, unsigned contract with a signed contract from the previous year. 
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
+
+You can use the service to compare two documents. For example, you can compare a new, unsigned contract with a signed contract from the previous year.
 {: shortdesc}
 
 The **Comparison** method enables you to compare two documents. Specifically, the method finds and reports semantically aligned elements from the documents. It also reports elements from each document that do not semantically align with any other element.
@@ -36,7 +36,7 @@ The **Comparison** method enables you to compare two documents. Specifically, th
 ## Step 1: Identify two comparable documents
 {: #step1}
 
-Identify two documents to compare. See [Step 1 in Getting started](/docs/compare-comply?topic=compare-comply-getting-started#identify_content) and [Supported input formats](/docs/compare-comply?topic=compare-comply-formats) for information on document requirements. For best results, choose two documents that are related to each other; for example, an original contract and a revised version of the same contract.
+Identify two documents to compare. See [Supported input formats](/docs/compare-comply?topic=compare-comply-formats) for information about document requirements. For best results, choose two documents that are related to each other; for example, an original contract and a revised version of the same contract.
 
 ## Step 2: Compare two documents
 {: #step2}
@@ -57,6 +57,7 @@ If you are submitting JSON files for comparison, specify the media type for the 
 ```bash
 curl -X POST -u "apikey:{apikey}" -H "Content-Type: multipart/form-data" -F "file_1=@/{file_1}.json;type=application/json" -F "file_2=@/{file_2}.json;type=application/json" -F file_1_label="document_1" -F file_2_label="document_2" "{url}/v1/comparison?version=2018-10-15"
 ```
+{: pre}
 
 ## Step 3: Review the comparison
 {: #step3}
@@ -108,7 +109,7 @@ The method returns a JSON object that contains the aligned and unaligned element
             },
             ...
           ]
-        }, 
+        },
         {
           "document_label": string,
           "location": { "begin": int, "end": int },
@@ -168,9 +169,10 @@ The method returns a JSON object that contains the aligned and unaligned element
       ]
     },
     ...
-  ] 
+  ]
 }
 ```
+{: screen}
 
 The JSON output includes five objects, three of which are arrays:
   - `model_id`: The model used for the comparison. Currently, the only supported value is `contracts`.
@@ -184,17 +186,17 @@ The JSON output includes five objects, three of which are arrays:
     - The `identical_text` key is a boolean that indicates if the aligned element is identical. Elements are considered identical despite minor differences such as leading punctuation, end-of-sentence punctuation, whitespace, the presence or absence of definite or indefinite articles, and others.
     - The `significant_elements` key is a boolean that indicates if the aligned text contains contractual clauses of significance. An _insignificant_ element is one that has no `types` or `categories`, has text that is shorter in length, and is not a structural element such as a section title, a leading sentence, or a list item.
   - `unaligned_elements`: An array that lists elements that do not semantically align between the compared documents.
-  
+
   The `provenance_ids` field is useful when applying feedback to compared documents.
   {: tip}
-  
+
 A sample output file resembles the following:
 
 ```json
 {
- "model_id" : "contracts",
- "model_version" : "1.0.0",
- "documents": [
+  "model_id": "contracts",
+  "model_version": "1.0.0",
+  "documents": [
     {
       "html": "<html><head>...",
       "label": "file_1",
@@ -207,11 +209,13 @@ A sample output file resembles the following:
       "title": "31235_000156459017003570_kodk-ex1013_297.pdf",
       "hash": "b59e64b6bb17df5acf8a6ef0b2864846"
     }
-  ]
-"aligned_elements": [
+  ],
+  "aligned_elements": [
     {
       "identical_text": true,
-      "provenance_ids": [ "R1432223" ],
+      "provenance_ids": [
+        "R1432223"
+      ],
       "significant_elements": true,
       "element_pair": [
         {
@@ -228,9 +232,9 @@ A sample output file resembles the following:
             "begin": 5690,
             "end": 5865
           },
-          "attributes": [ ],
+          "attributes": [],
           "text": "You will not have the rights of a Kodak shareholder with respect to the shares issued to you in payment of your RSUs until the shares are actually issued and delivered to you.",
-          "categories": [ ]
+          "categories": []
         },
         {
           "types": [
@@ -246,29 +250,28 @@ A sample output file resembles the following:
             "begin": 5772,
             "end": 5947
           },
-          "attributes": [ ],
+          "attributes": [],
           "text": "You will not have the rights of a Kodak shareholder with respect to the shares issued to you in payment of your RSUs until the shares are actually issued and delivered to you.",
-          "categories": [ ],
+          "categories": []
         }
       ]
     },
     ...
-  ]
-},
-"unaligned_elements": [
+  ],
+  "unaligned_elements": [
     {
-      "types": [ ],
+      "types": [],
       "document_label": "file_1",
       "location": {
         "begin": 6590,
         "end": 6684
       },
-      "attributes": [ ],
+      "attributes": [],
       "text": "The RSUs (at the time of vesting or otherwise) will be includible as compensation for pension.",
-      "categories": [ ]
+      "categories": []
     },
     ...
   ]
 }
 ```
-
+{: screen}

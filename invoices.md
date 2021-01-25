@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-08-25"
+  years: 2018, 2021
+lastupdated: "2021-01-25"
 
 keywords: invoice,invoices,invoice parsing,parsing,invoice understanding
 
@@ -24,6 +24,9 @@ subcollection: compare-comply
 
 # Understanding invoice parsing
 {: #invoices}
+
+{{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. For more information, see the [announcement](/status?query=Compare+and+Comply&selected=announcement){: external}.
+{: deprecated}
 
 You can analyze invoice documents by using the **Invoice understanding** feature.
 {: shortdesc}
@@ -52,184 +55,147 @@ The command output uses the following schema.
 
 ```json
 {
-  "model_id": "invoices",
-  "model_version": "string",
-  "document": {
-    "title": "string",
-    "html": "string",
-    "hash": "string"
-  },
-  "buyers": [
-    {
-      "location": {
-        "begin": int,
-        "end": int
-      },
-      "text": "string",
-      "provenance_ids": [
-        "string",
-        "string", ...
-      ]
-    }
-  ],
-  "suppliers": [
-    {
-      "location": {
-        "begin": int,
-        "end": int
-      },
-      "text": "string",
-      "provenance_ids": [
-        "string",
-        "string", ...
-      ]
-    }
-  ],
-  "totals_due": [
-    {
-      "amount": {
-        "location": {
-          "begin": int,
-          "end": int
-        },
-        "text": "string",
-        "provenance_ids": [
-          "string",
-          "string", ...
-        ]
-      },
-      "currency": {
-        "location": {
-          "begin": int,
-          "end": int
-        },
-        "text": "string",
-        "provenance_ids": [
-          "string",
-          "string", ...
-        ]
-      }
-    }
-  ],
-  "currencies": [
-    {
-      "location": {
-        "begin": int,
-        "end": int
-      },
-      "text": "string",
-      "provenance_ids": [
-        "string",
-        "string", ...
-      ]
-    }
-  ],
-  "purchase_order_numbers": [
-    {
-      "location": {
-        "begin": int,
-        "end": int
-      },
-      "text": "string",
-      "provenance_ids": [
-        "string",
-        "string", ...
-      ]
-    }
-  ],
-  "invoice_numbers": [
-    {
-      "location": {
-        "begin": int,
-        "end": int
-      },
-      "text": "string",
-      "provenance_ids": [
-        "string",
-        "string", ...
-      ]
-    }
-  ],
-  "invoice_dates": [
-    {
-      "location": {
-        "begin": int,
-        "end": int
-      },
-      "text": "string",
-      "text_normalized": "string",
-      "provenance_ids": [
-        "string",
-        "string", ...
-      ]
-    }
-  ],
-  "due_dates": [
-    {
-      "location": {
-        "begin": int,
-        "end": int
-      },
-      "text": "string",
-      "text_normalized": "string",
-      "provenance_ids": [
-        "string",
-        "string", ...
-      ]
-    }
-  ],
-  "invoice_parts": [
-    {
-      "quantity_ordered": {
-        "location": {
-          "begin": int,
-          "end": int
-        },
-        "text": "string",
-        "provenance_ids": [
-          "string",
-          "string", ...
-        ]
-      },
-      "part_description": {
-        "location": {
-          "begin": int,
-          "end": int
-        },
-        "text": "string",
-        "provenance_ids": [
-          "string",
-          "string", ...
-        ]
-      },
-      "unit_price": {
-        "amount": {
-          "location": {
-            "begin": int,
-            "end": int
-          },
-          "text": "string",
-          "provenance_ids": [
-            "string",
-            "string", ...
-          ]
-        },
-        "currency": {
-          "location": {
-            "begin": int,
-            "end": int
-          },
-          "text": "string",
-          "provenance_ids": [
-            "string",
-            "string", ...
-          ]
+    "model_id": "invoices",
+    "model_version": "string",
+    "document": {
+        "title": "string",
+        "html": "string",
+        "hash": "string"
+    },
+    "buyers": [
+        {
+            "location": {
+                "begin": int,
+                "end": int
+            },
+            "text": "string",
+            "provenance_ids": [ "string", "string", ... ]
         }
-      }
-    }
-  ]
+    ],
+    "suppliers": [
+        {
+            "location": {
+                "begin": int,
+                "end": int
+            },
+            "text": "string",
+            "provenance_ids": [ "string", "string", ... ]
+        }
+    ],
+    "totals_due": [
+        {
+            "amount": {
+                "location": {
+                    "begin": int,
+                    "end": int
+                },
+                "text": "string",
+                "provenance_ids": [ "string", "string", ... ]
+            },
+            "currency": {
+                "location": {
+                    "begin": int,
+                    "end": int
+                },
+                "text": "string",
+                "provenance_ids": [ "string", "string", ... ]
+            }
+        }
+    ],
+    "currencies": [
+        {
+            "location": {
+                "begin": int,
+                "end": int
+            },
+            "text": "string",
+            "provenance_ids": [ "string", "string", ... ]
+        }
+    ],
+    "purchase_order_numbers": [
+        {
+            "location": {
+                "begin": int,
+                "end": int
+            },
+            "text": "string",
+            "provenance_ids": [ "string", "string", ... ]
+        }
+    ],
+    "invoice_numbers": [
+        {
+            "location": {
+                "begin": int,
+                "end": int
+            },
+            "text": "string",
+            "provenance_ids": [ "string", "string", ... ]
+        }
+    ],
+    "invoice_dates": [
+        {
+            "location": {
+                "begin": int,
+                "end": int
+            },
+            "text": "string",
+            "text_normalized": "string",
+            "provenance_ids": [ "string", "string", ... ]
+        }
+    ],
+    "due_dates": [
+        {
+            "location": {
+                "begin": int,
+                "end": int
+            },
+            "text": "string",
+            "text_normalized": "string",
+            "provenance_ids": [ "string", "string", ... ]
+        }
+    ],
+    "invoice_parts": [
+        {
+            "quantity_ordered": {
+                "location": {
+                    "begin": int,
+                    "end": int
+                },
+                "text": "string",
+                "provenance_ids": [ "string", "string", ... ]
+            },
+            "part_description": {
+                "location": {
+                    "begin": int,
+                    "end": int
+                },
+                "text": "string",
+                "provenance_ids": [ "string", "string", ... ]
+            },
+            "unit_price": {
+                "amount": {
+                    "location": {
+                        "begin": int,
+                        "end": int
+                    },
+                    "text": "string",
+                    "provenance_ids": [ "string", "string", ... ]
+                },
+                "currency": {
+                    "location": {
+                        "begin": int,
+                        "end": int
+                    },
+                    "text": "string",
+                    "provenance_ids": [ "string", "string", ... ]
+                }
+            }
+        }
+    ]
 }
 ```
+{: screen}
+
 
 The schema is arranged as follows.
 
@@ -313,9 +279,12 @@ Sample output resembles the following:
       "location": {
         "begin": 6701,
         "end": 6723
-    },
-    "text": "IBM Middle East-FZ LLC",
-    "provenance_ids": ["I755","I112"]
+      },
+      "text": "IBM Middle East-FZ LLC",
+      "provenance_ids": [
+        "I755",
+        "I112"
+      ]
     }
   ],
   "suppliers": [
@@ -323,20 +292,25 @@ Sample output resembles the following:
       "location": {
         "begin": 36695,
         "end": 36717
-    },
-    "text": "Ricoh International BV",
-    "provenance_ids": ["I234","I123"]
+      },
+      "text": "Ricoh International BV",
+      "provenance_ids": [
+        "I234",
+        "I123"
+      ]
     }
   ],
   "totals_due": [
     {
       "amount": {
-        "location" : {
+        "location": {
           "begin": 35400,
           "end": 35410
         },
         "text": "145,641.91",
-        "provenance_ids": ["I212"]
+        "provenance_ids": [
+          "I212"
+        ]
       },
       "currency": {
         "location": {
@@ -344,7 +318,9 @@ Sample output resembles the following:
           "end": 33830
         },
         "text": "EUR",
-        "provenance_ids": ["I3143"]
+        "provenance_ids": [
+          "I3143"
+        ]
       }
     }
   ],
@@ -355,7 +331,9 @@ Sample output resembles the following:
         "end": 33830
       },
       "text": "EUR",
-      "provenance_ids": ["I3143"]
+      "provenance_ids": [
+        "I3143"
+      ]
     },
     {
       "location": {
@@ -363,17 +341,22 @@ Sample output resembles the following:
         "end": 34608
       },
       "text": "EUR",
-      "provenance_ids": ["I7678", "I2832"]
+      "provenance_ids": [
+        "I7678",
+        "I2832"
+      ]
     }
   ],
-  "purchase_order_numbers" : [
+  "purchase_order_numbers": [
     {
       "location": {
         "begin": 11501,
         "end": 11511
       },
       "text": "4603344312",
-      "provenance_ids": ["I7795"]
+      "provenance_ids": [
+        "I7795"
+      ]
     }
   ],
   "invoice_numbers": [
@@ -383,7 +366,11 @@ Sample output resembles the following:
         "end": 2990
       },
       "text": "52156277",
-      "provenance_ids": ["I3143", "I676", "I1142"]
+      "provenance_ids": [
+        "I3143",
+        "I676",
+        "I1142"
+      ]
     }
   ],
   "invoice_dates": [
@@ -394,7 +381,10 @@ Sample output resembles the following:
       },
       "text": "28 February 2018",
       "text_normalized": "2018-02-28",
-      "provenance_ids": ["I222", "I354"]
+      "provenance_ids": [
+        "I222",
+        "I354"
+      ]
     }
   ],
   "due_dates": [
@@ -404,8 +394,11 @@ Sample output resembles the following:
         "end": 36433
       },
       "text": "29 April 2018",
-      "text_normalized":"2018-04-29",
-      "provenance_ids": ["I420", "I6060"]
+      "text_normalized": "2018-04-29",
+      "provenance_ids": [
+        "I420",
+        "I6060"
+      ]
     }
   ],
   "invoice_parts": [
@@ -415,8 +408,12 @@ Sample output resembles the following:
           "begin": 14441,
           "end": 14442
         },
-       "text": "1",
-       "provenance_ids": ["I890", "I1100", "I456"]
+        "text": "1",
+        "provenance_ids": [
+          "I890",
+          "I1100",
+          "I456"
+        ]
       },
       "part_description": {
         "location": {
@@ -424,7 +421,10 @@ Sample output resembles the following:
           "end": 13889
         },
         "text": "On-Site Services",
-        "provenance_ids": ["I242", "I1181"]
+        "provenance_ids": [
+          "I242",
+          "I1181"
+        ]
       },
       "unit_price": {
         "amount": {
@@ -433,7 +433,11 @@ Sample output resembles the following:
             "end": 14935
           },
           "text": "38,720.60",
-          "provenance_ids": ["I3122", "I4098", "I909"]
+          "provenance_ids": [
+            "I3122",
+            "I4098",
+            "I909"
+          ]
         },
         "currency": {
           "location": {
@@ -441,10 +445,14 @@ Sample output resembles the following:
             "end": 33830
           },
           "text": "EUR",
-          "provenance_ids": ["I1122", "I567"]
+          "provenance_ids": [
+            "I1122",
+            "I567"
+          ]
         }
       }
     }
   ]
 }
 ```
+{: screen}

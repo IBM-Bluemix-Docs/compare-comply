@@ -1,12 +1,11 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="compare-comply" category="ai" audience="service" href="/docs/compare-comply?topic=compare-comply-getting-started" path="compare-comply"}
+{: .toc subcollection="compare-comply" audience="service" href="/docs/compare-comply?topic=compare-comply-about" path="compare-comply"}
 Compare and Comply
 
     {: .navgroup id="learn"}
     index.md
-    getting-started.md
     formats.md
     {: .navgroup-end}
 

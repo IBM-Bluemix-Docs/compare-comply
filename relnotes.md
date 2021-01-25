@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-08-25"
+  years: 2017, 2021
+lastupdated: "2021-01-25"
 
 keywords: release notes,beta,beta features,changes,issues
 
@@ -12,16 +12,15 @@ subcollection: compare-comply
 
 {:shortdesc: .shortdesc}
 {:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
-{:note: .note}
-{:important: .important}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Release notes
 {: #release_notes}
@@ -48,6 +47,13 @@ The current version is `2018-10-15`.
 {: #changes}
 
 The following new features and changes to the service are available.
+
+### 1 December 2020
+{: #1-december-2020}
+
+- **Service deprecation**
+
+    {{site.data.keyword.cncfull}} is discontinued. Existing instances are supported until 30 November 2021, but as of 1 December 2020, you can't create instances. Any instance that exists on 30 November 2021 will be deleted. Consider migrating to {{site.data.keyword.discoveryshort}} Premium on {{site.data.keyword.cloud_notm}} for your {{site.data.keyword.cncshort}} use cases. To start the migration process, visit [https://ibm.biz/contact-wdc-premium](https://ibm.biz/contact-wdc-premium){: external}.
 
 ### 12 December 2019
 {: #12-december-2019}
@@ -211,7 +217,7 @@ Changes to the service's API and output schema are ongoing throughout the course
 {: important}
 
 - A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
-- Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/compare-comply?topic=compare-comply-getting-started) and [Classifying elements](/docs/compare-comply?compare-comply-output_schema) for details.
+- Changes to the output schema for the `/v1/element_classification` method. See [Classifying elements](/docs/compare-comply?compare-comply-output_schema) for details.
 - Changes to the `/v1/tables` method's output schema. See [Classifying elements](/docs/compare-comply?topic=compare-comply-output_schema) and [Classifying tables](/docs/compare-comply?topic=compare-comply-understanding_tables) for information about the table parsing format.
 - Changes to the input and output parameters in the `/v1/feedback` and `/v1/feedback/{feedback_id}` methods. See [Using the feedback APIs](/docs/compare-comply?topic=compare-comply-feedback).
 
